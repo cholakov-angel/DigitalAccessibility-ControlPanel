@@ -1,0 +1,23 @@
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data.Entities\bin\Debug\net8.0\DigAccess.Data.Entities.deps.json
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data.Entities\bin\Debug\net8.0\DigAccess.Data.Entities.dll
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data.Entities\bin\Debug\net8.0\DigAccess.Data.Entities.pdb
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\DigAccess.Data.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\DigAccess.Data.Entities.AssemblyInfoInputs.cache
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\DigAccess.Data.Entities.AssemblyInfo.cs
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\DigAccess.Data.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\DigAccess.Data.Entities.dll
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\refint\DigAccess.Data.Entities.dll
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\DigAccess.Data.Entities.pdb
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\ref\DigAccess.Data.Entities.dll
+E:\Documents\DigAccess.Web\DigAccess.Data.Entities\bin\Debug\net8.0\DigAccess.Data.Entities.deps.json
+E:\Documents\DigAccess.Web\DigAccess.Data.Entities\bin\Debug\net8.0\DigAccess.Data.Entities.dll
+E:\Documents\DigAccess.Web\DigAccess.Data.Entities\bin\Debug\net8.0\DigAccess.Data.Entities.pdb
+E:\Documents\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\DigAccess.Data.Entities.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\DigAccess.Data.Entities.AssemblyInfoInputs.cache
+E:\Documents\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\DigAccess.Data.Entities.AssemblyInfo.cs
+E:\Documents\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\DigAccess.Data.Entities.csproj.CoreCompileInputs.cache
+E:\Documents\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\DigAccess.Data.Entities.dll
+E:\Documents\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\refint\DigAccess.Data.Entities.dll
+E:\Documents\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\DigAccess.Data.Entities.pdb
+E:\Documents\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\ref\DigAccess.Data.Entities.dll
+E:\Documents\DigAccess.Web\DigAccess.Data.Entities\obj\Debug\net8.0\DigAccess.Data.Entities.csproj.AssemblyReference.cache

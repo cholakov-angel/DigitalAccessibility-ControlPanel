@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DigAccess.Models.BlindUser.BlindUserViewModel>
+<div class="d-flex">
+    <div class="p-2 w-100">
+        <h2>Потребители</h2>
+    </div>
+    <div class="p-2 flex-shrink-1">
+        <a asp-action="Add" class="btn btn-dark"><h5>+</h5></a>
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Първо име</th>
+            <th>Бащино име</th>
+            <th>Фамилия</th>
+            <th>Град</th>
+            <th>Дата на раждане</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var blindUser in Model)
+        {
+            <tr>
+                <td>@blindUser.FirstName</td>
+                <td>@blindUser.MiddleName</td>
+                <td>@blindUser.LastName</td>
+                <td>@blindUser.City</td>
+                <td>@blindUser.BirthDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

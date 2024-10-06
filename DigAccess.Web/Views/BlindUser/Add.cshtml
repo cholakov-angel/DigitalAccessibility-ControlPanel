@@ -1,0 +1,47 @@
+﻿@model DigAccess.Models.BlindUser.BlindUserViewModel
+<div class="d-flex justify-content-start p-2">
+    <a asp-action="Index"> <button class="btn btn-dark mt-2"><h6><</h6></button></a>
+    <h2 class="p-2">Добавяне на потребител</h2>
+</div>
+<form asp-action="AddUser" method="post">
+    <div>
+        <label for="FirstName">Първо име</label>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+    <div>
+        <label for="MiddleName">Бащино име</label>
+        <input asp-for="MiddleName" class="form-control" />
+    </div>
+    <div>
+        <label for="LastName">Фамилия</label>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+    <div>
+        <label for="PersonalId">ЕГН</label>
+        <input asp-for="PersonalId" class="form-control" />
+    </div>
+    <div>
+        <label for="TELKID">Номер на ТЕЛК</label>
+        <input asp-for="TELKID" class="form-control" />
+    </div>
+    <label for="City">Местоживеене</label>
+    <div class="input-group mb-3">
+        <select asp-for="City" class="form-select" id="inputGroupSelect02">
+            @foreach (var city in Model.CityNames)
+            {
+                <option value=@city.Id>@city.Name</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label for="BirthDate">Улица</label>
+        <textarea asp-for="Street" class="form-control"></textarea>
+    </div>
+    <div>
+        <label for="BirthDate">Номер на улица</label>
+        <textarea asp-for="StreetNumber" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-dark mt-2">Създаване</button>
+</form>
+

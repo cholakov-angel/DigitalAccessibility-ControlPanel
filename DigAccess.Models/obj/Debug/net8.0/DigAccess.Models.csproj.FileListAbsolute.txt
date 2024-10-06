@@ -1,0 +1,22 @@
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Models\bin\Debug\net8.0\DigAccess.Models.deps.json
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Models\bin\Debug\net8.0\DigAccess.Models.dll
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Models\bin\Debug\net8.0\DigAccess.Models.pdb
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\DigAccess.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\DigAccess.Models.AssemblyInfoInputs.cache
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\DigAccess.Models.AssemblyInfo.cs
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\DigAccess.Models.csproj.CoreCompileInputs.cache
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\DigAccess.Models.dll
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\refint\DigAccess.Models.dll
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\DigAccess.Models.pdb
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\ref\DigAccess.Models.dll
+E:\Documents\DigAccess.Web\DigAccess.Models\bin\Debug\net8.0\DigAccess.Models.deps.json
+E:\Documents\DigAccess.Web\DigAccess.Models\bin\Debug\net8.0\DigAccess.Models.dll
+E:\Documents\DigAccess.Web\DigAccess.Models\bin\Debug\net8.0\DigAccess.Models.pdb
+E:\Documents\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\DigAccess.Models.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\DigAccess.Models.AssemblyInfoInputs.cache
+E:\Documents\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\DigAccess.Models.AssemblyInfo.cs
+E:\Documents\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\DigAccess.Models.csproj.CoreCompileInputs.cache
+E:\Documents\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\DigAccess.Models.dll
+E:\Documents\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\refint\DigAccess.Models.dll
+E:\Documents\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\DigAccess.Models.pdb
+E:\Documents\DigAccess.Web\DigAccess.Models\obj\Debug\net8.0\ref\DigAccess.Models.dll

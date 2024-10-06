@@ -1,0 +1,30 @@
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data\bin\Debug\net8.0\DigAccess.DbContext.deps.json
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data\bin\Debug\net8.0\DigAccess.DbContext.dll
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data\bin\Debug\net8.0\DigAccess.DbContext.pdb
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.csproj.AssemblyReference.cache
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.AssemblyInfoInputs.cache
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.AssemblyInfo.cs
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.csproj.CoreCompileInputs.cache
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.dll
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\refint\DigAccess.DbContext.dll
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.pdb
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\ref\DigAccess.DbContext.dll
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data\bin\Debug\net8.0\DigAccess.Data.Entities.dll
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data\bin\Debug\net8.0\DigAccess.Data.Entities.pdb
+C:\Users\Angel Cholakov\Source\Repos\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAcces.57BEAC8F.Up2Date
+E:\Documents\DigAccess.Web\DigAccess.Data\bin\Debug\net8.0\DigAccess.DbContext.deps.json
+E:\Documents\DigAccess.Web\DigAccess.Data\bin\Debug\net8.0\DigAccess.DbContext.dll
+E:\Documents\DigAccess.Web\DigAccess.Data\bin\Debug\net8.0\DigAccess.DbContext.pdb
+E:\Documents\DigAccess.Web\DigAccess.Data\bin\Debug\net8.0\DigAccess.Data.Entities.dll
+E:\Documents\DigAccess.Web\DigAccess.Data\bin\Debug\net8.0\DigAccess.Data.Entities.pdb
+E:\Documents\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.csproj.AssemblyReference.cache
+E:\Documents\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.AssemblyInfoInputs.cache
+E:\Documents\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.AssemblyInfo.cs
+E:\Documents\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.csproj.CoreCompileInputs.cache
+E:\Documents\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.csproj.CopyComplete
+E:\Documents\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.dll
+E:\Documents\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\refint\DigAccess.DbContext.dll
+E:\Documents\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.pdb
+E:\Documents\DigAccess.Web\DigAccess.Data\obj\Debug\net8.0\ref\DigAccess.DbContext.dll
