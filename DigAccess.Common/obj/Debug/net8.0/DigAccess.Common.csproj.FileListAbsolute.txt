@@ -1,0 +1,12 @@
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Common\bin\Debug\net8.0\DigAccess.Common.deps.json
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Common\bin\Debug\net8.0\DigAccess.Common.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Common\bin\Debug\net8.0\DigAccess.Common.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Common\obj\Debug\net8.0\DigAccess.Common.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Common\obj\Debug\net8.0\DigAccess.Common.AssemblyInfoInputs.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Common\obj\Debug\net8.0\DigAccess.Common.AssemblyInfo.cs
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Common\obj\Debug\net8.0\DigAccess.Common.csproj.CoreCompileInputs.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Common\obj\Debug\net8.0\DigAccess.Common.sourcelink.json
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Common\obj\Debug\net8.0\DigAccess.Common.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Common\obj\Debug\net8.0\refint\DigAccess.Common.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Common\obj\Debug\net8.0\DigAccess.Common.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Common\obj\Debug\net8.0\ref\DigAccess.Common.dll
