@@ -12,36 +12,45 @@
 <body>
 
 <div class="row">
-    <div class="col-sm-3 col-lg-2 min-vh-100 bg-body-secondary">
-        <div class="col-12">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <div class="text-center">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><h4>Дигитална достъпност</h4></a>
-                    </div>
-                </li>
-                <hr/>
-                <li class="nav-item">
-                    <div class="d-flex flex-row p-2">
-                        <img class="p-2" src="img/house-door.svg"/>
-                        <a class="nav-link icon-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Начало</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="d-flex flex-row p-2">
-                        <img class="p-2" src="img/person.svg"/>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="BlindUser" asp-action="Index">Потребители</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="d-flex flex-row p-2">
-                        <img class="p-2" src="img/house-door.svg"/>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </div>
-                </li>
-            </ul>
+    @if (User.Identity.IsAuthenticated == true)
+    {
+        <div class="col-sm-3 col-lg-2 min-vh-100 bg-body-secondary">
+            <div class="col-12">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <div class="text-center">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><h4>Дигитална достъпност</h4></a>
+                        </div>
+                    </li>
+                    <hr/>
+                    <li class="nav-item">
+                        <div class="d-flex flex-row p-2">
+                            <img class="p-2" src="img/house-door.svg"/>
+                            <a class="nav-link icon-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Начало</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="d-flex flex-row p-2">
+                            <img class="p-2" src="img/person.svg"/>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="BlindUser" asp-action="Index">Потребители</a>
+                        </div>
+                    </li>
+                        <li class="nav-item">
+                            <div class="d-flex flex-row p-2">
+                                <img class="p-2" src="img/person.svg" />
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Licence" asp-action="Index">Лицензи</a>
+                            </div>
+                        </li>
+                    <li class="nav-item">
+                        <div class="d-flex flex-row p-2">
+                            <img class="p-2" src="img/house-door.svg"/>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    }
     <div class="col-sm-9 col-lg-10">
         <div class="row">
             <partial name="_LoginPartial"/>

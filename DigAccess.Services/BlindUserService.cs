@@ -8,6 +8,7 @@ using DigAccess.Interfaces;
 using DigAccess.Models.BlindUser;
 using DigAccess.Web.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace DigAccess.Services
 {
@@ -22,26 +23,52 @@ namespace DigAccess.Services
             this.context = context;
         }
 
-        public Task<List<CityViewModel>> GetCities()
+        public async Task<List<CityViewModel>> GetCities()
         {
-            return context.Cities.Select(x => new CityViewModel()
+            return await context.Cities.Select(x => new CityViewModel()
             {
                 Id = x.Id,
                 Name = x.Name
             }).ToListAsync();
         }
 
-        public Task<BlindUserViewModel> GetUserDetails(string id)
+        public async Task<BlindUserDetailsViewModel> GetUserDetails(string id)
         {
-            throw new NotImplementedException();
+            var result = Guid.TryParse(id, out Guid resultGuid);
+
+            if (result == null)
+            {
+                throw new Exception("Invalid id model!");
+                return null;
+            }
+            var user = await context.BlindUsers.FindAsync(resultGuid);
+
+            if (user == null)
+            {
+                throw new Exception("Invalid id!");
+                return null;
+            }
+
+            var city = await context.Cities.FindAsync(user.CityId);
+
+            BlindUserDetailsViewModel model = new BlindUserDetailsViewModel();
+            model.FirstName = user.FirstName;
+            model.MiddleName = user.MiddleName;
+            model.LastName = user.LastName;
+            model.PersonalId = user.PersonalId;
+            model.BirthDate = user.Birthdate.Value.ToString("dd.MM.yyyy");
+            model.City = city.Name;
+
+            return model;
         }
 
-        public Task<List<BlindUserViewModel>> GetAllModels(string userId)
+        public async Task<List<BlindUserViewModel>> GetAllModels(string userId)
         {
-            return context.BlindUsers
+            return await context.BlindUsers
                 .Where(x => x.AdministratorId == userId)
                 .Select(x => new BlindUserViewModel()
                 {
+                    Id = x.Id,
                     City = x.City.Name,
                     FirstName = x.FirstName,
                     MiddleName = x.MiddleName,
@@ -72,15 +99,8 @@ namespace DigAccess.Services
             user.City = context.Cities.Find(cityId);
             user.Street = model.Street;
             user.StreetNumber = model.StreetNumber;
-            context.BlindUsers.Add(user);
+            await context.BlindUsers.AddAsync(user);
             await context.SaveChangesAsync();
         }
-
-        public BlindUserViewModel FindById(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-       
     }
 }

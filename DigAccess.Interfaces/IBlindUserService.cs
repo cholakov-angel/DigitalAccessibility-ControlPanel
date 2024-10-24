@@ -12,11 +12,10 @@ namespace DigAccess.Interfaces
     {
         public Task<List<BlindUserViewModel>> GetAllModels(string userId);
         public Task Add(BlindUserViewModel model, string userId);
-        public BlindUserViewModel FindById(string id);
         public void SetContext(DigAccessDbContext context);
 
         public Task<List<CityViewModel>> GetCities();
 
-        public Task<BlindUserViewModel> GetUserDetails(string id);
+        public Task<BlindUserDetailsViewModel> GetUserDetails(string id);
     }
 }

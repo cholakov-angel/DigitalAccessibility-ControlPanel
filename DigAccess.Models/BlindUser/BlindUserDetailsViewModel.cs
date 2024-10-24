@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DigAccess.Models.BlindUser
 {
-    public class BlindUserViewModel
+    public class BlindUserDetailsViewModel
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }
@@ -27,6 +27,5 @@ namespace DigAccess.Models.BlindUser
 
         public int StreetNumber { get; set; }
 
-        public List<CityViewModel>? CityNames { get; set; }
     }
 }

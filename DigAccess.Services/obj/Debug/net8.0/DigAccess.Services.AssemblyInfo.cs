@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DigAccess.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2fd4ab7f89e713eadf07035e19f615be49e9d313")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+879ecae8077a5b1ff4bf6df901e20e6659b4783c")]
 [assembly: System.Reflection.AssemblyProductAttribute("DigAccess.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DigAccess.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -55,5 +55,17 @@ namespace DigAccess.Web.Controllers
             service.Add(model, userId);
             return RedirectToAction("Index");
         }
+
+        public async Task<IActionResult> Details(string id)
+        {
+            var model = await service.GetUserDetails(id);
+
+            if (model == null)
+            {
+                throw new Exception("Invalid model!");
+            }
+
+            return View(model);
+        }
     }
 }

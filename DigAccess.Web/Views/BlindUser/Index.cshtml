@@ -18,6 +18,7 @@
             <th>Фамилия</th>
             <th>Град</th>
             <th>Дата на раждане</th>
+            <th>Опции</th>
         </tr>
     </thead>
     <tbody>
@@ -29,6 +30,11 @@
                 <td>@blindUser.LastName</td>
                 <td>@blindUser.City</td>
                 <td>@blindUser.BirthDate</td>
+                <td>
+                    <div class="p-2 flex-shrink-1">
+                        <a asp-action="Details" asp-route-id="@blindUser.Id" class="btn btn-dark"><h5>Опции</h5></a>
+                    </div>
+                </td>
             </tr>
         }
     </tbody>
