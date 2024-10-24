@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wBvHWWyFvuyEamttGhHuxEgB3eXNhQ4Mywbrm6GTtzQ=",
+  "Hash": "srsvCl6PrpZs+ghiGkvpaCyAl4JhkQ+kP00g9YFEg6o=",
   "Source": "DigAccess.Web",
   "BasePath": "_content/DigAccess.Web",
   "Mode": "Default",
@@ -1307,6 +1307,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\house-door.svg"
+    },
+    {
+      "Identity": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\key-fill.svg",
+      "SourceId": "DigAccess.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\",
+      "BasePath": "_content/DigAccess.Web",
+      "RelativePath": "img/key-fill.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\key-fill.svg"
     },
     {
       "Identity": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\person.png",

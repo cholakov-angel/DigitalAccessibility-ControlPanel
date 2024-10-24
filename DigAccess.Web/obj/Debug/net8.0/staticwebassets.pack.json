@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\img\\house-door.svg"
     },
     {
+      "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\key-fill.svg",
+      "PackagePath": "staticwebassets\\img\\key-fill.svg"
+    },
+    {
       "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\person.png",
       "PackagePath": "staticwebassets\\img\\person.png"
     },

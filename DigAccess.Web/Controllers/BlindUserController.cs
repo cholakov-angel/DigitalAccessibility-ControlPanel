@@ -20,13 +20,11 @@ namespace DigAccess.Web.Controllers
     {
         private readonly IBlindUserService service;
         private readonly UserManager<ApplicationUser> userManager;
-        private readonly DigAccessDbContext context;
 
-        public BlindUserController(UserManager<ApplicationUser> userManager, IBlindUserService service, DigAccessDbContext context)
+        public BlindUserController(UserManager<ApplicationUser> userManager, IBlindUserService service)
         {
             this.service = service;
             this.userManager = userManager;
-            this.context = context;
         }
 
         public async Task<IActionResult> Index()
