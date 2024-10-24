@@ -18,11 +18,11 @@ namespace DigAccess.Web.Controllers
     [Authorize(Roles = "UserAdministrator")]
     public class BlindUserController : Controller
     {
-        private readonly IBlindUser service;
+        private readonly IBlindUserService service;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly DigAccessDbContext context;
 
-        public BlindUserController(UserManager<ApplicationUser> userManager, IBlindUser service, DigAccessDbContext context)
+        public BlindUserController(UserManager<ApplicationUser> userManager, IBlindUserService service, DigAccessDbContext context)
         {
             this.service = service;
             this.userManager = userManager;

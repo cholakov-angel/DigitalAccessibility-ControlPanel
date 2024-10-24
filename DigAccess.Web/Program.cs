@@ -22,7 +22,8 @@ namespace DigAccess.Web
                 .AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<DigAccessDbContext>();
-            builder.Services.AddScoped<IBlindUser, BlindUserService>();
+            builder.Services.AddScoped<IService, BaseService>();
+            builder.Services.AddScoped<IBlindUserService, BlindUserService>();
 
             builder.Services.AddControllersWithViews();
             var app = builder.Build();

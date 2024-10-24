@@ -10,6 +10,10 @@ namespace DigAccess.Services
 {
     public class BaseService : IService
     {
-
+        protected DigAccessDbContext context;
+        public BaseService(DigAccessDbContext context)
+        {
+            this.context = context;
+        }
     }
 }

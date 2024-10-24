@@ -8,7 +8,7 @@ using DigAccess.Web.Data;
 
 namespace DigAccess.Interfaces
 {
-    public interface IBlindUser : IService
+    public interface IBlindUserService : IService
     {
         public Task<List<BlindUserViewModel>> GetAllModels(string userId);
         public Task Add(BlindUserViewModel model, string userId);
@@ -16,5 +16,7 @@ namespace DigAccess.Interfaces
         public void SetContext(DigAccessDbContext context);
 
         public Task<List<CityViewModel>> GetCities();
+
+        public Task<BlindUserViewModel> GetUserDetails(string id);
     }
 }

@@ -11,12 +11,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DigAccess.Services
 {
-    public class BlindUserService : IBlindUser
+    public class BlindUserService : BaseService, IBlindUserService
     {
-        private DigAccessDbContext context;
-        public BlindUserService(DigAccessDbContext context)
+        public BlindUserService(DigAccessDbContext context) : base(context)
         {
-            this.context = context;
         }
 
         public void SetContext(DigAccessDbContext context)
@@ -31,6 +29,11 @@ namespace DigAccess.Services
                 Id = x.Id,
                 Name = x.Name
             }).ToListAsync();
+        }
+
+        public Task<BlindUserViewModel> GetUserDetails(string id)
+        {
+            throw new NotImplementedException();
         }
 
         public Task<List<BlindUserViewModel>> GetAllModels(string userId)
@@ -70,12 +73,14 @@ namespace DigAccess.Services
             user.Street = model.Street;
             user.StreetNumber = model.StreetNumber;
             context.BlindUsers.Add(user);
-            context.SaveChangesAsync();
+            await context.SaveChangesAsync();
         }
 
         public BlindUserViewModel FindById(string id)
         {
             throw new NotImplementedException();
         }
+
+       
     }
 }
