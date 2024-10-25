@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DigAccess.Common;
 using DigAccess.Interfaces;
 using DigAccess.Models.Licence;
 using DigAccess.Web.Data;
@@ -47,8 +48,8 @@ namespace DigAccess.Services
                     LastName = x.LastName,
                     Licences = x.BlindUserLicences.Select(y => new LicenceViewModel()
                     {
-                        DateFrom = y.DateFrom.ToString("dd.MM.yyyy"),
-                        DateTo = y.DateTo.ToString("dd.MM.yyyy"),
+                        DateFrom = y.DateFrom.ToString(Constants.DateTimeFormat),
+                        DateTo = y.DateTo.ToString(Constants.DateTimeFormat),
                         Id = y.Id,
                         IsActivated = y.IsActivated,
                     }).ToList()

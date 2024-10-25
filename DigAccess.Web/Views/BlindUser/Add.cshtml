@@ -6,18 +6,22 @@
 <form asp-action="AddUser" method="post">
     <div>
         <label for="FirstName">Първо име</label>
+        <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
         <input asp-for="FirstName" class="form-control" />
     </div>
     <div>
         <label for="MiddleName">Бащино име</label>
+        <span asp-validation-for="@Model.MiddleName" class="text-danger"></span>
         <input asp-for="MiddleName" class="form-control" />
     </div>
     <div>
         <label for="LastName">Фамилия</label>
+        <span asp-validation-for="@Model.MiddleName" class="text-danger"></span>
         <input asp-for="LastName" class="form-control" />
     </div>
     <div>
         <label for="PersonalId">ЕГН</label>
+        <span asp-validation-for="@Model.PersonalId" class="text-danger"></span>
         <input asp-for="PersonalId" class="form-control" />
     </div>
     <div>

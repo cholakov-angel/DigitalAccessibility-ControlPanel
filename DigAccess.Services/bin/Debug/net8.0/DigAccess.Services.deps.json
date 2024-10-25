@@ -653,6 +653,9 @@
         }
       },
       "DigAccess.Models/1.0.0": {
+        "dependencies": {
+          "DigAccess.Common": "1.0.0"
+        },
         "runtime": {
           "DigAccess.Models.dll": {}
         }

@@ -37,3 +37,5 @@ E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Interface
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Interfaces\obj\Debug\net8.0\refint\DigAccess.Interfaces.dll
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Interfaces\obj\Debug\net8.0\DigAccess.Interfaces.pdb
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Interfaces\obj\Debug\net8.0\ref\DigAccess.Interfaces.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Interfaces\bin\Debug\net8.0\DigAccess.Common.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Interfaces\bin\Debug\net8.0\DigAccess.Common.pdb

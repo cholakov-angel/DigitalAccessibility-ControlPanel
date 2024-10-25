@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using DigAccess.Common;
 using DigAccess.Data.Entities;
 using DigAccess.Data.Entities.Address;
 using DigAccess.Data.Entities.Blind;
@@ -39,18 +40,28 @@ namespace DigAccess.Web.Controllers
             BlindUserViewModel model = new BlindUserViewModel();
             model.CityNames = await service.GetCities();
             return View(model);
-
         }
 
         public async Task<IActionResult> AddUser(BlindUserViewModel model)
         {
+            model.CityNames = await service.GetCities();
+
             if (!ModelState.IsValid)
             {
-                model.CityNames = await service.GetCities();
-                return View("Add",model);
+                return View("Add", model);
             }
+
+            var date = PersonalIDParser.BirthdateExtract(model.PersonalId);
+
+            if (date == default)
+            {
+                ModelState.AddModelError("PersonalId", BlindUserConstants.PersonalIDError);
+                return View("Add", model);
+            }
+
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            service.Add(model, userId);
+            await service.Add(model, userId);
+
             return RedirectToAction("Index");
         }
 

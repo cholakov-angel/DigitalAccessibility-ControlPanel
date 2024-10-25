@@ -56,7 +56,7 @@ namespace DigAccess.Services
             model.MiddleName = user.MiddleName;
             model.LastName = user.LastName;
             model.PersonalId = user.PersonalId;
-            model.BirthDate = user.Birthdate.Value.ToString("dd.MM.yyyy");
+            model.BirthDate = user.Birthdate.Value.ToString(Constants.DateTimeFormat);
             model.City = city.Name;
 
             return model;
@@ -77,11 +77,11 @@ namespace DigAccess.Services
                     StreetNumber = x.StreetNumber,
                     TELKID = x.TELKNumber,
                     PersonalId = x.PersonalId,
-                    BirthDate = x.Birthdate.Value.ToString("dd.MM.yyyy")
+                    BirthDate = x.Birthdate.Value.ToString(Constants.DateTimeFormat)
                 }).ToListAsync();
         }
 
-        public async Task Add(BlindUserViewModel model, string userId)
+        public async Task<BlindUserViewModel> Add(BlindUserViewModel model, string userId)
         {
             BlindUser user = new BlindUser();
             user.FirstName = model.FirstName;
@@ -95,12 +95,20 @@ namespace DigAccess.Services
                 throw new Exception("Invalid data!");
             }
 
-            user.Birthdate = PersonalIDParser.BirthdateExtract(model.PersonalId);
+            DateTime date = PersonalIDParser.BirthdateExtract(model.PersonalId);
+
+            if (date == default)
+            {
+                return null!;
+            }
+            user.Birthdate = date;
             user.City = context.Cities.Find(cityId);
             user.Street = model.Street;
             user.StreetNumber = model.StreetNumber;
             await context.BlindUsers.AddAsync(user);
             await context.SaveChangesAsync();
+
+            return model;
         }
     }
 }

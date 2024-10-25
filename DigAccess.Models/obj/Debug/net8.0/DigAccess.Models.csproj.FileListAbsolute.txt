@@ -32,3 +32,7 @@ E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\ob
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Debug\net8.0\refint\DigAccess.Models.dll
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Debug\net8.0\DigAccess.Models.pdb
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Debug\net8.0\ref\DigAccess.Models.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\bin\Debug\net8.0\DigAccess.Common.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\bin\Debug\net8.0\DigAccess.Common.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Debug\net8.0\DigAccess.Models.csproj.AssemblyReference.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Debug\net8.0\DigAccess.Models.csproj.CopyComplete
