@@ -21,7 +21,7 @@ namespace DigAccess.Common
             {
                 return "Мъж";
             }
-        }
+        } // GenderExtract
 
         // Извличане на рожденната дата от ЕГН
         public static DateTime BirthdateExtract(string personalID)
@@ -52,6 +52,6 @@ namespace DigAccess.Common
                 return default;
             }
             return new DateTime(year, month, day);
-        }
-    }
+        } // BirthdateExtract
+    } // PersonalIDParser
 }

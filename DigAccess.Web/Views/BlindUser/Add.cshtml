@@ -3,7 +3,7 @@
     <a asp-action="Index"> <button class="btn btn-dark mt-2"><h6><</h6></button></a>
     <h2 class="p-2">Добавяне на потребител</h2>
 </div>
-<form asp-action="AddUser" method="post">
+<form asp-action="Add" method="post">
     <div>
         <label for="FirstName">Първо име</label>
         <span asp-validation-for="@Model.FirstName" class="text-danger"></span>

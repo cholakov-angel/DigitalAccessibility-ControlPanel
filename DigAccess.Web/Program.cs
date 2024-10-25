@@ -25,8 +25,8 @@ namespace DigAccess.Web
             builder.Services.AddScoped<IService, BaseService>();
             builder.Services.AddScoped<IBlindUserService, BlindUserService>();
             builder.Services.AddScoped<ILicenceService, LicenceService>();
-
             builder.Services.AddControllersWithViews();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -44,8 +44,8 @@ namespace DigAccess.Web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting();
 
+            app.UseRouting();
             app.UseAuthorization();
 
             app.MapControllerRoute(
@@ -66,8 +66,7 @@ namespace DigAccess.Web
                     }
                 }
             }
-
             app.Run();
-        }
+        } // Main
     }
 }

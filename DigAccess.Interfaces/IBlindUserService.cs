@@ -11,11 +11,8 @@ namespace DigAccess.Interfaces
     public interface IBlindUserService : IService
     {
         public Task<List<BlindUserViewModel>> GetAllModels(string userId);
-        public Task<BlindUserViewModel> Add(BlindUserViewModel model, string userId);
-        public void SetContext(DigAccessDbContext context);
-
+        public Task<bool> Add(BlindUserViewModel model, string userId);
         public Task<List<CityViewModel>> GetCities();
-
         public Task<BlindUserDetailsViewModel> GetUserDetails(string id);
-    }
+    } // IBlindUserService
 }

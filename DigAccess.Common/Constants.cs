@@ -8,6 +8,7 @@ namespace DigAccess.Common
 {
     public static class Constants
     {
+        // Дата и час
         public const string DateTimeFormat = "dd.MM.yyyy";
-    }
+    } // Constants
 }

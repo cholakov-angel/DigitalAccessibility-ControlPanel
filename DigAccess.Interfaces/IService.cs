@@ -8,5 +8,5 @@ namespace DigAccess.Interfaces
 {
     public interface IService
     {
-    }
+    } // IService
 }

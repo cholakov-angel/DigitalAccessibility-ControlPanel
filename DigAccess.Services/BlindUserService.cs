@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DigAccess.Common;
+﻿using DigAccess.Common;
 using DigAccess.Data.Entities.Blind;
 using DigAccess.Interfaces;
 using DigAccess.Models.BlindUser;
 using DigAccess.Web.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace DigAccess.Services
 {
@@ -16,37 +11,37 @@ namespace DigAccess.Services
     {
         public BlindUserService(DigAccessDbContext context) : base(context)
         {
-        }
+        } // BlindUserService
 
         public void SetContext(DigAccessDbContext context)
         {
             this.context = context;
-        }
+        } // SetContext
 
         public async Task<List<CityViewModel>> GetCities()
         {
-            return await context.Cities.Select(x => new CityViewModel()
+            var cities = await context.Cities.Select(x => new CityViewModel()
             {
                 Id = x.Id,
                 Name = x.Name
             }).ToListAsync();
-        }
+
+            return cities;
+        } // GetCities
 
         public async Task<BlindUserDetailsViewModel> GetUserDetails(string id)
         {
             var result = Guid.TryParse(id, out Guid resultGuid);
 
-            if (result == null)
+            if (result == false)
             {
                 throw new Exception("Invalid id model!");
-                return null;
             }
             var user = await context.BlindUsers.FindAsync(resultGuid);
 
             if (user == null)
             {
                 throw new Exception("Invalid id!");
-                return null;
             }
 
             var city = await context.Cities.FindAsync(user.CityId);
@@ -60,7 +55,7 @@ namespace DigAccess.Services
             model.City = city.Name;
 
             return model;
-        }
+        } // GetUserDetails
 
         public async Task<List<BlindUserViewModel>> GetAllModels(string userId)
         {
@@ -79,9 +74,9 @@ namespace DigAccess.Services
                     PersonalId = x.PersonalId,
                     BirthDate = x.Birthdate.Value.ToString(Constants.DateTimeFormat)
                 }).ToListAsync();
-        }
+        } // GetAllModels
 
-        public async Task<BlindUserViewModel> Add(BlindUserViewModel model, string userId)
+        public async Task<bool> Add(BlindUserViewModel model, string userId)
         {
             BlindUser user = new BlindUser();
             user.FirstName = model.FirstName;
@@ -90,25 +85,32 @@ namespace DigAccess.Services
             user.AdministratorId = userId;
 
             bool result = Guid.TryParse(model.City, out Guid cityId);
-            if (!result)
+            if (result == false)
             {
-                throw new Exception("Invalid data!");
+                throw new Exception("Invalid city id!");
+            }
+
+            if (context.Cities.Any(x=> x.Id == cityId) == false)
+            {
+                throw new Exception("Invalid city id!");
             }
 
             DateTime date = PersonalIDParser.BirthdateExtract(model.PersonalId);
 
             if (date == default)
             {
-                return null!;
+                return false!;
             }
+
             user.Birthdate = date;
-            user.City = context.Cities.Find(cityId);
+            user.CityId = cityId;
             user.Street = model.Street;
             user.StreetNumber = model.StreetNumber;
+
             await context.BlindUsers.AddAsync(user);
             await context.SaveChangesAsync();
 
-            return model;
-        }
+            return true;
+        } // Add
     }
 }

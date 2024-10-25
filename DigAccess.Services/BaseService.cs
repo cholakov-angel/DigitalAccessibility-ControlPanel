@@ -14,6 +14,6 @@ namespace DigAccess.Services
         public BaseService(DigAccessDbContext context)
         {
             this.context = context;
-        }
+        } // BaseService
     }
 }

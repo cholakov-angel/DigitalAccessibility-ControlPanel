@@ -26,23 +26,28 @@ namespace DigAccess.Web.Controllers
         {
             this.service = service;
             this.userManager = userManager;
-        }
+        } // BlindUserController
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var list = await service.GetAllModels(userId);
-            return View(list);
-        }
 
+            return View(list);
+        } // Index
+
+        [HttpGet]
         public async Task<IActionResult> Add()
         {
             BlindUserViewModel model = new BlindUserViewModel();
             model.CityNames = await service.GetCities();
-            return View(model);
-        }
 
-        public async Task<IActionResult> AddUser(BlindUserViewModel model)
+            return View(model);
+        } // Add
+
+        [HttpPost]
+        public async Task<IActionResult> Add(BlindUserViewModel model)
         {
             model.CityNames = await service.GetCities();
 
@@ -51,20 +56,19 @@ namespace DigAccess.Web.Controllers
                 return View("Add", model);
             }
 
-            var date = PersonalIDParser.BirthdateExtract(model.PersonalId);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            bool result = await service.Add(model, userId);
 
-            if (date == default)
+            if (result == false)
             {
                 ModelState.AddModelError("PersonalId", BlindUserConstants.PersonalIDError);
                 return View("Add", model);
             }
 
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            await service.Add(model, userId);
-
             return RedirectToAction("Index");
-        }
+        } // AddUser
 
+        [HttpGet]
         public async Task<IActionResult> Details(string id)
         {
             var model = await service.GetUserDetails(id);
@@ -75,6 +79,6 @@ namespace DigAccess.Web.Controllers
             }
 
             return View(model);
-        }
+        } // Details
     }
 }

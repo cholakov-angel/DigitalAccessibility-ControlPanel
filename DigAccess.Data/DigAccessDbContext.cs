@@ -14,7 +14,7 @@ namespace DigAccess.Web.Data
         public DigAccessDbContext(DbContextOptions<DigAccessDbContext> options)
             : base(options)
         {
-        }
+        } // DigAccessDbContext
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -22,7 +22,7 @@ namespace DigAccess.Web.Data
                 .HasKey(x => new { x.BlindUserId, x.FeatureId });
 
             base.OnModelCreating(builder);
-        }
+        } // OnModelCreating
 
         public virtual DbSet<OrganisationCompany> Organisations { get; set; }
         public virtual DbSet<City> Cities { get; set; }
@@ -35,8 +35,5 @@ namespace DigAccess.Web.Data
         public virtual DbSet<Feature> Features { get; set; }
         public virtual DbSet<BlindUserFeature> BlindUsersFeatures { get; set; }
         public virtual DbSet<BlindUserLog> BlindUsersLogs { get; set; }
-        public virtual DbSet<MasterKey> MasterKeys { get; set; }
-
-
-    }
+    } // DigAccessDbContext
 }

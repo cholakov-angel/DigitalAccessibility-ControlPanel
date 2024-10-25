@@ -10,7 +10,6 @@ namespace DigAccess.Interfaces
     public interface ILicenceService
     {
         public Task<List<LicenceAllViewModel>> GetAll(string userId);
-
         public Task<UserLicenceViewModel> GetLicences(string userId);
-    }
+    } // ILicenceService
 }

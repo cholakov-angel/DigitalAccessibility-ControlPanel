@@ -15,8 +15,7 @@ namespace DigAccess.Services
     {
         public LicenceService(DigAccessDbContext context) : base(context)
         {
-
-        }
+        } // LicenceService
 
         public async Task<List<LicenceAllViewModel>> GetAll(string userId)
         {
@@ -30,7 +29,7 @@ namespace DigAccess.Services
                 }).ToListAsync();
 
             return users;
-        }
+        } // GetAll
 
         public async Task<UserLicenceViewModel> GetLicences(string userId)
         {
@@ -56,6 +55,6 @@ namespace DigAccess.Services
                 }).FirstOrDefault();
 
             return licences;
-        }
+        } // GetLicences
     }
 }

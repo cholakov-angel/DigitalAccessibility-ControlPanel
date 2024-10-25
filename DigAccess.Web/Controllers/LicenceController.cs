@@ -18,7 +18,7 @@ namespace DigAccess.Web.Controllers
         {
             this.service = service;
             this.userManager = userManager;
-        }
+        } // LicenceController
 
         public async Task<IActionResult> Index()
         {
@@ -26,13 +26,13 @@ namespace DigAccess.Web.Controllers
 
             var users = await service.GetAll(userId);
             return View(users);
-        }
+        } // Index
 
         public async Task<IActionResult> UserLicence(string id)
         {
             var licences = await service.GetLicences(id);
 
             return View(licences);
-        }
+        } // UserLicences
     }
 }

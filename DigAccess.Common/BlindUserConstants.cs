@@ -8,12 +8,12 @@ namespace DigAccess.Common
 {
     public static class BlindUserConstants
     {
-        // Length
+        // Дължина
         public const int MaxNameLength = 60;
         public const int MinNameLength = 3;
         public const int PersonalIDLength = 10;
 
-        // Errors
+        // Грешки
         public const string MaxNameLengthError = "Не може името да превишава 60 символа!";
         public const string MinNameLengthError = "Не може името да бъде по-малко от 3 символа!";
         public const string RequiredNameError = "Името е задължително!";
@@ -31,8 +31,5 @@ namespace DigAccess.Common
         public const string RequiredPersonalIDError = "ЕГН е задължително!";
 
         public const string RequiredTELKIDError = "Номерът на ТЕЛК е задължителен!";
-
-
-
-    }
+    } // BlindUserConstants
 }

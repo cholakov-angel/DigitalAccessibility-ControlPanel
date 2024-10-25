@@ -11,6 +11,7 @@ using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
 using DigAccess.Data.Entities;
+using Humanizer;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -98,6 +99,22 @@ namespace DigAccess.Web.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Display(Name = "Име")]
+            public string FirstName { get; set; }
+
+            [Display(Name = "Бащино име")]
+            public string MiddleName { get; set; }
+
+            [Display(Name = "Фамилия")]
+            public string LastName { get; set; }
+
+            [Display(Name = "ЕГН")]
+            public string PersonalID { get; set; }
+
+            [DataType(DataType.PhoneNumber)]
+            [Display(Name = "Телефонен номер")]
+            public string PhoneNumber { get; set; }
         }
 
 
@@ -117,8 +134,14 @@ namespace DigAccess.Web.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
+                user.FirstName = Input.FirstName;
+                user.MiddleName = Input.MiddleName;
+                user.LastName = Input.LastName;
+                user.PhoneNumber = Input.PhoneNumber;
+                user.PersonalId = Input.PersonalID;
                 if (result.Succeeded)
                 {
                     IdentityResult roleresult = await _userManager.AddToRoleAsync(user, "UserAdministrator");

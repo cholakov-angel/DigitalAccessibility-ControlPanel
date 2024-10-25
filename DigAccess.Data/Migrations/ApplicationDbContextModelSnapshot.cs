@@ -244,27 +244,6 @@ namespace DigAccess.DbContext.Migrations
                     b.ToTable("Features");
                 });
 
-            modelBuilder.Entity("DigAccess.Data.Entities.MasterKey", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ApplicationUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("MasterLicence")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.ToTable("MasterKeys");
-                });
-
             modelBuilder.Entity("DigAccess.Data.Entities.Organisation.Organisation.Office", b =>
                 {
                     b.Property<Guid>("Id")
@@ -544,6 +523,9 @@ namespace DigAccess.DbContext.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("MasterKey")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("MiddleName")
                         .HasColumnType("nvarchar(max)");
 
@@ -551,7 +533,8 @@ namespace DigAccess.DbContext.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("PersonalId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("CHAR(10)");
 
                     b.HasIndex("OfficeId");
 
@@ -635,17 +618,6 @@ namespace DigAccess.DbContext.Migrations
                     b.Navigation("BlindUser");
 
                     b.Navigation("Feature");
-                });
-
-            modelBuilder.Entity("DigAccess.Data.Entities.MasterKey", b =>
-                {
-                    b.HasOne("DigAccess.Data.Entities.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Organisation.Organisation.Office", b =>
