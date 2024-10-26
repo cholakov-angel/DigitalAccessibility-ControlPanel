@@ -11,8 +11,8 @@
           "DigAccess.Common": "1.0.0",
           "DigAccess.Data.Entities": "1.0.0",
           "DigAccess.DbContext": "1.0.0",
-          "DigAccess.Interfaces": "1.0.0",
-          "DigAccess.Models": "1.0.0"
+          "DigAccess.Models": "1.0.0",
+          "DigAccess.Services.Interfaces": "1.0.0"
         },
         "runtime": {
           "DigAccess.Services.dll": {}
@@ -643,21 +643,21 @@
           "DigAccess.DbContext.dll": {}
         }
       },
-      "DigAccess.Interfaces/1.0.0": {
-        "dependencies": {
-          "DigAccess.DbContext": "1.0.0",
-          "DigAccess.Models": "1.0.0"
-        },
-        "runtime": {
-          "DigAccess.Interfaces.dll": {}
-        }
-      },
       "DigAccess.Models/1.0.0": {
         "dependencies": {
           "DigAccess.Common": "1.0.0"
         },
         "runtime": {
           "DigAccess.Models.dll": {}
+        }
+      },
+      "DigAccess.Services.Interfaces/1.0.0": {
+        "dependencies": {
+          "DigAccess.DbContext": "1.0.0",
+          "DigAccess.Models": "1.0.0"
+        },
+        "runtime": {
+          "DigAccess.Services.Interfaces.dll": {}
         }
       }
     }
@@ -1103,12 +1103,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "DigAccess.Interfaces/1.0.0": {
+    "DigAccess.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "DigAccess.Models/1.0.0": {
+    "DigAccess.Services.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

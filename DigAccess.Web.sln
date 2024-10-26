@@ -19,11 +19,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigAccess.Services", "DigAccess.Services\DigAccess.Services.csproj", "{91805B95-03AE-400A-A1FA-0CEF9D16A919}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigAccess.Interfaces", "DigAccess.Interfaces\DigAccess.Interfaces.csproj", "{E22379A3-464B-4ED6-B0DD-181E007BB8FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigAccess.Services.Interfaces", "DigAccess.Interfaces\DigAccess.Services.Interfaces.csproj", "{E22379A3-464B-4ED6-B0DD-181E007BB8FD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{91339D01-57FE-48A9-8C5B-9F9DDC32FAC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigAccess.Common", "DigAccess.Common\DigAccess.Common.csproj", "{1B669459-2C6F-4878-838F-A4BDCC2D43EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigAccess.Common", "DigAccess.Common\DigAccess.Common.csproj", "{1B669459-2C6F-4878-838F-A4BDCC2D43EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigAccess.Keys", "DigAccess.Keys\DigAccess.Keys.csproj", "{0D920057-79E9-4FF8-ADF8-806AB0483E7D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keys", "Keys", "{14523992-8BEE-4722-AEAE-DA768962FF49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +63,10 @@ Global
 		{1B669459-2C6F-4878-838F-A4BDCC2D43EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B669459-2C6F-4878-838F-A4BDCC2D43EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B669459-2C6F-4878-838F-A4BDCC2D43EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D920057-79E9-4FF8-ADF8-806AB0483E7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D920057-79E9-4FF8-ADF8-806AB0483E7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D920057-79E9-4FF8-ADF8-806AB0483E7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D920057-79E9-4FF8-ADF8-806AB0483E7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +78,7 @@ Global
 		{91805B95-03AE-400A-A1FA-0CEF9D16A919} = {6B9BDBC2-05A4-4185-9B26-9F0FF626449C}
 		{E22379A3-464B-4ED6-B0DD-181E007BB8FD} = {6B9BDBC2-05A4-4185-9B26-9F0FF626449C}
 		{1B669459-2C6F-4878-838F-A4BDCC2D43EA} = {91339D01-57FE-48A9-8C5B-9F9DDC32FAC4}
+		{0D920057-79E9-4FF8-ADF8-806AB0483E7D} = {14523992-8BEE-4722-AEAE-DA768962FF49}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5EC1CD63-2246-4B5A-AE76-8B2CB790C8D6}

@@ -204,12 +204,12 @@
         }
       }
     },
-    "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Interfaces\\DigAccess.Interfaces.csproj": {
+    "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Interfaces\\DigAccess.Services.Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Interfaces\\DigAccess.Interfaces.csproj",
-        "projectName": "DigAccess.Interfaces",
-        "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Interfaces\\DigAccess.Interfaces.csproj",
+        "projectUniqueName": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Interfaces\\DigAccess.Services.Interfaces.csproj",
+        "projectName": "DigAccess.Services.Interfaces",
+        "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Interfaces\\DigAccess.Services.Interfaces.csproj",
         "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
         "outputPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Interfaces\\obj\\",
         "projectStyle": "PackageReference",
@@ -373,8 +373,8 @@
               "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data\\DigAccess.DbContext.csproj": {
                 "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data\\DigAccess.DbContext.csproj"
               },
-              "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Interfaces\\DigAccess.Interfaces.csproj": {
-                "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Interfaces\\DigAccess.Interfaces.csproj"
+              "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Interfaces\\DigAccess.Services.Interfaces.csproj": {
+                "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Interfaces\\DigAccess.Services.Interfaces.csproj"
               },
               "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Models\\DigAccess.Models.csproj": {
                 "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Models\\DigAccess.Models.csproj"

@@ -14,8 +14,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol;
 
-namespace DigAccess.Web.Controllers
+namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 {
+    [Area("UserAdministrator")]
     [Authorize(Roles = "UserAdministrator")]
     public class BlindUserController : Controller
     {
@@ -27,7 +28,7 @@ namespace DigAccess.Web.Controllers
             this.service = service;
             this.userManager = userManager;
         } // BlindUserController
-
+        
         [HttpGet]
         public async Task<IActionResult> Index()
         {

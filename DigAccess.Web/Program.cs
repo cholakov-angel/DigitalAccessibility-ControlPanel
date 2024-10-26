@@ -1,6 +1,7 @@
 using DigAccess.Data.Entities;
 using DigAccess.Interfaces;
 using DigAccess.Services;
+using DigAccess.Services.Interfaces;
 using DigAccess.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,8 @@ namespace DigAccess.Web
             builder.Services.AddScoped<IService, BaseService>();
             builder.Services.AddScoped<IBlindUserService, BlindUserService>();
             builder.Services.AddScoped<ILicenceService, LicenceService>();
+            builder.Services.AddScoped<IUserAdministratorService, UserAdministratorService>();
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
@@ -47,6 +50,11 @@ namespace DigAccess.Web
 
             app.UseRouting();
             app.UseAuthorization();
+
+
+            app.MapControllerRoute(
+                name: "UserAdministrator",
+                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
             app.MapControllerRoute(
                 name: "default",

@@ -20,9 +20,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DigAccess.Data\DigAccess.DbContext.csproj" />
-    <ProjectReference Include="..\DigAccess.Interfaces\DigAccess.Interfaces.csproj" />
+    <ProjectReference Include="..\DigAccess.Interfaces\DigAccess.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\DigAccess.Keys\DigAccess.Keys.csproj" />
     <ProjectReference Include="..\DigAccess.Models\DigAccess.Models.csproj" />
     <ProjectReference Include="..\DigAccess.Services\DigAccess.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\UserAdministrator\" />
   </ItemGroup>
 
 </Project>

@@ -9,9 +9,10 @@
       "DigAccess.Web/1.0.0": {
         "dependencies": {
           "DigAccess.DbContext": "1.0.0",
-          "DigAccess.Interfaces": "1.0.0",
+          "DigAccess.Keys": "1.0.0",
           "DigAccess.Models": "1.0.0",
           "DigAccess.Services": "1.0.0",
+          "DigAccess.Services.Interfaces": "1.0.0",
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": "8.0.8",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.8",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.8",
@@ -2279,13 +2280,9 @@
           "DigAccess.DbContext.dll": {}
         }
       },
-      "DigAccess.Interfaces/1.0.0": {
-        "dependencies": {
-          "DigAccess.DbContext": "1.0.0",
-          "DigAccess.Models": "1.0.0"
-        },
+      "DigAccess.Keys/1.0.0": {
         "runtime": {
-          "DigAccess.Interfaces.dll": {}
+          "DigAccess.Keys.dll": {}
         }
       },
       "DigAccess.Models/1.0.0": {
@@ -2301,11 +2298,20 @@
           "DigAccess.Common": "1.0.0",
           "DigAccess.Data.Entities": "1.0.0",
           "DigAccess.DbContext": "1.0.0",
-          "DigAccess.Interfaces": "1.0.0",
-          "DigAccess.Models": "1.0.0"
+          "DigAccess.Models": "1.0.0",
+          "DigAccess.Services.Interfaces": "1.0.0"
         },
         "runtime": {
           "DigAccess.Services.dll": {}
+        }
+      },
+      "DigAccess.Services.Interfaces/1.0.0": {
+        "dependencies": {
+          "DigAccess.DbContext": "1.0.0",
+          "DigAccess.Models": "1.0.0"
+        },
+        "runtime": {
+          "DigAccess.Services.Interfaces.dll": {}
         }
       }
     }
@@ -3619,7 +3625,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "DigAccess.Interfaces/1.0.0": {
+    "DigAccess.Keys/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -3630,6 +3636,11 @@
       "sha512": ""
     },
     "DigAccess.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DigAccess.Services.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

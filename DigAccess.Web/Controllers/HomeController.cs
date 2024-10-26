@@ -10,16 +10,21 @@ namespace DigAccess.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger) {
+        public HomeController(ILogger<HomeController> logger)
+        {
             _logger = logger;
         } // HomeController
 
         public IActionResult Index()
         {
+            if (User.IsInRole("UserAdministrator"))
+            {
+                return RedirectToAction("Index", "Home", new { area = "UserAdministrator" });
+            }
             return View();
         } // Index
 
-        [Authorize(Roles= "UserAdministrator")]
+        [Authorize(Roles = "UserAdministrator")]
         public IActionResult Privacy()
         {
             return View();

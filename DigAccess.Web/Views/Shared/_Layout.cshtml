@@ -11,34 +11,34 @@
 </head>
 <body>
 
-<div class="row">
+    <div class="row ">
     @if (User.Identity.IsAuthenticated == true)
     {
-        <div class="col-sm-3 col-lg-2 min-vh-100 bg-body-secondary">
+            <div class="col-sm-3 col-lg-2 min-vh-100 border-end box-shadow mb-3">
             <div class="col-12">
                 <ul class="nav flex-column">
                     <li class="nav-item">
                         <div class="text-center">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><h4>Дигитална достъпност</h4></a>
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index"><h4>Дигитална достъпност</h4></a>
                         </div>
                     </li>
                     <hr/>
                     <li class="nav-item">
                         <div class="d-flex flex-row p-2">
                                 <img class="p-2" src="~/img/house-door.svg" />
-                            <a class="nav-link icon-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Начало</a>
+                            <a class="nav-link icon-link text-dark" asp-controller="Home" asp-action="Index">Начало</a>
                         </div>
                     </li>
                     <li class="nav-item">
                         <div class="d-flex flex-row p-2">
                                 <img class="p-2" src="~/img/person.svg" />
-                            <a class="nav-link text-dark" asp-area="" asp-controller="BlindUser" asp-action="Index">Потребители</a>
+                            <a class="nav-link text-dark" asp-area="UserAdministrator" asp-controller="BlindUser" asp-action="Index">Потребители</a>
                         </div>
                     </li>
                         <li class="nav-item">
                             <div class="d-flex flex-row p-2">
-                                <img class="p-2" src="~/img/key-fill.svg" />
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Licence" asp-action="Index">Лицензи</a>
+                                <img class="p-2" src="~/img/lock.svg" />
+                                <a class="nav-link text-dark" asp-area="UserAdministrator" asp-controller="Licence" asp-action="Index">Лицензи</a>
                             </div>
                         </li>
                     <li class="nav-item">

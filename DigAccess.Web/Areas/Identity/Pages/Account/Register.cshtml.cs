@@ -11,6 +11,7 @@ using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
 using DigAccess.Data.Entities;
+using DigAccess.Keys;
 using Humanizer;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -142,6 +143,8 @@ namespace DigAccess.Web.Areas.Identity.Pages.Account
                 user.LastName = Input.LastName;
                 user.PhoneNumber = Input.PhoneNumber;
                 user.PersonalId = Input.PersonalID;
+
+                user.MasterKey = await MasterKey.GenerateMasterkey(Input.FirstName + Input.MiddleName + Input.LastName, Input.PersonalID, new Random());
                 if (result.Succeeded)
                 {
                     IdentityResult roleresult = await _userManager.AddToRoleAsync(user, "UserAdministrator");

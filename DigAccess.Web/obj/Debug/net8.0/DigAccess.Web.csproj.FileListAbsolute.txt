@@ -734,11 +734,9 @@ E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\D
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Common.dll
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Data.Entities.dll
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.DbContext.dll
-E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Interfaces.dll
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Models.dll
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Services.dll
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.DbContext.pdb
-E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Interfaces.pdb
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Models.pdb
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Services.pdb
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Common.pdb
@@ -769,3 +767,7 @@ E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\obj\D
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\obj\Debug\net8.0\DigAccess.Web.pdb
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\obj\Debug\net8.0\DigAccess.Web.genruntimeconfig.cache
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\obj\Debug\net8.0\ref\DigAccess.Web.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Keys.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Services.Interfaces.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Services.Interfaces.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Keys.pdb

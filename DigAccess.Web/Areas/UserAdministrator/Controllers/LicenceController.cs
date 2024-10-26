@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace DigAccess.Web.Controllers
+namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 {
+    [Area("UserAdministrator")]
     [Authorize(Roles = "UserAdministrator")]
     public class LicenceController : Controller
     {

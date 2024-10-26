@@ -1107,20 +1107,6 @@
           "bin/placeholder/DigAccess.DbContext.dll": {}
         }
       },
-      "DigAccess.Interfaces/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "DigAccess.DbContext": "1.0.0",
-          "DigAccess.Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DigAccess.Interfaces.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DigAccess.Interfaces.dll": {}
-        }
-      },
       "DigAccess.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -1132,6 +1118,20 @@
         },
         "runtime": {
           "bin/placeholder/DigAccess.Models.dll": {}
+        }
+      },
+      "DigAccess.Services.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "DigAccess.DbContext": "1.0.0",
+          "DigAccess.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DigAccess.Services.Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DigAccess.Services.Interfaces.dll": {}
         }
       }
     }
@@ -2994,15 +2994,15 @@
       "path": "../DigAccess.Data/DigAccess.DbContext.csproj",
       "msbuildProject": "../DigAccess.Data/DigAccess.DbContext.csproj"
     },
-    "DigAccess.Interfaces/1.0.0": {
-      "type": "project",
-      "path": "../DigAccess.Interfaces/DigAccess.Interfaces.csproj",
-      "msbuildProject": "../DigAccess.Interfaces/DigAccess.Interfaces.csproj"
-    },
     "DigAccess.Models/1.0.0": {
       "type": "project",
       "path": "../DigAccess.Models/DigAccess.Models.csproj",
       "msbuildProject": "../DigAccess.Models/DigAccess.Models.csproj"
+    },
+    "DigAccess.Services.Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../DigAccess.Interfaces/DigAccess.Services.Interfaces.csproj",
+      "msbuildProject": "../DigAccess.Interfaces/DigAccess.Services.Interfaces.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3010,8 +3010,8 @@
       "DigAccess.Common >= 1.0.0",
       "DigAccess.Data.Entities >= 1.0.0",
       "DigAccess.DbContext >= 1.0.0",
-      "DigAccess.Interfaces >= 1.0.0",
-      "DigAccess.Models >= 1.0.0"
+      "DigAccess.Models >= 1.0.0",
+      "DigAccess.Services.Interfaces >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3056,8 +3056,8 @@
             "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data\\DigAccess.DbContext.csproj": {
               "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data\\DigAccess.DbContext.csproj"
             },
-            "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Interfaces\\DigAccess.Interfaces.csproj": {
-              "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Interfaces\\DigAccess.Interfaces.csproj"
+            "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Interfaces\\DigAccess.Services.Interfaces.csproj": {
+              "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Interfaces\\DigAccess.Services.Interfaces.csproj"
             },
             "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Models\\DigAccess.Models.csproj": {
               "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Models\\DigAccess.Models.csproj"

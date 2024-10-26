@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\img\\key-fill.svg"
     },
     {
+      "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\lock.svg",
+      "PackagePath": "staticwebassets\\img\\lock.svg"
+    },
+    {
       "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\person.png",
       "PackagePath": "staticwebassets\\img\\person.png"
     },
