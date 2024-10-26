@@ -53,7 +53,7 @@ namespace DigAccess.Web
 
 
             app.MapControllerRoute(
-                name: "UserAdministrator",
+                name: "areas",
                 pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
             app.MapControllerRoute(

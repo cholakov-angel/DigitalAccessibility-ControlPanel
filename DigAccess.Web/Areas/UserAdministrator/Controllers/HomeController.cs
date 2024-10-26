@@ -27,5 +27,10 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
             var users = await service.GetAllUsers(userId);
             return View(users);
         }
+
+        public async Task<IActionResult> ViewAllUsers()
+        {
+            return RedirectToAction("Index", "BlindUser");
+        }
     }
 }

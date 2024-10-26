@@ -24,11 +24,6 @@ namespace DigAccess.Web.Controllers
             return View();
         } // Index
 
-        [Authorize(Roles = "UserAdministrator")]
-        public IActionResult Privacy()
-        {
-            return View();
-        } // Privacy
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
