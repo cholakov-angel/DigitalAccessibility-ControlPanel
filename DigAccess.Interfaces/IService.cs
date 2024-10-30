@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DigAccess.Interfaces
 {
-    public interface IService
+    public interface IService 
     {
     } // IService
 }

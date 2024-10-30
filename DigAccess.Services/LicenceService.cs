@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DigAccess.Common;
+using DigAccess.Data.Entities;
 using DigAccess.Interfaces;
 using DigAccess.Models.Licence;
 using DigAccess.Web.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace DigAccess.Services
 {
     public class LicenceService : BaseService, ILicenceService
     {
-        public LicenceService(DigAccessDbContext context) : base(context)
+        public LicenceService(DigAccessDbContext context, UserManager<ApplicationUser> userManager) : base(context, userManager)
         {
         } // LicenceService
 

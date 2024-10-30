@@ -1,7 +1,9 @@
-﻿using DigAccess.Interfaces;
+﻿using DigAccess.Data.Entities;
+using DigAccess.Interfaces;
 using DigAccess.Models.UserAdministrator;
 using DigAccess.Services.Interfaces;
 using DigAccess.Web.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,9 +15,9 @@ namespace DigAccess.Services
 {
     public class UserAdministratorService : BaseService, IUserAdministratorService
     {
-        public UserAdministratorService(DigAccessDbContext context) : base(context)
+        public UserAdministratorService(DigAccessDbContext context, UserManager<ApplicationUser> userManager) : base(context, userManager)
         {
-        }
+        } // UserAdministratorService
 
         public async Task<HomePageViewModel> GetAllUsers(string userId)
         {

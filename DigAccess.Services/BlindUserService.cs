@@ -1,15 +1,17 @@
 ﻿using DigAccess.Common;
+using DigAccess.Data.Entities;
 using DigAccess.Data.Entities.Blind;
 using DigAccess.Interfaces;
 using DigAccess.Models.BlindUser;
 using DigAccess.Web.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace DigAccess.Services
 {
     public class BlindUserService : BaseService, IBlindUserService
     {
-        public BlindUserService(DigAccessDbContext context) : base(context)
+        public BlindUserService(DigAccessDbContext context, UserManager<ApplicationUser> userManager) : base(context, userManager)
         {
         } // BlindUserService
 
@@ -112,5 +114,28 @@ namespace DigAccess.Services
 
             return true;
         } // Add
+
+        public async Task<BlindUserViewPageModel> GetUserInformation(DateTime currentDate,string id)
+        {
+            bool isValid = Guid.TryParse(id, out Guid resultId);
+
+            if (isValid == false )
+            {
+                throw new Exception("Invalid id model!");
+
+            }
+            var user = await context.BlindUsers
+                .Select(x=> new BlindUserViewPageModel()
+                {
+                    Id = x.Id,
+                    FirstName = x.FirstName!,
+                    MiddleName = x.MiddleName!,
+                    LastName = x.LastName!,
+                    Age = currentDate.Year - x.Birthdate!.Value.Year
+                })
+                .FirstOrDefaultAsync(x => x.Id == resultId);
+
+            return user;
+        } // GetUserInformation
     }
 }

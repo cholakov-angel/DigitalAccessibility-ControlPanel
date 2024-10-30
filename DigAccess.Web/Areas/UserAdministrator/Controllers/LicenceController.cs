@@ -25,6 +25,11 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
+            if (userId == null)
+            {
+                throw new ArgumentException("Invalid id!");
+            }
+
             var users = await service.GetAll(userId);
             return View(users);
         } // Index

@@ -8,11 +8,8 @@ using DigAccess.Models.BlindUser;
 using DigAccess.Services;
 using DigAccess.Web.Data;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using NuGet.Protocol;
 
 namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 {
@@ -33,6 +30,12 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
         public async Task<IActionResult> Index()
         {
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (userId == null)
+            {
+                throw new ArgumentException("Invalid id!");
+            }
+
             var list = await service.GetAllModels(userId);
 
             return View(list);
@@ -58,6 +61,12 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
             }
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (userId == null)
+            {
+                throw new ArgumentException("Invalid id!");
+            }
+
             bool result = await service.Add(model, userId);
 
             if (result == false)
@@ -81,5 +90,16 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 
             return View(model);
         } // Details
+
+        public async Task<IActionResult> UserPage(string id)
+        {
+            var user = await service.GetUserInformation(DateTime.Now, id);
+
+            if (user == null)
+            {
+                throw new Exception("Invalid model!");
+            }
+            return View(user);
+        } // UserPage
     }
 }

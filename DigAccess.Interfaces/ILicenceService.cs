@@ -7,7 +7,7 @@ using DigAccess.Models.Licence;
 
 namespace DigAccess.Interfaces
 {
-    public interface ILicenceService
+    public interface ILicenceService : IService
     {
         public Task<List<LicenceAllViewModel>> GetAll(string userId);
         public Task<UserLicenceViewModel> GetLicences(string userId);

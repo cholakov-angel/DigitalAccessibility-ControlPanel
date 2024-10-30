@@ -24,6 +24,11 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
         public async Task<IActionResult> IndexAsync()
         {
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (userId == null)
+            {
+                throw new ArgumentException("Invalid id!");
+            }
             var users = await service.GetAllUsers(userId);
             return View(users);
         }
