@@ -48,10 +48,8 @@ namespace DigAccess.Web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-
             app.UseRouting();
             app.UseAuthorization();
-
 
             app.MapControllerRoute(
                 name: "areas",
@@ -77,5 +75,5 @@ namespace DigAccess.Web
             }
             app.Run();
         } // Main
-    }
+    } // Program
 }

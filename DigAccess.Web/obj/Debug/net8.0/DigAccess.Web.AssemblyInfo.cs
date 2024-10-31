@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DigAccess.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+625a1856c8f71c0e23cc38b6aa5f9d73d02f73c6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+054aa5363f62cf06d7f4068e1d95fc2d7086b349")]
 [assembly: System.Reflection.AssemblyProductAttribute("DigAccess.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DigAccess.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

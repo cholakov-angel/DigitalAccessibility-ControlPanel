@@ -3303,6 +3303,7 @@
           "DigAccess.Common": "1.0.0",
           "DigAccess.Data.Entities": "1.0.0",
           "DigAccess.DbContext": "1.0.0",
+          "DigAccess.Keys": "1.0.0",
           "DigAccess.Models": "1.0.0",
           "DigAccess.Services.Interfaces": "1.0.0"
         },

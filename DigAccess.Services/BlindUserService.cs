@@ -108,6 +108,8 @@ namespace DigAccess.Services
             user.CityId = cityId;
             user.Street = model.Street;
             user.StreetNumber = model.StreetNumber;
+            user.PersonalId = model.PersonalId;
+            user.TELKNumber = model.TELKID;
 
             await context.BlindUsers.AddAsync(user);
             await context.SaveChangesAsync();

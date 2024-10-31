@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\UserAdministrator\**" />
+    <Content Remove="Views\UserAdministrator\**" />
+    <EmbeddedResource Remove="Views\UserAdministrator\**" />
+    <None Remove="Views\UserAdministrator\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
@@ -24,10 +31,6 @@
     <ProjectReference Include="..\DigAccess.Keys\DigAccess.Keys.csproj" />
     <ProjectReference Include="..\DigAccess.Models\DigAccess.Models.csproj" />
     <ProjectReference Include="..\DigAccess.Services\DigAccess.Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\UserAdministrator\" />
   </ItemGroup>
 
 </Project>

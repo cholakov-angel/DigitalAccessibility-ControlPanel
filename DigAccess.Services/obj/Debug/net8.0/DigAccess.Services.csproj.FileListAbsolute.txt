@@ -43,3 +43,5 @@ E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Services\
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Services\obj\Debug\net8.0\ref\DigAccess.Services.dll
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Services\bin\Debug\net8.0\DigAccess.Services.Interfaces.dll
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Services\bin\Debug\net8.0\DigAccess.Services.Interfaces.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Services\bin\Debug\net8.0\DigAccess.Keys.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Services\bin\Debug\net8.0\DigAccess.Keys.pdb

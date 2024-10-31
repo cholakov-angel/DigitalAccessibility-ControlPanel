@@ -11,6 +11,7 @@
     <ProjectReference Include="..\DigAccess.Data.Entities\DigAccess.Data.Entities.csproj" />
     <ProjectReference Include="..\DigAccess.Data\DigAccess.DbContext.csproj" />
     <ProjectReference Include="..\DigAccess.Interfaces\DigAccess.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\DigAccess.Keys\DigAccess.Keys.csproj" />
     <ProjectReference Include="..\DigAccess.Models\DigAccess.Models.csproj" />
   </ItemGroup>
 
