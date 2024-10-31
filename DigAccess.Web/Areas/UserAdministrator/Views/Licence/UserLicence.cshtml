@@ -1,7 +1,5 @@
 ﻿@model DigAccess.Models.Licence.UserLicenceViewModel
 
-<a asp-action="AddLicence" asp-route-id="@Model.UserId" class="btn btn-dark"><h5>Добавяне</h5></a>
-
 @if (Model.Licences.Count == 0)
 {
     <h4>Няма лицензи за потребителя!</h4>

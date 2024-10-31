@@ -10,39 +10,26 @@
         <a asp-action="Add"  asp class="btn btn-dark"><h5>+</h5></a>
     </div>
 </div>
-@if (Model.Count == 0)
-{
-<h4>Няма потребители.</h4>
-}
-else
-{
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Първо име</th>
-            <th>Бащино име</th>
-            <th>Фамилия</th>
-            <th>Град</th>
-            <th>Дата на раждане</th>
-            <th>Опции</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var blindUser in Model)
-        {
-            <tr>
-                <td>@blindUser.FirstName</td>
-                <td>@blindUser.MiddleName</td>
-                <td>@blindUser.LastName</td>
-                <td>@blindUser.City</td>
-                <td>@blindUser.BirthDate</td>
-                <td>
-                    <div class="p-2 flex-shrink-1">
-                            <a asp-action="UserPage" asp-route-id="@blindUser.Id" class="btn btn-dark"><h5>Опции</h5></a>
+@{
+    if (Model.Count == 0)
+    {
+        <h4>Няма потребители.</h4>
+    }
+    else
+    {
+        <div class="d-flex p-2 gap-3 align-content-start flex-wrap">
+            @foreach (var m in Model)
+            {
+                <div class="card p-2 mb-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">@(m.FirstName + " " + m.LastName)</h5>
+                        <br />
+                        <br />
+                        <br />
+                        <a asp-action="UserPage" asp-route-id="@m.Id" class="btn btn-dark"><h10>...</h10></a>
                     </div>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                </div>
+            }
+        </div>
+    }
 }

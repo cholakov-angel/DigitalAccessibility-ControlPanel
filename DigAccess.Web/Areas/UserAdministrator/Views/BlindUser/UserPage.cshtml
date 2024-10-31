@@ -1,24 +1,20 @@
 ﻿@using DigAccess.Models.BlindUser
 @model BlindUserViewPageModel
 
-<div id="carouselExample" class="carousel slide">
+<div id="carouselExample" class="carousel slide text-center">
     <div class="carousel-inner">
-        <div class="carousel-item active bg-danger">
+        <div class="carousel-item active bg-gray">
             <div class="container">
 
-                <div class="row justify-content-md-center">
+                <div class="row justify-content-center">
                     <div class="col-12 pt-3 mt-5">
-
-                        <h1 class="z-1 position-absolute text-black">@Model.FirstName @Model.MiddleName @Model.LastName</h1>
+                        <h1 class="text-black">@Model.FirstName @Model.MiddleName @Model.LastName</h1>
                         <br class="z-1">
                         <br class="z-1">
-                        <h6 class="z-1 position-absolute mt-4 text-black">@Model.Age г., @Model.Gender, @Model.IsProfileActive</h6>
+                        <h6 class="text-black">@Model.Age г., @Model.Gender, @Model.IsProfileActive</h6>
                         <br class="z-1">
                         <br class="z-1">
-                        <br>
-                        <br>
-                        <br>
-                        <a asp-action="Add" asp-controller="Licence" asp-route-id="@Model.Id" class="btn btn-dark"><h5>Преглед на информаця</h5></a>
+                        <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-dark"><h5>Преглед на информаця</h5></a>
                         <a asp-action="UserPage" asp-route-id="@Model.Id" class="btn btn-dark"><h5>Редакция на информаця</h5></a>
                         <br>
                         <br>
@@ -37,7 +33,7 @@
                 <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
                 <br>
                 <div class="row">
-                    <a asp-action="Add" asp-controller="Licence" asp-route-id="@Model.Id" class="btn btn-white text-start"><b><h7>Преглед / Редакция</h7></b></a>
+                    <a asp-action="UserLicence" asp-controller="Licence" asp-route-id="@Model.Id" class="btn btn-white text-start"><b><h7>Преглед / Редакция</h7></b></a>
                     <hr>
                     <a asp-action="AddLicence" asp-controller="Licence" asp-route-id="@Model.Id" class="btn btn-white text-start"><b><h7>Добавяне</h7></b></a>
                 </div>
