@@ -21,3 +21,11 @@ body {
   margin-bottom: 60px;
 }
 
+img, table, div {
+    max-width: 100%;
+}
+
+html, body {
+    height: 100vh;
+    overflow-y: hidden;
+}
