@@ -36,14 +36,16 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 
         public async Task<IActionResult> UserLicence(string id)
         {
-            var licences = await service.GetLicences(id);
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var licences = await service.GetLicences(id, userId);
 
             return View(licences);
         } // UserLicences
 
         public async Task<IActionResult> AddLicence(string id)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (userId == null)
             {

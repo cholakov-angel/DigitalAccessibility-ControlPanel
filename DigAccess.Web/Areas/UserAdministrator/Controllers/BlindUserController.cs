@@ -81,7 +81,9 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
         [HttpGet]
         public async Task<IActionResult> Details(string id)
         {
-            var model = await service.GetUserDetails(id);
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var model = await service.GetUserDetails(id, userId);
 
             if (model == null)
             {
@@ -93,7 +95,9 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 
         public async Task<IActionResult> UserPage(string id)
         {
-            var user = await service.GetUserInformation(DateTime.Now, id);
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var user = await service.GetUserInformation(DateTime.Now, id, userId);
 
             if (user == null)
             {

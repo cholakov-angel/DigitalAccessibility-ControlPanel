@@ -31,7 +31,7 @@ namespace DigAccess.Services
             return cities;
         } // GetCities
 
-        public async Task<BlindUserDetailsViewModel> GetUserDetails(string id)
+        public async Task<BlindUserDetailsViewModel> GetUserDetails(string id, string userId)
         {
             var result = Guid.TryParse(id, out Guid resultGuid);
 
@@ -44,6 +44,11 @@ namespace DigAccess.Services
             if (user == null)
             {
                 throw new Exception("Invalid id!");
+            }
+
+            if (user.AdministratorId != userId)
+            {
+                throw new Exception("Invalid administator!");
             }
 
             var city = await context.Cities.FindAsync(user.CityId);
@@ -117,7 +122,7 @@ namespace DigAccess.Services
             return true;
         } // Add
 
-        public async Task<BlindUserViewPageModel> GetUserInformation(DateTime currentDate,string id)
+        public async Task<BlindUserViewPageModel> GetUserInformation(DateTime currentDate,string id, string userId)
         {
             bool isValid = Guid.TryParse(id, out Guid resultId);
 
@@ -126,8 +131,14 @@ namespace DigAccess.Services
                 throw new Exception("Invalid id model!");
 
             }
+
+            if (await context.BlindUsers.AnyAsync(x=> x.Id == resultId && x.AdministratorId == userId) == false)
+            {
+                throw new Exception("Invalid user!");
+            }
+
             var user = await context.BlindUsers
-                .Select(x=> new BlindUserViewPageModel()
+                .Select(x => new BlindUserViewPageModel()
                 {
                     Id = x.Id,
                     FirstName = x.FirstName!,
@@ -136,7 +147,7 @@ namespace DigAccess.Services
                     Age = currentDate.Year - x.Birthdate!.Value.Year
                 })
                 .FirstOrDefaultAsync(x => x.Id == resultId);
-
+            
             return user;
         } // GetUserInformation
     }

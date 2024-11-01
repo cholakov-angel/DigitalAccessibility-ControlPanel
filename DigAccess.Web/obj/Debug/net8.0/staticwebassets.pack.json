@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\Screenshot 2024-08-14 163846.png",
+      "PackagePath": "staticwebassets\\img\\Screenshot 2024-08-14 163846.png"
+    },
+    {
+      "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\Screenshot 2024-08-14 180118.png",
+      "PackagePath": "staticwebassets\\img\\Screenshot 2024-08-14 180118.png"
+    },
+    {
+      "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\close-up-cropped-photo-legs-senior-man-with-walking-stick-walking-down-street-city-rainy-day-people-with-disabilities-health-concepts_248459-25385.jpg",
+      "PackagePath": "staticwebassets\\img\\close-up-cropped-photo-legs-senior-man-with-walking-stick-walking-down-street-city-rainy-day-people-with-disabilities-health-concepts_248459-25385.jpg"
+    },
+    {
       "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\house-door.png",
       "PackagePath": "staticwebassets\\img\\house-door.png"
     },
@@ -35,6 +47,10 @@
     {
       "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\person.svg",
       "PackagePath": "staticwebassets\\img\\person.svg"
+    },
+    {
+      "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\question-circle.svg",
+      "PackagePath": "staticwebassets\\img\\question-circle.svg"
     },
     {
       "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\js\\site.js",

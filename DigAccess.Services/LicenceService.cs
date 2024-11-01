@@ -35,15 +35,24 @@ namespace DigAccess.Services
             return users;
         } // GetAll
 
-        public async Task<UserLicenceViewModel> GetLicences(string userId)
+        public async Task<UserLicenceViewModel> GetLicences(string blindUserId, string userId)
         {
-            bool isIdValid = Guid.TryParse(userId, out Guid id);
+            // Проверка дали въведения идентификатор за незрящо лице е във валиден формат
+            bool isIdValid = Guid.TryParse(blindUserId, out Guid id);
 
             if (!isIdValid)
             {
                 throw new Exception("Invalid id!");
             }
+
             var blindUser = await context.BlindUsers.FindAsync(id);
+
+            // Проверка дали администратора на незрящото лице е потребителя, влезнал в системата
+            if (blindUser.AdministratorId != userId)
+            {
+                throw new Exception("Invalid administrator!");
+            }
+
             var licences = context.BlindUsers.Where(x => x.Id == id)
                 .Select(x => new UserLicenceViewModel()
                 {
@@ -63,6 +72,7 @@ namespace DigAccess.Services
 
         public async Task GenerateLicence(string blindUserId, string userId, Random random, DateTime dateFrom)
         {
+            // Проверка дали въведения идентификатор за незрящо лице е Във валиден формат
             bool isIdValid = Guid.TryParse(blindUserId, out Guid id);
 
             if (!isIdValid)
@@ -72,11 +82,19 @@ namespace DigAccess.Services
 
             var user = await context.BlindUsers.FirstOrDefaultAsync(x => x.Id == id);
 
+            if (user == null)
+            {
+                throw new Exception("Invalid user!");
+            }
+
+            // Проверка дали администратора на незрящото лице е влезналият в системата потребител
             if (user.AdministratorId != userId)
             {
                 throw new Exception("Invalid user tries to add a licence key!");
             }
-            string licence = await BlindUserKey.GenerateKey(user.FirstName + user.MiddleName + user.LastName, user.PersonalId, random);
+            
+            string userName = user.FirstName + user.MiddleName + user.LastName;
+            string licence = await BlindUserKey.GenerateKey(userName, user.PersonalId, random);
         
             BlindUserLicence blindUserLicence = new BlindUserLicence();
             blindUserLicence.LicenceNumber = licence;
@@ -87,6 +105,6 @@ namespace DigAccess.Services
             
             await context.BlindUsersLicences.AddAsync(blindUserLicence);
             await context.SaveChangesAsync();
-        }
+        } // GenerateLicence
     }
 }

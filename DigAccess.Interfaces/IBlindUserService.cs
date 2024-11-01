@@ -13,8 +13,8 @@ namespace DigAccess.Interfaces
         public Task<List<BlindUserViewModel>> GetAllModels(string userId);
         public Task<bool> Add(BlindUserViewModel model, string userId);
         public Task<List<CityViewModel>> GetCities();
-        public Task<BlindUserDetailsViewModel> GetUserDetails(string id);
+        public Task<BlindUserDetailsViewModel> GetUserDetails(string id, string userId);
 
-        public Task<BlindUserViewPageModel> GetUserInformation(DateTime currentDate, string id);
+        public Task<BlindUserViewPageModel> GetUserInformation(DateTime currentDate, string id, string userId);
     } // IBlindUserService
 }
