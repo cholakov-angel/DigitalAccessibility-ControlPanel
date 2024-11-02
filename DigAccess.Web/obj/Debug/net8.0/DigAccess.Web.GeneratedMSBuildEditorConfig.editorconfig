@@ -82,8 +82,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/Licence/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcTGljZW5jZVxJbmRleC5jc2h0bWw=
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/Licence/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcTGljZW5jZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/Licence/UserLicence.cshtml]

@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DigAccess.Data.Entities.Enums;
 using DigAccess.Data.Entities.Organisation.Organisation;
 using Microsoft.AspNetCore.Identity;
 
@@ -32,5 +33,8 @@ namespace DigAccess.Data.Entities
         public Office Office { get; set; }
 
         public string? MasterKey { get; set; }
+
+        [PersonalData]
+        public Gender Gender { get; set; }
     }
 }

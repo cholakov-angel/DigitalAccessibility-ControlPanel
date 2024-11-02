@@ -12,21 +12,19 @@ else
         <thead>
         <tr>
             <th>Дата от</th>
-            <th>Дата до</th>
             <th>Активен</th>
             <th>Опции</th>
         </tr>
         </thead>
         <tbody>
-        @foreach (var blindUser in Model.Licences)
+        @foreach (var licence in Model.Licences)
         {
             <tr>
-                <td>@blindUser.DateFrom</td>
-                <td>@blindUser.DateTo</td>
-                <td>@blindUser.IsActivated</td>
+                <td>@licence.DateFrom</td>
+                <td>@licence.IsActivated</td>
                 <td>
                     <div class="p-2 flex-shrink-1">
-                        <a asp-action="Details" asp-route-id="@blindUser.Id" class="btn btn-dark"><h5>Опции</h5></a>
+                            <a asp-controller="Licence" asp-action="Details" asp-route-id="@licence.Id" class="btn btn-dark"><h5>Опции</h5></a>
                     </div>
                 </td>
             </tr>

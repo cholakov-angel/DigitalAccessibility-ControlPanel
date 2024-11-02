@@ -58,6 +58,9 @@ namespace DigAccess.DbContext.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
+
                     b.Property<string>("LastName")
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
@@ -134,7 +137,7 @@ namespace DigAccess.DbContext.Migrations
                     b.Property<DateTime>("DateFrom")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateTo")
+                    b.Property<DateTime>("DateOfActivation")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsActivated")
@@ -143,6 +146,10 @@ namespace DigAccess.DbContext.Migrations
                     b.Property<string>("LicenceNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MacAddress")
+                        .HasMaxLength(24)
+                        .HasColumnType("nvarchar(24)");
 
                     b.HasKey("Id");
 
@@ -519,6 +526,9 @@ namespace DigAccess.DbContext.Migrations
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");

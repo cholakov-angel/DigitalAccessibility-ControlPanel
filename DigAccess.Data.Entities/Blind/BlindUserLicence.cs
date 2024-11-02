@@ -18,13 +18,16 @@ namespace DigAccess.Data.Entities.Blind
         [ForeignKey(nameof(BlindUserId))]
         public BlindUser BlindUser { get; set; }
 
-        [Required] public string LicenceNumber { get; set; } = null!;
+        [Required] 
+        public string LicenceNumber { get; set; } = null!;
 
         public bool IsActivated { get; set; }
 
         public DateTime DateFrom { get; set; }
 
-        public DateTime DateTo { get; set; }
+        [MaxLength(24)]
+        public string? MacAddress { get; set; }
 
+        public DateTime DateOfActivation { get; set; }
     }
 }

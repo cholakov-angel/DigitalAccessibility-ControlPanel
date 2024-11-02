@@ -8,7 +8,7 @@ namespace DigAccess.Models.Licence
 {
     public class UserLicenceViewModel
     {
-        public Guid UserId { get; set; }
+        public string UserId { get; set; }
         public string FirstName { get; set; }
 
         public string MiddleName { get; set; }

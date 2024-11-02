@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DigAccess.Data.Entities.Address;
+using DigAccess.Data.Entities.Enums;
 using Microsoft.AspNetCore.Identity;
 
 namespace DigAccess.Data.Entities.Blind
@@ -58,6 +59,9 @@ namespace DigAccess.Data.Entities.Blind
 
         [ForeignKey(nameof(CityId))]
         public City City { get; set; }
+
+        [PersonalData]
+        public Gender Gender { get; set; }
 
         public ICollection<BlindUserLicence> BlindUserLicences { get; set; } = new List<BlindUserLicence>();
 

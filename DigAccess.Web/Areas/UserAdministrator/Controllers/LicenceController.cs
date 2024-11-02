@@ -56,5 +56,19 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 
             return RedirectToAction("Index");
         } // AddLicence
+
+        [HttpGet]
+        public async Task<IActionResult> Details(string id)
+        {
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (userId == null)
+            {
+                throw new ArgumentException("Invalid id!");
+            }
+
+            var model = await service.GetLicence(userId, id);
+            return View(model);
+        } // Details
     }
 }

@@ -21,6 +21,53 @@ namespace DigAccess.Services
         {
         } // LicenceService
 
+        public async Task<LicenceDetailsViewModel> GetLicence(string userId, string licenceId)
+        {
+            // Проверка дали идентификатора на лиценза е във валиден формат
+            bool isLicenceIdVald = Guid.TryParse(licenceId, out Guid licenceIdGuid);
+
+
+            if (!isLicenceIdVald)
+            {
+                throw new ArgumentException("Invalid id format!");
+
+            }
+
+            // Проверка дали съществува незрящ потребител с въведения идентикатор, който да е с администратор потребителя,
+            // влязъл в системата
+            bool isBlindUserValid = await context.BlindUsers.AnyAsync(x =>
+                                    x.BlindUserLicences.Any(x => x.Id == licenceIdGuid) && x.AdministratorId == userId);
+
+            if (!isBlindUserValid)
+            {
+                throw new ArgumentException("Invalid user or administrator!");
+            }
+            // Взимане на лиценза от базата данни
+            var licence = await context.BlindUsersLicences.FirstOrDefaultAsync(x => x.Id == licenceIdGuid);
+
+            if (licence == null)
+            {
+                throw new ArgumentException("Invalid licence id!");
+            }
+
+            var blindUser = await context.BlindUsers.FirstOrDefaultAsync(x => x.Id == licence.BlindUserId);
+            LicenceDetailsViewModel licenceModel = new LicenceDetailsViewModel();
+
+            licenceModel.Id = licenceId;
+            licenceModel.DateFrom = licence.DateFrom.ToString(Constants.DateTimeFormat);
+            licenceModel.MACAddress = licence.MacAddress;
+            licenceModel.IsActive = licence.IsActivated;
+            licenceModel.DateOfActivation = licence.DateOfActivation.ToString(Constants.DateTimeFormat);
+            licenceModel.BlindUser = new LicenceDetailsBlindUserViewModel()
+            {
+                Id = blindUser.Id.ToString(),
+                FirstName = blindUser.FirstName,
+                MiddleName = blindUser.MiddleName,
+                LastName = blindUser.LastName
+            };
+            return licenceModel;
+        } // GetLicence
+
         public async Task<List<LicenceAllViewModel>> GetAll(string userId)
         {
             var users = await context.BlindUsers.Where(x => x.AdministratorId == userId)
@@ -56,13 +103,13 @@ namespace DigAccess.Services
             var licences = context.BlindUsers.Where(x => x.Id == id)
                 .Select(x => new UserLicenceViewModel()
                 {
+                    UserId = x.Id.ToString(),
                     FirstName = x.FirstName,
                     LastName = x.LastName,
                     Licences = x.BlindUserLicences.Select(y => new LicenceViewModel()
                     {
                         DateFrom = y.DateFrom.ToString(Constants.DateTimeFormat),
-                        DateTo = y.DateTo.ToString(Constants.DateTimeFormat),
-                        Id = y.Id,
+                        Id = y.Id.ToString(),
                         IsActivated = y.IsActivated,
                     }).ToList()
                 }).FirstOrDefault();
@@ -100,7 +147,6 @@ namespace DigAccess.Services
             blindUserLicence.LicenceNumber = licence;
             blindUserLicence.BlindUserId = id;
             blindUserLicence.DateFrom = dateFrom;
-            blindUserLicence.DateTo = dateFrom.AddMonths(6);
             blindUserLicence.IsActivated = true;
             
             await context.BlindUsersLicences.AddAsync(blindUserLicence);
