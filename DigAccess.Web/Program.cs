@@ -25,7 +25,7 @@ namespace DigAccess.Web
                 .AddEntityFrameworkStores<DigAccessDbContext>();
             builder.Services.AddScoped<IService, BaseService>();
             builder.Services.AddScoped<IBlindUserService, BlindUserService>();
-            builder.Services.AddScoped<ILicenceService, LicenceService>();
+            builder.Services.AddScoped<ILicenseService, LicenceService>();
             builder.Services.AddScoped<IMasterKeyService, MasterKeyService>();
             builder.Services.AddScoped<IUserAdministratorService, UserAdministratorService>();
 

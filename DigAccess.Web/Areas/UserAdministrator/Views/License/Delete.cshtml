@@ -1,0 +1,9 @@
+﻿@using DigAccess.Models.License
+@model LicenseDeleteViewModel
+
+<h1>Сигурни ли сте, че искате да изтриете лиценза?</h1>
+<h3>@Model.DateFrom</h3>
+<h3>@Model.MACAddress</h3>
+
+<a asp-action="DeleteConfirm" asp-route-id="@Model.Id" class="btn btn-dark"><h5>Да</h5></a>
+<a asp-action="UserLicense" asp-route-id="@Model.BlindUserId" class="btn btn-dark"><h5>Не</h5></a>

@@ -82,20 +82,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/Licence/AddLicence.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcTGljZW5jZVxBZGRMaWNlbmNlLmNzaHRtbA==
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/License/AddLicense.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcTGljZW5zZVxBZGRMaWNlbnNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/Licence/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcTGljZW5jZVxEZWxldGUuY3NodG1s
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/License/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcTGljZW5zZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/Licence/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcTGljZW5jZVxEZXRhaWxzLmNzaHRtbA==
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/License/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcTGljZW5zZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/Licence/UserLicence.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcTGljZW5jZVxVc2VyTGljZW5jZS5jc2h0bWw=
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/License/UserLicense.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcTGljZW5zZVxVc2VyTGljZW5zZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/MasterKey/Index.cshtml]

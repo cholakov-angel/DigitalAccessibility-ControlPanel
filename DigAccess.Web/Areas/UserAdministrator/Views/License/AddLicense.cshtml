@@ -1,0 +1,7 @@
+﻿@using DigAccess.Models.License
+@model LicenseKeyViewModel
+
+<h1>Ключ: @Model.Key</h1>
+<h3>Валиден от: @Model.DateFrom</h3>
+
+<a asp-action="UserLicense" asp-route-id="@Model.BlindUserId" class="btn btn-dark"><h5>ОК</h5></a>
