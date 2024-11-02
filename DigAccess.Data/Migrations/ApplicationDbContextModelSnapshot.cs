@@ -143,6 +143,11 @@ namespace DigAccess.DbContext.Migrations
                     b.Property<bool>("IsActivated")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
                     b.Property<string>("LicenceNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

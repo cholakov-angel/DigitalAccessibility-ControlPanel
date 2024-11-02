@@ -21,6 +21,10 @@ namespace DigAccess.Web.Data
             builder.Entity<BlindUserFeature>()
                 .HasKey(x => new { x.BlindUserId, x.FeatureId });
 
+            builder.Entity<BlindUserLicence>()
+                .Property(x => x.IsDeleted)
+                .HasDefaultValue(false);
+
             base.OnModelCreating(builder);
         } // OnModelCreating
 

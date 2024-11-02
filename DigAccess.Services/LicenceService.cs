@@ -68,20 +68,6 @@ namespace DigAccess.Services
             return licenceModel;
         } // GetLicence
 
-        public async Task<List<LicenceAllViewModel>> GetAll(string userId)
-        {
-            var users = await context.BlindUsers.Where(x => x.AdministratorId == userId)
-                .Select(x=> new LicenceAllViewModel()
-                {
-                    Id = x.Id,
-                    LicenceNumber = context.BlindUsersLicences.Count(y=> y.BlindUserId == x.Id && y.IsActivated),
-                    FirstName = x.FirstName,
-                    LastName = x.LastName
-                }).ToListAsync();
-
-            return users;
-        } // GetAll
-
         public async Task<UserLicenceViewModel> GetLicences(string blindUserId, string userId)
         {
             // Проверка дали въведения идентификатор за незрящо лице е във валиден формат
@@ -94,6 +80,10 @@ namespace DigAccess.Services
 
             var blindUser = await context.BlindUsers.FindAsync(id);
 
+            if (blindUser == null)
+            {
+                throw new Exception("Invalid user!");
+            }
             // Проверка дали администратора на незрящото лице е потребителя, влезнал в системата
             if (blindUser.AdministratorId != userId)
             {
@@ -106,18 +96,19 @@ namespace DigAccess.Services
                     UserId = x.Id.ToString(),
                     FirstName = x.FirstName,
                     LastName = x.LastName,
-                    Licences = x.BlindUserLicences.Select(y => new LicenceViewModel()
-                    {
-                        DateFrom = y.DateFrom.ToString(Constants.DateTimeFormat),
-                        Id = y.Id.ToString(),
-                        IsActivated = y.IsActivated,
-                    }).ToList()
+                    Licences = x.BlindUserLicences.Where(x => x.IsDeleted == false)
+                        .Select(y => new LicenceViewModel()
+                        {
+                            DateFrom = y.DateFrom.ToString(Constants.DateTimeFormat),
+                            Id = y.Id.ToString(),
+                            IsActivated = y.IsActivated,
+                        }).ToList()
                 }).FirstOrDefault();
 
             return licences;
         } // GetLicences
 
-        public async Task GenerateLicence(string blindUserId, string userId, Random random, DateTime dateFrom)
+        public async Task<LicenceKeyViewModel> GenerateLicence(string blindUserId, string userId, Random random, DateTime dateFrom)
         {
             // Проверка дали въведения идентификатор за незрящо лице е Във валиден формат
             bool isIdValid = Guid.TryParse(blindUserId, out Guid id);
@@ -139,18 +130,92 @@ namespace DigAccess.Services
             {
                 throw new Exception("Invalid user tries to add a licence key!");
             }
-            
+
             string userName = user.FirstName + user.MiddleName + user.LastName;
             string licence = await BlindUserKey.GenerateKey(userName, user.PersonalId, random);
-        
+
             BlindUserLicence blindUserLicence = new BlindUserLicence();
             blindUserLicence.LicenceNumber = licence;
             blindUserLicence.BlindUserId = id;
             blindUserLicence.DateFrom = dateFrom;
             blindUserLicence.IsActivated = true;
-            
+
             await context.BlindUsersLicences.AddAsync(blindUserLicence);
             await context.SaveChangesAsync();
+
+            LicenceKeyViewModel model = new LicenceKeyViewModel();
+            model.DateFrom = blindUserLicence.DateFrom.ToString(Constants.DateTimeFormat);
+            model.Id = blindUserLicence.Id.ToString();
+            model.BlindUserId = blindUserLicence.BlindUserId.ToString();
+            model.Key = blindUserLicence.LicenceNumber;
+            return model;
         } // GenerateLicence
+
+        public async Task<LicenceDeleteViewModel> DeleteLicenceConfirm(string userId, string licenceId)
+        {
+            // Проверка дали идентификатора на лиценза е във валиден формат
+            bool isLicenceIdVald = Guid.TryParse(licenceId, out Guid licenceIdGuid);
+
+            if (!isLicenceIdVald)
+            {
+                throw new ArgumentException("Invalid id format!");
+
+            }
+
+            // Проверка дали съществува незрящ потребител с въведения идентикатор, който да е с администратор потребителя,
+            // влязъл в системата
+            bool isBlindUserValid = await context.BlindUsers.AnyAsync(x =>
+                                    x.BlindUserLicences.Any(x => x.Id == licenceIdGuid) && x.AdministratorId == userId);
+
+            if (!isBlindUserValid)
+            {
+                throw new ArgumentException("Invalid user or administrator!");
+            }
+
+            // Взимане на лиценза от базата данни
+            var licence = await context.BlindUsersLicences.FirstOrDefaultAsync(x => x.Id == licenceIdGuid);
+
+            LicenceDeleteViewModel licenceViewModel = new LicenceDeleteViewModel();
+            licenceViewModel.Id = licence.Id.ToString();
+            licenceViewModel.MACAddress = licence.MacAddress;
+            licenceViewModel.DateFrom = licence.DateFrom.Date.ToString(Constants.DateTimeFormat);
+            licenceViewModel.BlindUserId = licence.BlindUserId.ToString();
+            return licenceViewModel;
+        }
+        public async Task<string> DeleteLicence(string userId, string licenceId)
+        {
+            // Проверка дали идентификатора на лиценза е във валиден формат
+            bool isLicenceIdVald = Guid.TryParse(licenceId, out Guid licenceIdGuid);
+
+            if (!isLicenceIdVald)
+            {
+                throw new ArgumentException("Invalid id format!");
+
+            }
+
+            // Проверка дали съществува незрящ потребител с въведения идентикатор, който да е с администратор потребителя,
+            // влязъл в системата
+            bool isBlindUserValid = await context.BlindUsers.AnyAsync(x =>
+                                    x.BlindUserLicences.Any(x => x.Id == licenceIdGuid) && x.AdministratorId == userId);
+
+            if (!isBlindUserValid)
+            {
+                throw new ArgumentException("Invalid user or administrator!");
+            }
+            // Взимане на лиценза от базата данни
+            var licence = await context.BlindUsersLicences.FirstOrDefaultAsync(x => x.Id == licenceIdGuid);
+
+            if (licence == null)
+            {
+                throw new ArgumentException("Invalid licence id!");
+            }
+
+            licence.IsDeleted = true;
+
+            await context.SaveChangesAsync();
+
+
+            return licence.BlindUserId.ToString();
+        }
     }
 }

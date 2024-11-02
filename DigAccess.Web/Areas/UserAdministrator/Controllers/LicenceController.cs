@@ -1,5 +1,6 @@
 ﻿using DigAccess.Data.Entities;
 using DigAccess.Interfaces;
+using DigAccess.Models.Licence;
 using DigAccess.Web.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -21,19 +22,6 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
             this.userManager = userManager;
         } // LicenceController
 
-        public async Task<IActionResult> Index()
-        {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
-
-            var users = await service.GetAll(userId);
-            return View(users);
-        } // Index
-
         public async Task<IActionResult> UserLicence(string id)
         {
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -52,9 +40,9 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
                 throw new ArgumentException("Invalid id!");
             }
 
-            await service.GenerateLicence(id, userId, new Random(), DateTime.Now);
+            var model = await service.GenerateLicence(id, userId, new Random(), DateTime.Now);
 
-            return RedirectToAction("Index");
+            return View(model);
         } // AddLicence
 
         [HttpGet]
@@ -70,5 +58,38 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
             var model = await service.GetLicence(userId, id);
             return View(model);
         } // Details
+
+        public async Task<IActionResult> Delete(string id)
+        {
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (userId == null)
+            {
+                throw new ArgumentException("Invalid id!");
+            }
+
+            var model = await service.DeleteLicenceConfirm(userId, id);
+
+            if (model == null)
+            {
+                throw new ArgumentException("Invalid licence!");
+            }
+
+            return View(model);
+        }
+
+        public async Task<IActionResult> DeleteConfirm(string id)
+        {
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (userId == null)
+            {
+                throw new ArgumentException("Invalid id!");
+            }
+
+            string blindUserId = await service.DeleteLicence(userId, id);
+
+            return RedirectToAction("UserLicence", new { Id = blindUserId });
+        }
     }
 }

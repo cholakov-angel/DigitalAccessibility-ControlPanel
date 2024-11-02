@@ -29,5 +29,7 @@ namespace DigAccess.Data.Entities.Blind
         public string? MacAddress { get; set; }
 
         public DateTime DateOfActivation { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }
