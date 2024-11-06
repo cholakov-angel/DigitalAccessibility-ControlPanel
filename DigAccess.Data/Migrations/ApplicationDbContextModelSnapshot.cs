@@ -93,6 +93,10 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasIndex("CityId");
 
+                    b.HasIndex("PersonalId")
+                        .IsUnique()
+                        .HasFilter("[PersonalId] IS NOT NULL");
+
                     b.ToTable("BlindUsers");
                 });
 
@@ -552,6 +556,10 @@ namespace DigAccess.DbContext.Migrations
                         .HasColumnType("CHAR(10)");
 
                     b.HasIndex("OfficeId");
+
+                    b.HasIndex("PersonalId")
+                        .IsUnique()
+                        .HasFilter("[PersonalId] IS NOT NULL");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });

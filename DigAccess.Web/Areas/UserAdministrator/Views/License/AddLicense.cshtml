@@ -1,7 +1,29 @@
 ﻿@using DigAccess.Models.License
 @model LicenseKeyViewModel
-
-<h1>Ключ: @Model.Key</h1>
-<h3>Валиден от: @Model.DateFrom</h3>
-
-<a asp-action="UserLicense" asp-route-id="@Model.BlindUserId" class="btn btn-dark"><h5>ОК</h5></a>
+<h1>Преглед на лиценз</h1>
+<br/>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Ключ</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Моля, копирайте ключа!</h6>
+        <p class="card-text">
+            <h3><center><b>@Model.Key</b></center></h3>
+        <p><center>Валиден от: @Model.DateFrom</center></p>
+  </div>
+</div>
+<br/>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Указания за активация</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Активиране на потребителя в "Дигитална достъпност"</h6>
+        <p class="card-text">
+            It allowance prevailed enjoyment in it. Calling observe for who pressed raising his. Can connection instrument astonished unaffected his motionless preference. Announcing say boy precaution unaffected difficulty alteration him. Above be would at so going heard. Engaged at village at am equally proceed. Settle nay length almost ham direct extent. Agreement for listening remainder get attention law acuteness day. Now whatever surprise resolved elegance indulged own way outlived.
+            Now indulgence dissimilar for his thoroughly has terminated. Agreement offending commanded my an. Change wholly say why eldest period. Are projection put celebrated particular unreserved joy unsatiable its. In then dare good am rose bred or. On am in nearer square wanted.
+            Cottage out enabled was entered greatly prevent message. No procured unlocked an likewise. Dear but what she been over gay felt body. Six principles advantages and use entreaties decisively. Eat met has dwelling unpacked see whatever followed. Court in of leave again as am. Greater sixteen to forming colonel no on be. So an advice hardly barton. He be turned sudden engage manner spirit.
+        </p>
+    </div>
+</div>
+</br>
+<div class="align-self-end">
+    <a asp-action="UserLicense" asp-route-id="@Model.BlindUserId" class="btn btn-dark"><h5>ОК</h5></a>
+</div>

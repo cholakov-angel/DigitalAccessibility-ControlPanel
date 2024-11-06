@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Sdms0+hc8rA9tyOWdi9sjICHquUC/m7h8AgcaJsw4RA=",
+  "Hash": "XE3KB1+i1BB5Y1rYzQkHWzqDJJUSygRTEnpZiFasY3Q=",
   "Source": "DigAccess.Web",
   "BasePath": "_content/DigAccess.Web",
   "Mode": "Default",
@@ -1459,6 +1459,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Screenshot 2024-08-14 180118.png"
+    },
+    {
+      "Identity": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\search.svg",
+      "SourceId": "DigAccess.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\",
+      "BasePath": "_content/DigAccess.Web",
+      "RelativePath": "img/search.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\search.svg"
     },
     {
       "Identity": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\js\\site.js",

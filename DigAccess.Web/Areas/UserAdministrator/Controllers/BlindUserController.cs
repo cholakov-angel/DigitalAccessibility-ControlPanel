@@ -41,6 +41,19 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
             return View(list);
         } // Index
 
+        public async Task<IActionResult> GetUser(string name)
+        {
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (userId == null)
+            {
+                throw new ArgumentException("Invalid id!");
+            }
+
+            var list = await service.GetModel(userId, name);
+
+            return View("Index", list);
+        }
         [HttpGet]
         public async Task<IActionResult> Add()
         {

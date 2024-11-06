@@ -36,12 +36,15 @@
                 <br>
                 <div class="row">
                     <a asp-action="UserLicense" asp-controller="License" asp-route-id="@Model.Id" class="btn btn-white text-start"><b><h7>Преглед / Редакция</h7></b></a>
-                    <hr>
-                    <a asp-action="AddLicense" asp-controller="License" asp-route-id="@Model.Id" class="btn btn-white text-start"><b><h7>Добавяне</h7></b></a>
+                    @if (Model.LicenseNumber < 3)
+                    {
+                        <hr>
+                        <a asp-action="AddLicense" asp-controller="License" asp-route-id="@Model.Id" class="btn btn-white text-start"><b><h7>Добавяне</h7></b></a>
+                    }
                 </div>
             </div>
-            </div>
         </div>
+    </div>
 
     <div class="col-6">
         <div class="card">
@@ -57,5 +60,5 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 </div>

@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets\\img\\question-circle.svg"
     },
     {
+      "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\search.svg",
+      "PackagePath": "staticwebassets\\img\\search.svg"
+    },
+    {
       "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

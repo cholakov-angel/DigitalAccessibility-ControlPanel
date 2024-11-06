@@ -25,6 +25,14 @@ namespace DigAccess.Web.Data
                 .Property(x => x.IsDeleted)
                 .HasDefaultValue(false);
 
+            builder.Entity<BlindUser>()
+                .HasIndex(x => x.PersonalId)
+                .IsUnique(true);
+
+            builder.Entity<ApplicationUser>()
+                .HasIndex(x => x.PersonalId)
+                .IsUnique(true);
+
             base.OnModelCreating(builder);
         } // OnModelCreating
 

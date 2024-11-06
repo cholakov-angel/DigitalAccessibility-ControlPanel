@@ -83,6 +83,29 @@ namespace DigAccess.Services
                 }).ToListAsync();
         } // GetAllModels
 
+        public async Task<List<BlindUserViewModel>> GetModel(string userId, string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                return await this.GetAllModels(userId);
+            }
+           
+            return await context.BlindUsers
+                .Where(x => x.AdministratorId == userId && (x.FirstName + " " + x.LastName).ToLower().StartsWith(name.ToLower()))
+                .Select(x => new BlindUserViewModel()
+                {
+                    Id = x.Id,
+                    City = x.City.Name,
+                    FirstName = x.FirstName,
+                    MiddleName = x.MiddleName,
+                    LastName = x.LastName,
+                    Street = x.Street,
+                    StreetNumber = x.StreetNumber,
+                    TELKID = x.TELKNumber,
+                    PersonalId = x.PersonalId,
+                    BirthDate = x.Birthdate.Value.ToString(Constants.DateTimeFormat)
+                }).ToListAsync();
+        } // GetModel
         public async Task<bool> Add(BlindUserViewModel model, string userId)
         {
             BlindUser user = new BlindUser();
@@ -138,15 +161,17 @@ namespace DigAccess.Services
             }
 
             var user = await context.BlindUsers
+                .Where(x => x.Id == resultId)
                 .Select(x => new BlindUserViewPageModel()
                 {
                     Id = x.Id,
                     FirstName = x.FirstName!,
                     MiddleName = x.MiddleName!,
                     LastName = x.LastName!,
+                    LicenseNumber = x.BlindUserLicences.Where(y=> y.IsDeleted == false).Count(y=> y.BlindUserId == x.Id),
                     Age = currentDate.Year - x.Birthdate!.Value.Year
                 })
-                .FirstOrDefaultAsync(x => x.Id == resultId);
+                .FirstOrDefaultAsync();
             
             return user;
         } // GetUserInformation

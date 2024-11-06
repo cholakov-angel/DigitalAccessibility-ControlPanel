@@ -19,6 +19,8 @@ namespace DigAccess.Models.BlindUser
 
         public int Age { get; set; }
 
+        public int LicenseNumber { get; set; }
+
         public bool IsProfileActive { get; set; }
     }
 }
