@@ -61,4 +61,33 @@
         </div>
     </div>
 </div>
+<br />
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Комуникационни услуги</h4>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                <br>
+                <div class="row">
+                    <a asp-action="Index" asp-controller="EmailSettings" asp-route-id="@Model.Id" class="btn btn-white text-start"><b><h7>Имейл настройки</h7></b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Грешки</h4>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                <br>
+                <div class="row">
+                    <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-white text-start"><b><h7>Преглед</h7></b></a>
+                    <hr>
+                    <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-white text-start"><b><h7>Помощ</h7></b></a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

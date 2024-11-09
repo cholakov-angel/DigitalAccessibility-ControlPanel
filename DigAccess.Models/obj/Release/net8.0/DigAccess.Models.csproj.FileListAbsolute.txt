@@ -1,0 +1,16 @@
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\bin\Release\net8.0\DigAccess.Models.deps.json
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\bin\Release\net8.0\DigAccess.Models.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\bin\Release\net8.0\DigAccess.Models.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\bin\Release\net8.0\DigAccess.Common.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\bin\Release\net8.0\DigAccess.Common.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Release\net8.0\DigAccess.Models.csproj.AssemblyReference.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Release\net8.0\DigAccess.Models.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Release\net8.0\DigAccess.Models.AssemblyInfoInputs.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Release\net8.0\DigAccess.Models.AssemblyInfo.cs
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Release\net8.0\DigAccess.Models.csproj.CoreCompileInputs.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Release\net8.0\DigAccess.Models.sourcelink.json
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Release\net8.0\DigAccess.Models.csproj.CopyComplete
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Release\net8.0\DigAccess.Models.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Release\net8.0\refint\DigAccess.Models.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Release\net8.0\DigAccess.Models.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Models\obj\Release\net8.0\ref\DigAccess.Models.dll

@@ -1,0 +1,16 @@
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\bin\Release\net8.0\DigAccess.DbContext.deps.json
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\bin\Release\net8.0\DigAccess.DbContext.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\bin\Release\net8.0\DigAccess.DbContext.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\bin\Release\net8.0\DigAccess.Data.Entities.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\bin\Release\net8.0\DigAccess.Data.Entities.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\obj\Release\net8.0\DigAccess.DbContext.csproj.AssemblyReference.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\obj\Release\net8.0\DigAccess.DbContext.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\obj\Release\net8.0\DigAccess.DbContext.AssemblyInfoInputs.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\obj\Release\net8.0\DigAccess.DbContext.AssemblyInfo.cs
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\obj\Release\net8.0\DigAccess.DbContext.csproj.CoreCompileInputs.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\obj\Release\net8.0\DigAccess.DbContext.sourcelink.json
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\obj\Release\net8.0\DigAccess.DbContext.csproj.CopyComplete
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\obj\Release\net8.0\DigAccess.DbContext.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\obj\Release\net8.0\refint\DigAccess.DbContext.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\obj\Release\net8.0\DigAccess.DbContext.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\obj\Release\net8.0\ref\DigAccess.DbContext.dll

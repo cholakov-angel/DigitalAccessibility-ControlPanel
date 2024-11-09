@@ -1,0 +1,12 @@
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Keys\bin\Release\net8.0\DigAccess.Keys.deps.json
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Keys\bin\Release\net8.0\DigAccess.Keys.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Keys\bin\Release\net8.0\DigAccess.Keys.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Keys\obj\Release\net8.0\DigAccess.Keys.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Keys\obj\Release\net8.0\DigAccess.Keys.AssemblyInfoInputs.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Keys\obj\Release\net8.0\DigAccess.Keys.AssemblyInfo.cs
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Keys\obj\Release\net8.0\DigAccess.Keys.csproj.CoreCompileInputs.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Keys\obj\Release\net8.0\DigAccess.Keys.sourcelink.json
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Keys\obj\Release\net8.0\DigAccess.Keys.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Keys\obj\Release\net8.0\refint\DigAccess.Keys.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Keys\obj\Release\net8.0\DigAccess.Keys.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Keys\obj\Release\net8.0\ref\DigAccess.Keys.dll

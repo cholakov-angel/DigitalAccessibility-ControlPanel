@@ -1,0 +1,40 @@
+﻿@using DigAccess.Models.EmailSettings
+@model EmailViewModel
+
+@if (Model.Email == null)
+{
+    <h4>Няма имейл информация за потребителя!</h4>
+    <a asp-action="Add" asp-controller="EmailSettings" asp-route-id="@Model.BlindUserId" class="btn btn-dark mt-2">Добавяне</a>
+}
+else
+{
+    <h2>Имейл</h2>
+
+    <br />
+    <div class="card text-center">
+        <div class="card-body">
+            <h5 class="card-title">Информация</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+            <p class="card-text">
+                <br />
+                Имейл адрес: @Model.Email
+                <br />
+                Имейл доставчик: @Model.EmailProvider
+            </p>
+            <br />
+        </div>
+    </div>
+    <br />
+    <div class="card text-center">
+        <div class="card-body">
+            <h5 class="card-title">Действия</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+            <p class="card-text">
+                <br />
+                    <a asp-action="Edit" asp-controller="EmailSettings" asp-route-id="@Model.Id" class="p-2 btn btn-dark">Редактиране</a>
+                    <a asp-action="Edit" asp-controller="EmailSettings" asp-route-id="@Model.Id" class="p-2 btn btn-dark">Изтриване</a>
+            </p>
+            <br />
+        </div>
+    </div>
+}

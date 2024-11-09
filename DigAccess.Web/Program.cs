@@ -28,6 +28,7 @@ namespace DigAccess.Web
             builder.Services.AddScoped<ILicenseService, LicenceService>();
             builder.Services.AddScoped<IMasterKeyService, MasterKeyService>();
             builder.Services.AddScoped<IUserAdministratorService, UserAdministratorService>();
+            builder.Services.AddScoped<IEmailSettingsService, EmailSettingsService>();
 
             builder.Services.AddControllersWithViews();
 

@@ -1,0 +1,44 @@
+﻿@model DigAccess.Models.EmailSettings.EmailAddViewModel
+@{
+    ViewData["Title"] = "Добавяне на потребител";
+}
+
+<div class="d-flex justify-content-start p-2">
+    <a asp-action="Index" asp-route-id="@Model.BlindUserId"> <button class="btn btn-dark mt-2"><h6><</h6></button></a>
+    <h2 class="p-2">Добавяне на имейл</h2>
+</div>
+<form asp-action="Add" method="post">
+    <div>
+        <label for="Email">Имейл</label>
+        <span asp-validation-for="@Model.Email" class="text-danger"></span>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div>
+        <label for="Password">Парола</label>
+        <span asp-validation-for="@Model.Password" class="text-danger"></span>
+        <input asp-for="Password" class="form-control" />
+    </div>
+    <label for="EmailProvider">Доставчик на имейл</label>
+    <div class="input-group mb-3">
+        <select asp-for="EmailProvider" class="form-select" id="inputGroupSelect02">
+            @foreach (var email in Model.EmailProviders)
+            {
+                <option value=@email.Id>@email.Name</option>
+            }
+        </select>
+    </div>
+    <div class="d-none">
+        <div>
+            <label for="BlindUserId">Потребител</label>
+            <span asp-validation-for="@Model.BlindUserId" class="text-danger"></span>
+            <input asp-for="BlindUserId" class="form-control" />
+        </div>
+        <div>
+            <label for="AdministratorId">Администратор</label>
+            <span asp-validation-for="@Model.AdministratorId" class="text-danger"></span>
+            <input asp-for="AdministratorId" class="form-control" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-dark mt-2">Създаване</button>
+</form>
+

@@ -29,7 +29,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (userId == null)
             {
@@ -43,7 +43,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 
         public async Task<IActionResult> GetUser(string name)
         {
-            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (userId == null)
             {
@@ -94,7 +94,12 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
         [HttpGet]
         public async Task<IActionResult> Details(string id)
         {
-            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (userId == null)
+            {
+                throw new ArgumentException("Invalid id!");
+            }
 
             var model = await service.GetUserDetails(id, userId);
 
@@ -108,7 +113,12 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 
         public async Task<IActionResult> UserPage(string id)
         {
-            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (userId == null)
+            {
+                throw new ArgumentException("Invalid id!");
+            }
 
             var user = await service.GetUserInformation(DateTime.Now, id, userId);
 

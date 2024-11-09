@@ -1,0 +1,13 @@
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\bin\Release\net8.0\DigAccess.Data.Entities.deps.json
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\bin\Release\net8.0\DigAccess.Data.Entities.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\bin\Release\net8.0\DigAccess.Data.Entities.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\obj\Release\net8.0\DigAccess.Data.Entities.csproj.AssemblyReference.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\obj\Release\net8.0\DigAccess.Data.Entities.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\obj\Release\net8.0\DigAccess.Data.Entities.AssemblyInfoInputs.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\obj\Release\net8.0\DigAccess.Data.Entities.AssemblyInfo.cs
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\obj\Release\net8.0\DigAccess.Data.Entities.csproj.CoreCompileInputs.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\obj\Release\net8.0\DigAccess.Data.Entities.sourcelink.json
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\obj\Release\net8.0\DigAccess.Data.Entities.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\obj\Release\net8.0\refint\DigAccess.Data.Entities.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\obj\Release\net8.0\DigAccess.Data.Entities.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\obj\Release\net8.0\ref\DigAccess.Data.Entities.dll
