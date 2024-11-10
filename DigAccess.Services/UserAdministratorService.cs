@@ -33,6 +33,6 @@ namespace DigAccess.Services
                     LastName = x.LastName
                 }).ToListAsync();
             return model;
-        }
-    }
+        } // GetAllUsers
+    } // UserAdministratorService
 }

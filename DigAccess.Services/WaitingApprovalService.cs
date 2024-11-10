@@ -1,0 +1,119 @@
+﻿using DigAccess.Data.Entities;
+using DigAccess.Models.WaitingApproval;
+using DigAccess.Services.Interfaces;
+using DigAccess.Web.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DigAccess.Services
+{
+    public class WaitingApprovalService : BaseService, IWaitingApprovalService
+    {
+        public WaitingApprovalService(DigAccessDbContext context, UserManager<ApplicationUser> userManager) : base(context, userManager)
+        {
+        } // WaitingApprovalService
+
+        public async Task<List<OfficeViewModel>> GetOffices(string organisationId)
+        {
+            // Проверка дали идентификатора е във валиден формат
+            bool isOrganisationIdVald = Guid.TryParse(organisationId, out Guid organisationIdGuid);
+
+
+            if (!isOrganisationIdVald)
+            {
+                throw new ArgumentException("Invalid id format!");
+            }
+
+            return await context.Offices.Where(x => x.OrganisationId == organisationIdGuid)
+               .Select(x => new OfficeViewModel
+               {
+                   Id = x.Id.ToString(),
+                   Name = x.Name
+               }).ToListAsync();
+        } // GetOffices
+
+        public async Task<List<OrganisationViewModel>> GetOrganisations()
+        {
+            return await context.Organisations.Select(x => new OrganisationViewModel
+            {
+                Id = x.Id.ToString(),
+                Name = x.Name
+            }).ToListAsync();
+        } // GetOrganisations
+
+        public async Task<WaitingApprovalViewModel> OfficeSelect(string organisationId)
+        {
+            // Проверка дали идентификатора е във валиден формат
+            bool isOrganisationIdVald = Guid.TryParse(organisationId, out Guid organisationIdGuid);
+
+
+            if (!isOrganisationIdVald)
+            {
+                throw new ArgumentException("Invalid id format!");
+
+            }
+            var organisation = await context.Organisations.FirstOrDefaultAsync(x => x.Id == organisationIdGuid);
+            if (organisation == null)
+            {
+                throw new ArgumentException("Invalid organisation!");
+            }
+
+            WaitingApprovalViewModel model = new WaitingApprovalViewModel();
+            model.OrganisationId = organisationId;
+            model.OrganisationName = organisation.Name;
+            model.Offices = await context.Offices.Where(x => x.OrganisationId == organisationIdGuid)
+                .Select(x => new OfficeViewModel
+                {
+                    Id = x.Id.ToString(),
+                    Name = x.Name
+                }).ToListAsync();
+
+            return model;
+        } // OfficeSelect
+
+        public async Task<bool> SetOrganisationForUser(string userId, WaitingApprovalViewModel model)
+        {
+            if (userId == null || model == null)
+            {
+                throw new ArgumentException("Invalid parameters!");
+            }
+
+            var user = await userManager.Users.FirstOrDefaultAsync(x=> x.Id == userId);
+
+            if (user == null)
+            {
+                throw new ArgumentException("Invalid parameters!");
+            }
+
+            // Проверка дали идентификатора е във валиден формат
+            bool isOrganisationIdVald = Guid.TryParse(model.OrganisationId, out Guid organisationIdGuid);
+
+            if (!isOrganisationIdVald)
+            {
+                throw new ArgumentException("Invalid id format!");
+            }
+
+            // Проверка дали идентификатора е във валиден формат
+            bool isOfficeValid = Guid.TryParse(model.OfficeId, out Guid officeIdGuid);
+
+            if (!isOfficeValid)
+            {
+                throw new ArgumentException("Invalid id format!");
+            }
+
+            if (await context.Offices.AnyAsync(x=> x.Id ==  officeIdGuid && x.OrganisationId == organisationIdGuid) == false)
+            {
+                throw new ArgumentException("Invalid model!");
+            }
+
+            user.OfficeId = officeIdGuid;
+            await context.SaveChangesAsync();
+            return true;
+        } // SetOrganisationForUser
+    } // WaitingApprovalService
+}

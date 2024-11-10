@@ -29,24 +29,27 @@
                                 <a class="nav-link icon-link text-dark" asp-controller="Home" asp-action="Index">Начало</a>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <div class="d-flex flex-row p-2">
-                                <img class="p-2" src="~/img/person.svg" />
-                                <a class="nav-link text-dark" asp-controller="BlindUser" asp-action="Index">Потребители</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="d-flex flex-row p-2">
-                                <img class="p-2" src="~/img/lock.svg" />
-                                <a class="nav-link text-dark" asp-area="UserAdministrator" asp-controller="MasterKey" asp-action="Index">Настройки</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="d-flex flex-row p-2">
-                                <img class="p-2" src="~/img/question-circle.svg" />
-                                <a class="nav-link text-dark" asp-area="UserAdministrator" asp-controller="MasterKey" asp-action="Index">Помощ</a>
-                            </div>
-                        </li>
+                        @if (User.IsInRole("UserAdministrator"))
+                        {
+                            <li class="nav-item">
+                                <div class="d-flex flex-row p-2">
+                                    <img class="p-2" src="~/img/person.svg" />
+                                    <a class="nav-link text-dark" asp-controller="BlindUser" asp-action="Index">Потребители</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="d-flex flex-row p-2">
+                                    <img class="p-2" src="~/img/lock.svg" />
+                                    <a class="nav-link text-dark" asp-area="UserAdministrator" asp-controller="MasterKey" asp-action="Index">Настройки</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="d-flex flex-row p-2">
+                                    <img class="p-2" src="~/img/question-circle.svg" />
+                                    <a class="nav-link text-dark" asp-area="UserAdministrator" asp-controller="MasterKey" asp-action="Index">Помощ</a>
+                                </div>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

@@ -1,0 +1,34 @@
+﻿@model DigAccess.Models.WaitingApproval.WaitingApprovalViewModel
+@{
+    ViewData["Title"] = "Избор на офис";
+}
+
+<div class="d-flex justify-content-start p-2">
+    <a asp-action="Index"> <button class="btn btn-dark mt-2"><h6><</h6></button></a>
+    <h2 class="p-2">Избор на офис</h2>
+</div>
+<form asp-action="SetOfficeForUser" method="post">
+    <label for="OfficeId">Офис на организация</label>
+    <div class="input-group mb-3">
+        <select asp-for="OfficeId" class="form-select" id="inputGroupSelect02">
+            @foreach (var city in Model.Offices)
+            {
+                <option value=@city.Id>@city.Name</option>
+            }
+        </select>
+    </div>
+    <div class="d-none">
+        <div>
+            <label for="OrganisationName">Първо име</label>
+            <span asp-validation-for="@Model.OrganisationName" class="text-danger"></span>
+            <input asp-for="OrganisationName" class="form-control" />
+        </div>
+        <div>
+            <label for="OrganisationId">Първо име</label>
+            <span asp-validation-for="@Model.OrganisationId" class="text-danger"></span>
+            <input asp-for="OrganisationId" class="form-control" />
+        </div>
+        </div>
+    <button type="submit" class="btn btn-dark mt-2">Напред</button>
+</form>
+

@@ -29,6 +29,7 @@ namespace DigAccess.Web
             builder.Services.AddScoped<IMasterKeyService, MasterKeyService>();
             builder.Services.AddScoped<IUserAdministratorService, UserAdministratorService>();
             builder.Services.AddScoped<IEmailSettingsService, EmailSettingsService>();
+            builder.Services.AddScoped<IWaitingApprovalService, WaitingApprovalService>();
 
             builder.Services.AddControllersWithViews();
 
@@ -64,7 +65,7 @@ namespace DigAccess.Web
             using (var scope = app.Services.CreateScope())
             {
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-                var roles = new[] { "UserAdministrator", "OfficeAdministrator", "OrgAdministrator", "OfficeWorker" };
+                var roles = new[] { "UserAdministrator", "OfficeAdministrator", "OrgAdministrator", "OfficeWorker", "WaitingApproval" };
 
                 foreach (var role in roles)
                 {

@@ -147,7 +147,7 @@ namespace DigAccess.Web.Areas.Identity.Pages.Account
                 user.MasterKey = await MasterKey.GenerateMasterkey(Input.FirstName + Input.MiddleName + Input.LastName, Input.PersonalID, new Random());
                 if (result.Succeeded)
                 {
-                    IdentityResult roleresult = await _userManager.AddToRoleAsync(user, "UserAdministrator");
+                    IdentityResult roleresult = await _userManager.AddToRoleAsync(user, "WaitingApproval");
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
