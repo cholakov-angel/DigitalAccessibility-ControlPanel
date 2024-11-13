@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\Picture2.png",
+      "PackagePath": "staticwebassets\\img\\Picture2.png"
+    },
+    {
       "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\Screenshot 2024-08-14 163846.png",
       "PackagePath": "staticwebassets\\img\\Screenshot 2024-08-14 163846.png"
     },
@@ -287,6 +291,10 @@
     {
       "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\videos\\blindwalking.mp4",
+      "PackagePath": "staticwebassets\\videos\\blindwalking.mp4"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.DigAccess.Web.Microsoft.AspNetCore.StaticWebAssets.props",

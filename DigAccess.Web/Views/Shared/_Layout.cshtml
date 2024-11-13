@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="~/DigAccess.Web.styles.css" asp-append-version="true" />
 </head>
 <body>
-
+    <section style="height: 100vh;">
     <div class="row">
         @if (User.Identity.IsAuthenticated == true)
         {
@@ -62,13 +62,31 @@
                     </ul>
                 </div>
             </div>
+            <div class="col-sm-9 col-lg-10">
+                <partial name="_LoginPartial" />
+                <main role="main">
+                    <div class="container-fluid">
+                        @RenderBody()
+                    </div>
+                </main>
+            </div>
         }
-        <div class="col-sm-9 col-lg-10">
+        else
+        {
+            <style>
+
+                body-container {
+                    padding-left: 0px;
+                    padding-right: 0px;
+                    max-width: 100%;
+                }
+            </style>
             <partial name="_LoginPartial" />
             <main role="main" class="pb-3">
                 @RenderBody()
             </main>
-        </div>
+
+        }
     </div>
 
     @*  <footer class="border-top footer text-muted">
@@ -80,5 +98,6 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    </section>
 </body>
 </html>

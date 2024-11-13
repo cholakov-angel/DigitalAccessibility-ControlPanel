@@ -17,15 +17,53 @@ html {
   min-height: 100%;
 }
 
+
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
-img, table, div {
-    max-width: 100%;
+@media (min-width: 800px) {
+
+    html, body {
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        width: 100%;
+    }
 }
 
-html, body {
-    height: 100vh;
-    overflow-y: hidden;
+video {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.carousel-item {
+    position: relative;
+}
+
+.custom-caption {
+    position: absolute;
+    top: 25%; /* Adjust as needed */
+    left: 20%; /* Adjust as needed */
+    transform: translate(-70, -70%); /* Center the text */
+    color: white;
+    text-align: left;
+    padding: 0rem;
+    border-radius: 0rem;
+    z-index: 10; /* Ensure text is above the video */
+}
+
+.custom-caption h1 {
+        font-size: 2.5rem; /* Larger heading text */
+        font-weight: bold;
+}
+
+    .custom-caption p {
+        font-size: 2.5rem; /* Larger heading text */
+        font-weight: bold;
+    }
+
+/* Ensure the video is behind the text */
+.carousel-item video {
+    z-index: 1;
 }
