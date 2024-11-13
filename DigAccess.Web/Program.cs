@@ -30,6 +30,7 @@ namespace DigAccess.Web
             builder.Services.AddScoped<IUserAdministratorService, UserAdministratorService>();
             builder.Services.AddScoped<IEmailSettingsService, EmailSettingsService>();
             builder.Services.AddScoped<IWaitingApprovalService, WaitingApprovalService>();
+            builder.Services.AddScoped<IOfficeWorkerService, OfficeWorkerService>();
 
             builder.Services.AddControllersWithViews();
 

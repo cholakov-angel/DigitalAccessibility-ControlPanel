@@ -33,6 +33,9 @@ namespace DigAccess.Web.Data
                 .HasIndex(x => x.PersonalId)
                 .IsUnique(true);
 
+            builder.Entity<ApplicationUser>()
+                .Property(x => x.ApprovalStatus)
+                .HasDefaultValue(0);
             base.OnModelCreating(builder);
         } // OnModelCreating
 

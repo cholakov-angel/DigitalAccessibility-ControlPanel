@@ -1,4 +1,5 @@
-﻿using DigAccess.Data.Entities;
+﻿using DigAccess.Common;
+using DigAccess.Data.Entities;
 using DigAccess.Data.Entities.Blind;
 using DigAccess.Models.EmailSettings;
 using DigAccess.Services.Interfaces;
@@ -21,12 +22,7 @@ namespace DigAccess.Services
 
         public async Task<EmailViewModel> GetEmail(string userId, string blindUserId)
         {
-            var result = Guid.TryParse(blindUserId, out Guid blindUserIdGuid);
-
-            if (result == false)
-            {
-                throw new Exception("Invalid id model!");
-            }
+            var blindUserIdGuid = GuidParser.GuidParse(blindUserId);
 
             var user = await context.BlindUsers.FirstOrDefaultAsync(x => x.Id == blindUserIdGuid && x.AdministratorId == userId);
             if (user == null)
@@ -53,16 +49,11 @@ namespace DigAccess.Services
                 model.EmailProvider = emailSettings.Name;
             }
             return model;
-        }
+        } // GetEmail
 
         public async Task<EmailAddViewModel> Add(string userId, string blindUserId)
         {
-            var result = Guid.TryParse(blindUserId, out Guid blindUserIdGuid);
-
-            if (result == false)
-            {
-                throw new Exception("Invalid id model!");
-            }
+            var blindUserIdGuid = GuidParser.GuidParse(blindUserId);
 
             var user = await context.BlindUsers.FirstOrDefaultAsync(x => x.Id == blindUserIdGuid && x.AdministratorId == userId);
             if (user == null)
@@ -80,7 +71,7 @@ namespace DigAccess.Services
             }).ToListAsync();
 
             return model;
-        } // GetProviders
+        } // Add
 
         public async Task<List<EmailProviderViewModel>> GetProvider()
         {
@@ -89,7 +80,8 @@ namespace DigAccess.Services
                 Id = x.Id.ToString(),
                 Name = x.Name
             }).ToListAsync();
-        }
+        } // GetProvider
+
         public async Task<bool> AddEdit(EmailAddViewModel model, string userId)
         {
             if (model == null)
@@ -101,12 +93,8 @@ namespace DigAccess.Services
             {
                 throw new ArgumentException("Invalid user!");
             }
-            var result = Guid.TryParse(model.BlindUserId, out Guid blindUserIdGuid);
 
-            if (result == false)
-            {
-                throw new ArgumentException("Invalid user!");
-            }
+            var blindUserIdGuid = GuidParser.GuidParse(model.BlindUserId);
 
             var user = await context.BlindUsers.FirstOrDefaultAsync(x => x.Id == blindUserIdGuid && x.AdministratorId == model.AdministratorId);
             if (user == null)
@@ -122,12 +110,8 @@ namespace DigAccess.Services
                 await context.BlindUsersEmails.AddAsync(email);
             }
 
-            bool isEmailProviderValid = Guid.TryParse(model.EmailProvider, out Guid emailProviderId);
+            var emailProviderId = GuidParser.GuidParse(model.EmailProvider);
 
-            if (isEmailProviderValid == false)
-            {
-                return false;
-            }
             email.BlindUserId = blindUserIdGuid;
             email.Email = model.Email;
             email.EmailPassword = model.Password;
@@ -135,16 +119,11 @@ namespace DigAccess.Services
 
             await context.SaveChangesAsync();
             return true;
-        } // Add
+        } // AddEdit
 
         public async Task<EmailAddViewModel> Edit(string id, string userId)
         {
-            var emailResult = Guid.TryParse(id, out Guid emailId);
-
-            if (emailResult == false)
-            {
-                throw new Exception("Invalid id model!");
-            }
+            var emailId = GuidParser.GuidParse(id);
 
             var licence = context.BlindUsersEmails.FirstOrDefault(x => x.Id == emailId);
 
@@ -168,16 +147,11 @@ namespace DigAccess.Services
             model.BlindUserId = licence.BlindUserId.ToString();
 
             return model;
-        }
+        } // Edit
 
         public async Task<bool> HasEmail(string userId, string blindUserId)
         {
-            var result = Guid.TryParse(blindUserId, out Guid blindUserIdGuid);
-
-            if (result == false)
-            {
-                throw new Exception("Invalid id model!");
-            }
+            var blindUserIdGuid = GuidParser.GuidParse(blindUserId);
 
             var user = await context.BlindUsers.FirstOrDefaultAsync(x => x.Id == blindUserIdGuid && x.AdministratorId == userId);
             if (user == null)
@@ -195,6 +169,6 @@ namespace DigAccess.Services
             {
                 return true;
             }
-        }
+        } // HasEmail
     } // EmailSettingsService
 }

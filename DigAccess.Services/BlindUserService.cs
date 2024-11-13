@@ -33,12 +33,7 @@ namespace DigAccess.Services
 
         public async Task<BlindUserDetailsViewModel> GetUserDetails(string id, string userId)
         {
-            var result = Guid.TryParse(id, out Guid resultGuid);
-
-            if (result == false)
-            {
-                throw new Exception("Invalid id model!");
-            }
+            var resultGuid = GuidParser.GuidParse(id);
             var user = await context.BlindUsers.FindAsync(resultGuid);
 
             if (user == null)
@@ -114,11 +109,7 @@ namespace DigAccess.Services
             user.LastName = model.LastName;
             user.AdministratorId = userId;
 
-            bool result = Guid.TryParse(model.City, out Guid cityId);
-            if (result == false)
-            {
-                throw new Exception("Invalid city id!");
-            }
+            var cityId = GuidParser.GuidParse(model.City);
 
             if (context.Cities.Any(x=> x.Id == cityId) == false)
             {
@@ -147,13 +138,7 @@ namespace DigAccess.Services
 
         public async Task<BlindUserViewPageModel> GetUserInformation(DateTime currentDate,string id, string userId)
         {
-            bool isValid = Guid.TryParse(id, out Guid resultId);
-
-            if (isValid == false )
-            {
-                throw new Exception("Invalid id model!");
-
-            }
+            var resultId = GuidParser.GuidParse(id);
 
             if (await context.BlindUsers.AnyAsync(x=> x.Id == resultId && x.AdministratorId == userId) == false)
             {

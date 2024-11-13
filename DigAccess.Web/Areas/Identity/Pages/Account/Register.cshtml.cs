@@ -10,7 +10,9 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
+using DigAccess.Common;
 using DigAccess.Data.Entities;
+using DigAccess.Data.Entities.Enums;
 using DigAccess.Keys;
 using Humanizer;
 using Microsoft.AspNetCore.Authentication;
@@ -144,6 +146,15 @@ namespace DigAccess.Web.Areas.Identity.Pages.Account
                 user.PhoneNumber = Input.PhoneNumber;
                 user.PersonalId = Input.PersonalID;
 
+                string gender = PersonalIDParser.GenderExtract(Input.PersonalID);
+                bool isValid = Enum.TryParse<Gender>(gender, out Gender genderEnum);
+
+                if (!isValid)
+                {
+                    throw new ArgumentException("Invlid gender!");
+                }
+
+                user.Gender = genderEnum;
                 user.MasterKey = await MasterKey.GenerateMasterkey(Input.FirstName + Input.MiddleName + Input.LastName, Input.PersonalID, new Random());
                 if (result.Succeeded)
                 {

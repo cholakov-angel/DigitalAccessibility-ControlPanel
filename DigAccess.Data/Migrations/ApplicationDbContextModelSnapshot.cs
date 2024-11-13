@@ -533,6 +533,11 @@ namespace DigAccess.DbContext.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
+                    b.Property<int>("ApprovalStatus")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 

@@ -20,22 +20,30 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
         {
             this.service = service;
             this.userManager = userManager;
-        }
+        } // HomeController
+
         public async Task<IActionResult> IndexAsync()
         {
-            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string? userId = this.GetUserId();
 
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
             var users = await service.GetAllUsers(userId);
             return View(users);
-        }
+        } // IndexAsync
 
         public async Task<IActionResult> ViewAllUsers()
         {
             return RedirectToAction("Index", "BlindUser");
-        }
-    }
+        } // ViewAllUsers
+
+        private string? GetUserId()
+        {
+            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                throw new ArgumentException("Invalid id!");
+            }
+
+            return userId;
+        } // GetUserId
+    } // HomeController
 }

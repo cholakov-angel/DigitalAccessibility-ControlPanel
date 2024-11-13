@@ -29,12 +29,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
+            string? userId = this.GetUserId();
 
             var list = await service.GetAllModels(userId);
 
@@ -43,12 +38,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 
         public async Task<IActionResult> GetUser(string name)
         {
-            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
+            string? userId = this.GetUserId();
 
             var list = await service.GetModel(userId, name);
 
@@ -73,12 +63,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
                 return View("Add", model);
             }
 
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
+            string? userId = this.GetUserId();
 
             bool result = await service.Add(model, userId);
 
@@ -94,12 +79,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
         [HttpGet]
         public async Task<IActionResult> Details(string id)
         {
-            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
+            string? userId = this.GetUserId();
 
             var model = await service.GetUserDetails(id, userId);
 
@@ -113,12 +93,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 
         public async Task<IActionResult> UserPage(string id)
         {
-            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
+            string? userId = this.GetUserId();
 
             var user = await service.GetUserInformation(DateTime.Now, id, userId);
 
@@ -128,5 +103,16 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
             }
             return View(user);
         } // UserPage
-    }
+
+        private string? GetUserId()
+        {
+            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                throw new ArgumentException("Invalid id!");
+            }
+
+            return userId;
+        } // GetUserId
+    } // BlindUserController
 }

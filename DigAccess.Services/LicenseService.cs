@@ -23,15 +23,8 @@ namespace DigAccess.Services
 
         public async Task<LicenseDetailsViewModel> GetLicense(string userId, string licenceId)
         {
-            // Проверка дали идентификатора на лиценза е във валиден формат
-            bool isLicenceIdVald = Guid.TryParse(licenceId, out Guid licenceIdGuid);
-
-
-            if (!isLicenceIdVald)
-            {
-                throw new ArgumentException("Invalid id format!");
-
-            }
+            // Преобразуване на лицензния идентификатор в Guid
+            var licenceIdGuid = GuidParser.GuidParse(licenceId);
 
             // Проверка дали съществува незрящ потребител с въведения идентикатор, който да е с администратор потребителя,
             // влязъл в системата
@@ -70,13 +63,8 @@ namespace DigAccess.Services
 
         public async Task<UserLicenseViewModel> GetLicenses(string blindUserId, string userId)
         {
-            // Проверка дали въведения идентификатор за незрящо лице е във валиден формат
-            bool isIdValid = Guid.TryParse(blindUserId, out Guid id);
-
-            if (!isIdValid)
-            {
-                throw new Exception("Invalid id!");
-            }
+            // Преобразуване на идентификатора в Guid
+            var id = GuidParser.GuidParse(blindUserId);
 
             var blindUser = await context.BlindUsers.FindAsync(id);
 
@@ -110,13 +98,8 @@ namespace DigAccess.Services
 
         public async Task<LicenseKeyViewModel> GenerateLicense(string blindUserId, string userId, Random random, DateTime dateFrom)
         {
-            // Проверка дали въведения идентификатор за незрящо лице е Във валиден формат
-            bool isIdValid = Guid.TryParse(blindUserId, out Guid id);
-
-            if (!isIdValid)
-            {
-                throw new Exception("Invalid id!");
-            }
+            // Преобразуване на идентификатора в Guid
+            var id = GuidParser.GuidParse(blindUserId);
 
             var user = await context.BlindUsers.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -153,14 +136,8 @@ namespace DigAccess.Services
 
         public async Task<LicenseDeleteViewModel> DeleteLicenseConfirm(string userId, string licenceId)
         {
-            // Проверка дали идентификатора на лиценза е във валиден формат
-            bool isLicenceIdVald = Guid.TryParse(licenceId, out Guid licenceIdGuid);
-
-            if (!isLicenceIdVald)
-            {
-                throw new ArgumentException("Invalid id format!");
-
-            }
+            // Преобразуване на лицензния идентификатор в Guid
+            var licenceIdGuid = GuidParser.GuidParse(licenceId);
 
             // Проверка дали съществува незрящ потребител с въведения идентикатор, който да е с администратор потребителя,
             // влязъл в системата
@@ -184,14 +161,8 @@ namespace DigAccess.Services
         }
         public async Task<string> DeleteLicense(string userId, string licenceId)
         {
-            // Проверка дали идентификатора на лиценза е във валиден формат
-            bool isLicenceIdVald = Guid.TryParse(licenceId, out Guid licenceIdGuid);
-
-            if (!isLicenceIdVald)
-            {
-                throw new ArgumentException("Invalid id format!");
-
-            }
+            // Преобразуване на лицензния идентификатор в Guid
+            var licenceIdGuid = GuidParser.GuidParse(licenceId);
 
             // Проверка дали съществува незрящ потребител с въведения идентикатор, който да е с администратор потребителя,
             // влязъл в системата
@@ -217,5 +188,6 @@ namespace DigAccess.Services
 
             return licence.BlindUserId.ToString();
         }
+
     }
 }

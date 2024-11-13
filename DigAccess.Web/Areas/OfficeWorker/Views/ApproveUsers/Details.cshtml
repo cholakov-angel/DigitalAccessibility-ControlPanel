@@ -1,0 +1,40 @@
+﻿@model DigAccess.Models.OfficeWorker.UserDetailsViewModel
+@{
+    ViewData["Title"] = "Добавяне на потребител";
+}
+
+<div class="d-flex justify-content-start p-2">
+    <a asp-action="Index"> <button class="btn btn-dark mt-2"><h6><</h6></button></a>
+    <h2 class="p-2">Преглед за одобрение</h2>
+</div>
+<form asp-action="Add" method="post">
+    <div>
+        <label for="FirstName">Първо име</label>
+        <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+    <div>
+        <label for="MiddleName">Бащино име</label>
+        <span asp-validation-for="@Model.MiddleName" class="text-danger"></span>
+        <input asp-for="MiddleName" class="form-control" />
+    </div>
+    <div>
+        <label for="LastName">Фамилия</label>
+        <span asp-validation-for="@Model.MiddleName" class="text-danger"></span>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+    <div>
+        <label for="PersonalId">ЕГН</label>
+        <span asp-validation-for="@Model.PersonalId" class="text-danger"></span>
+        <input asp-for="PersonalId" class="form-control" />
+    </div>
+    <div>
+        <label for="Gender">Пол</label>
+        <span asp-validation-for="@Model.Gender" class="text-danger"></span>
+        <input asp-for="Gender" class="form-control" />
+    </div>
+</form>
+<a asp-action="ApproveUser" asp-route-id="@Model.Id" class="btn btn-dark">Одобрение</a>
+<a asp-action="RejectUser" asp-route-id="@Model.Id" class="btn btn-dark">Отхвърляне</a>
+
+

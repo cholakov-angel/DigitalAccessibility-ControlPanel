@@ -36,5 +36,8 @@ namespace DigAccess.Data.Entities
 
         [PersonalData]
         public Gender Gender { get; set; }
+
+        [Required]
+        public int ApprovalStatus { get; set; }
     }
 }

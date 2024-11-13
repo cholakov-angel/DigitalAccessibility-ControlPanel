@@ -4,6 +4,7 @@ using DigAccess.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 {
@@ -22,14 +23,21 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 
         public async Task<IActionResult> Index()
         {
-            string userId = userManager.GetUserId(User);
+            string userId = this.GetUserId();
 
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid user id!");
-            }
             var model = await service.GetUserMasterKey(userId);
             return View(model);
-        }
-    }
+        } // Index
+
+        private string? GetUserId()
+        {
+            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                throw new ArgumentException("Invalid id!");
+            }
+
+            return userId;
+        } // GetUserId
+    } // MasterKeyController
 }

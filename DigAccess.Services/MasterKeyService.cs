@@ -27,6 +27,6 @@ namespace DigAccess.Services
             }).FirstOrDefaultAsync(x=> x.UserId == id);
 
             return user;
-        }
-    }
+        } // GetUserMasterKey
+    } // MasterKeyService
 }

@@ -21,31 +21,21 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
         {
             this.service = service;
             this.userManager = userManager;
-        }
+        } // EmailSettingsController
 
         public async Task<IActionResult> Index(string id)
         {
-            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
+            string? userId = this.GetUserId();
 
             var model = await service.GetEmail(userId, id);
 
             return View(model);
-        }
+        } // Index
 
         [HttpGet]
         public async Task<IActionResult> Add(string id)
         {
-            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
+            string? userId = this.GetUserId();
 
             bool hasEmail = await service.HasEmail(userId, id);
             if (hasEmail == true)
@@ -55,7 +45,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
             var model = await service.Add(userId, id);
 
             return View("AddEdit",model);
-        }
+        } // Add
 
         [HttpPost]
         public async Task<IActionResult> Add(EmailAddViewModel model)
@@ -67,30 +57,31 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
                 return View("AddEdit", model);
             }
 
-            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
+            string? userId = this.GetUserId();
 
             bool result = await service.AddEdit(model, userId);
 
             return RedirectToAction("Index", new {Id = model.BlindUserId });
-        }
+        } // Add
 
         public async Task<IActionResult> Edit(string id)
         {
-            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string? userId = this.GetUserId();
 
+            var model = await service.Edit(id, userId);
+
+            return View("AddEdit", model);
+        } // Edit
+
+        private string? GetUserId()
+        {
+            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (userId == null)
             {
                 throw new ArgumentException("Invalid id!");
             }
 
-            var model = await service.Edit(id, userId);
-
-            return View("AddEdit", model);
-        }
-    }
+            return userId;
+        } // GetUserId
+    } // EmailSettingsController
 }

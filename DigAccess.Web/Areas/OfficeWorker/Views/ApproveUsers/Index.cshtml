@@ -1,0 +1,54 @@
+﻿@using DigAccess.Models.OfficeWorker
+@model WaitingUsersViewModel
+@{
+    ViewData["Title"] = "Потребители";
+}
+
+<div class="d-flex d-flex align-items-center">
+    <div class="p-2 w-100">
+        <h2>Потребители</h2>
+    </div>
+    <form id="searchForm" asp-controller="BlindUser" asp-action="GetUser">
+        <p>
+            <div class="input-group">
+                <input id="txtInput" type="text" name="name" class="p-2 form-control" placeholder="Търсене" aria-label="Търсене" aria-describedby="basic-addon1">
+                <button type="submit" class="btn btn-dark"><h5>⌕</h5></button>
+            </div>
+        </p>
+    </form>
+
+</div>
+@{
+    if (Model.UsersWaitings.Count == 0)
+    {
+        <h4>Няма потребители.</h4>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Име</th>
+                    <th>Презиме</th>
+                    <th>Фамилия</th>
+                    <th>Опции</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model.UsersWaitings)
+                {
+                    <tr>
+                        <td>@user.FirstName</td>
+                        <td>@user.MiddleName</td>
+                        <td>@user.LastName</td>
+                        <td>
+                            <div class="p-2 flex-shrink-1">
+                                <a asp-action="GetUserDetails" asp-route-id="@user.Id" class="btn btn-dark"><h5>Опции</h5></a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}

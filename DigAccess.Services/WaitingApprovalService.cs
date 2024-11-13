@@ -1,4 +1,5 @@
-﻿using DigAccess.Data.Entities;
+﻿using DigAccess.Common;
+using DigAccess.Data.Entities;
 using DigAccess.Models.WaitingApproval;
 using DigAccess.Services.Interfaces;
 using DigAccess.Web.Data;
@@ -20,14 +21,7 @@ namespace DigAccess.Services
 
         public async Task<List<OfficeViewModel>> GetOffices(string organisationId)
         {
-            // Проверка дали идентификатора е във валиден формат
-            bool isOrganisationIdVald = Guid.TryParse(organisationId, out Guid organisationIdGuid);
-
-
-            if (!isOrganisationIdVald)
-            {
-                throw new ArgumentException("Invalid id format!");
-            }
+            var organisationIdGuid = GuidParser.GuidParse(organisationId);
 
             return await context.Offices.Where(x => x.OrganisationId == organisationIdGuid)
                .Select(x => new OfficeViewModel
@@ -48,15 +42,8 @@ namespace DigAccess.Services
 
         public async Task<WaitingApprovalViewModel> OfficeSelect(string organisationId)
         {
-            // Проверка дали идентификатора е във валиден формат
-            bool isOrganisationIdVald = Guid.TryParse(organisationId, out Guid organisationIdGuid);
+            var organisationIdGuid = GuidParser.GuidParse(organisationId);
 
-
-            if (!isOrganisationIdVald)
-            {
-                throw new ArgumentException("Invalid id format!");
-
-            }
             var organisation = await context.Organisations.FirstOrDefaultAsync(x => x.Id == organisationIdGuid);
             if (organisation == null)
             {
@@ -90,13 +77,7 @@ namespace DigAccess.Services
                 throw new ArgumentException("Invalid parameters!");
             }
 
-            // Проверка дали идентификатора е във валиден формат
-            bool isOrganisationIdVald = Guid.TryParse(model.OrganisationId, out Guid organisationIdGuid);
-
-            if (!isOrganisationIdVald)
-            {
-                throw new ArgumentException("Invalid id format!");
-            }
+            var organisationIdGuid = GuidParser.GuidParse(model.OrganisationId);
 
             // Проверка дали идентификатора е във валиден формат
             bool isOfficeValid = Guid.TryParse(model.OfficeId, out Guid officeIdGuid);
