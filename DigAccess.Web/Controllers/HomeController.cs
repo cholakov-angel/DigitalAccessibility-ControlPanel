@@ -31,6 +31,18 @@ namespace DigAccess.Web.Controllers
             return View();
         } // Index
 
+        [Route("/Home/HandleError/{code:int}")]
+        public IActionResult HandleError(int code)
+        {
+            if (code == 404)
+            {
+                return View("~/Views/Shared/Error/NotFound.cshtml");
+            }
+            else
+            {
+                return View();
+            }
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
