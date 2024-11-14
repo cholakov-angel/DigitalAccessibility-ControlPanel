@@ -1,5 +1,5 @@
 ﻿using DigAccess.Interfaces;
-using DigAccess.Models.EmailSettings;
+using DigAccess.Models.UserAdministrator.EmailSettings;
 using System;
 using System.Collections.Generic;
 using System.Linq;

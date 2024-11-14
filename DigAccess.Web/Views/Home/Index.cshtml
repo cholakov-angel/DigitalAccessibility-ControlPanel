@@ -1,20 +1,76 @@
-﻿@{
-    ViewData["Title"] = "Начална страница";
-}
-<div class="">
+﻿<div class="bg-black">
+    @{
+        ViewData["Title"] = "Начална страница";
+    }
     <div class="content">
-
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <video src="~/videos/blindwalking.mp4" autoplay loop></video>
-
+                    <video src="~/videos/blindwalking.mp4" autoplay loop muted></video>
                     <div class="custom-caption">
                         <h6>ДИГИТАЛНА ДОСТЪПНОСТ</h6>
                         <h1 class="text-white">Слушай, откривай, изследвай</h1>
+                    </div>
+                    <div class="custom-caption1 bg-transparent">
+                        <div class="d-flex transparent-flex">
+                            <a class="p-2 text-white" asp-area="Identity" asp-page="/Account/Register">
+                                <h6>Регистрация</h6>
+                            </a>
+                            &nbsp
+                            <a class="p-2 text-white" asp-area="Identity" asp-page="/Account/Login">
+                                <h6>Вход</h6>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+<br />
+    <br />
+<div class="container-fluid text-start">
+    <div class="col-12">
+            <div class="d-flex justify-content-center">
+            <div class="p-2">
+                <div class="card border-light mb-3 bg-black text-white" style="max-width: 20rem;">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Light card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2">
+                    <div class="card border-light mb-3 bg-black text-white" style="max-width: 20rem;">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Light card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2">
+                    <div class="card border-light mb-3 bg-black text-white" style="max-width: 20rem;">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Light card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+                <div class="p-2">
+                    <div class="card border-light mb-3 bg-black text-white" style="max-width: 20rem;">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Light card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<br />
 </div>

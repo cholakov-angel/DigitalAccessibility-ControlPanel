@@ -1,4 +1,4 @@
-﻿using DigAccess.Models.MasterKey;
+﻿using DigAccess.Models.UserAdministrator.MasterKey;
 using System;
 using System.Collections.Generic;
 using System.Linq;

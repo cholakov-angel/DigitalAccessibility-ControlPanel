@@ -21,7 +21,7 @@ namespace DigAccess.Services
         public async Task<bool> ApproveUser(string workerId, string userId)
         {
             ApplicationUser? officeWorker = await this.GetOfficeWorker(workerId);
-            ApplicationUser? userToBeApproved = await this.GetUserToBeApproved(userId);
+            ApplicationUser? userToBeApproved = await this.GetUser(userId);
 
             if (userToBeApproved.OfficeId != officeWorker.OfficeId)
             {
@@ -38,24 +38,62 @@ namespace DigAccess.Services
         public async Task<UserDetailsViewModel> GetUserDetails(string workerId, string userId)
         {
             var officeWorker = await this.GetOfficeWorker(workerId);
-            var userToBeApproved = await this.GetUserToBeApproved(userId);
+            var user = await this.GetUser(userId);
 
 
-            if (userToBeApproved.OfficeId != officeWorker.OfficeId)
+            if (user.OfficeId != officeWorker.OfficeId)
             {
                 throw new ArgumentException("Invalid user!");
             }
 
             UserDetailsViewModel model = new UserDetailsViewModel();
-            model.Id = userToBeApproved.Id;
-            model.FirstName = userToBeApproved.FirstName;
-            model.MiddleName = userToBeApproved.MiddleName;
-            model.LastName = userToBeApproved.LastName;
-            model.PersonalId = userToBeApproved.PersonalId;
-            model.Gender = userToBeApproved.Gender.ToString();
+            model.Id = user.Id;
+            model.FirstName = user.FirstName;
+            model.MiddleName = user.MiddleName;
+            model.LastName = user.LastName;
+            model.PersonalId = user.PersonalId;
+            model.Gender = user.Gender.ToString();
 
             return model;
         } // GetUserDetails
+
+        public async Task<bool> DeleteUser(string workerId, string userId)
+        {
+            var officeWorker = await this.GetOfficeWorker(workerId);
+            var user = await this.GetUser(userId);
+
+            if (user.OfficeId != officeWorker.OfficeId)
+            {
+                return false;
+            }
+
+            user.ApprovalStatus = 3;
+            await userManager.SetLockoutEnabledAsync(user, true);
+            await userManager.SetLockoutEndDateAsync(user, DateTime.Today.AddYears(100));
+
+            await context.SaveChangesAsync();
+
+            return true;
+        } // DeleteUser
+
+        public async Task<List<UserDetailsViewModel>> GetUsers(string userId, int page)
+        {
+            var officeWorker = await this.GetOfficeWorker(userId);
+
+            return await this.userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 1)
+                .Select(x => new UserDetailsViewModel
+                {
+                    Id = x.Id,
+                    FirstName = x.FirstName,
+                    MiddleName = x.MiddleName,
+                    LastName = x.LastName,
+                    PersonalId = x.PersonalId,
+                    Gender = x.Gender.ToString()
+                })
+                .Skip((page - 1) * 8)
+                .Take(8)
+                .ToListAsync();
+        } // GetUsers
 
         public async Task<WaitingUsersViewModel> GetWaitingUsers(string id)
         {
@@ -71,7 +109,7 @@ namespace DigAccess.Services
                     LastName = x.LastName
                 }).ToListAsync();
 
-            
+
             WaitingUsersViewModel model = new WaitingUsersViewModel();
             model.OfficeId = officeWorker.OfficeId.ToString();
             model.UserId = officeWorker.Id;
@@ -83,7 +121,7 @@ namespace DigAccess.Services
         public async Task<bool> RejectUser(string workerId, string userId)
         {
             var officeWorker = await this.GetOfficeWorker(workerId);
-            var userToBeApproved = await this.GetUserToBeApproved(userId);
+            var userToBeApproved = await this.GetUser(userId);
 
             if (userToBeApproved.OfficeId != officeWorker.OfficeId)
             {
@@ -95,8 +133,70 @@ namespace DigAccess.Services
             return true;
         } // RejectUser
 
+        private async Task<ApplicationUser?> GetUser(string userId)
+        {
+            var userToBeApproved = await userManager.FindByIdAsync(userId);
+
+            if (userToBeApproved == null)
+            {
+                throw new ArgumentException("Invalid user!");
+            }
+
+            return userToBeApproved;
+        } // GetUserToBeApproved
+
+        public async Task<UserDeleteViewModel> ApproveUserForDelete(string workerId, string userId)
+        {
+            var officeWorker = await this.GetOfficeWorker(workerId);
+            var userToBeApproved = await this.GetUser(userId);
+
+            if (userToBeApproved.OfficeId != officeWorker.OfficeId)
+            {
+                throw new ArgumentException("Invalid user!");
+            }
+
+            return new UserDeleteViewModel { Id = userId };
+        } // ApproveUserForDelete
+
+        public async Task<List<UserDetailsViewModel>> GetUsersByName(string userId, string name, int page)
+        {
+            if (name == null)
+            {
+                return await this.GetUsers(userId, 1);
+            }
+            var officeWorker = await this.GetOfficeWorker(userId);
+
+            return await this.userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 1
+            && (x.FirstName + " " + x.MiddleName + " " + x.LastName).ToLower().StartsWith(name.ToLower()))
+                .Select(x => new UserDetailsViewModel
+                {
+                    Id = x.Id,
+                    FirstName = x.FirstName,
+                    MiddleName = x.MiddleName,
+                    LastName = x.LastName,
+                    PersonalId = x.PersonalId,
+                    Gender = x.Gender.ToString()
+                })
+                .Skip((page - 1) * 8)
+                .Take(8)
+                .ToListAsync();
+        } // GetUsersByName
+
+        public async Task<int> CountUsers(string workerId)
+        {
+            var officeWorker = await this.GetOfficeWorker(workerId);
+
+            return await this.userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 1)
+                .CountAsync();
+
+        } // CountUsers
         private async Task<ApplicationUser?> GetOfficeWorker(string workerId)
         {
+            if (workerId == null)
+            {
+                throw new ArgumentException("Invalid user!");
+            }
+
             var officeWorker = await userManager.FindByIdAsync(workerId);
 
             if (officeWorker == null)
@@ -110,17 +210,5 @@ namespace DigAccess.Services
             }
             return officeWorker;
         } // GetOfficeWorker
-
-        private async Task<ApplicationUser?> GetUserToBeApproved(string userId)
-        {
-            var userToBeApproved = await userManager.FindByIdAsync(userId);
-
-            if (userToBeApproved == null)
-            {
-                throw new ArgumentException("Invalid user!");
-            }
-
-            return userToBeApproved;
-        } // GetUserToBeApproved
     } // OfficeWorkerService
 }

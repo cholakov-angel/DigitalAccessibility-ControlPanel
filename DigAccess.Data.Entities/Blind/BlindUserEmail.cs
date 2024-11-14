@@ -10,6 +10,11 @@ namespace DigAccess.Data.Entities.Blind
 {
     public class BlindUserEmail
     {
+        public BlindUserEmail()
+        {
+            this.Id = new Guid();
+        }
+
         [Key]
         public Guid Id { get; set; }
 

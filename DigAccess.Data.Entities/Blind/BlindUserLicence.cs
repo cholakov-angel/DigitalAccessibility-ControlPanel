@@ -10,6 +10,11 @@ namespace DigAccess.Data.Entities.Blind
 {
     public class BlindUserLicence
     {
+        public BlindUserLicence()
+        {
+            this.Id = Guid.NewGuid();
+        }
+
         [Key]
         public Guid Id { get; set; }
 

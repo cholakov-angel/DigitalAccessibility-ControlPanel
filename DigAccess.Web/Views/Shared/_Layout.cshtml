@@ -10,11 +10,10 @@
     <link rel="stylesheet" href="~/DigAccess.Web.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <section style="height: 100vh;">
     <div class="row">
         @if (User.Identity.IsAuthenticated == true)
         {
-            <div class="col-sm-3 col-lg-2 min-vh-100 border-end box-shadow mb-3">
+                <div class="col-sm-3 col-lg-2 border-end box-shadow" style="height: 100vh;">
                 <div class="col-12">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -34,7 +33,7 @@
                             <li class="nav-item">
                                 <div class="d-flex flex-row p-2">
                                     <img class="p-2" src="~/img/person.svg" />
-                                    <a class="nav-link text-dark" asp-controller="BlindUser" asp-action="Index">Потребители</a>
+                                    <a class="nav-link text-dark" asp-controller="BlindUser" asp-action="Index">Незрящи потребители</a>
                                 </div>
                             </li>
                             <li class="nav-item">
@@ -46,7 +45,7 @@
                             <li class="nav-item">
                                 <div class="d-flex flex-row p-2">
                                     <img class="p-2" src="~/img/question-circle.svg" />
-                                    <a class="nav-link text-dark" asp-area="UserAdministrator" asp-controller="MasterKey" asp-action="Index">Помощ</a>
+                                        <a class="nav-link text-dark" asp-area="UserAdministrator" asp-controller="Question" asp-action="Add">Помощ</a>
                                 </div>
                             </li>
                         }
@@ -58,6 +57,12 @@
                                     <a class="nav-link text-dark" asp-controller="ApproveUsers" asp-action="Index">Чакащи одбрение</a>
                                 </div>
                             </li>
+                                <li class="nav-item">
+                                    <div class="d-flex flex-row p-2">
+                                        <img class="p-2" src="~/img/person.svg" />
+                                        <a class="nav-link text-dark" asp-controller="Users" asp-action="Index">Потребители</a>
+                                    </div>
+                                </li>
                         }
                     </ul>
                 </div>
@@ -98,6 +103,5 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-    </section>
 </body>
 </html>

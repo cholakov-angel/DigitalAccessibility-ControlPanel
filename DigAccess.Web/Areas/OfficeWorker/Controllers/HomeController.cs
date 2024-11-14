@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using DigAccess.Data.Entities;
+using DigAccess.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -8,7 +11,15 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
     [Authorize(Roles = "OfficeWorker")]
     public class HomeController : Controller
     {
-       
+        private readonly IOfficeWorkerService service;
+        private readonly UserManager<ApplicationUser> userManager;
+
+        public HomeController(UserManager<ApplicationUser> userManager, IOfficeWorkerService service)
+        {
+            this.service = service;
+            this.userManager = userManager;
+        } // HomeController
+
         public IActionResult Index()
         {
             return View();

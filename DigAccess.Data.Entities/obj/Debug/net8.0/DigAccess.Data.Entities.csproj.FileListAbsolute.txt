@@ -34,3 +34,6 @@ E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Enti
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\obj\Debug\net8.0\refint\DigAccess.Data.Entities.dll
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\obj\Debug\net8.0\DigAccess.Data.Entities.pdb
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\obj\Debug\net8.0\ref\DigAccess.Data.Entities.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\bin\Debug\net8.0\DigAccess.Common.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\bin\Debug\net8.0\DigAccess.Common.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data.Entities\obj\Debug\net8.0\DigAccess.Data.Entities.csproj.CopyComplete

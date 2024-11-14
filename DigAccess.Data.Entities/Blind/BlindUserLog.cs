@@ -14,6 +14,7 @@ namespace DigAccess.Data.Entities.Blind
         {
             Id = Guid.NewGuid();
         }
+
         [Key]
         public Guid Id { get; set; }
 

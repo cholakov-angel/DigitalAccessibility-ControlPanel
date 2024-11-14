@@ -44,3 +44,5 @@ E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\obj\
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\obj\Debug\net8.0\refint\DigAccess.DbContext.dll
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\obj\Debug\net8.0\DigAccess.DbContext.pdb
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\obj\Debug\net8.0\ref\DigAccess.DbContext.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\bin\Debug\net8.0\DigAccess.Common.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Data\bin\Debug\net8.0\DigAccess.Common.pdb

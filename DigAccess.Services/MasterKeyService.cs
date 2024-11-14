@@ -1,5 +1,5 @@
 ﻿using DigAccess.Data.Entities;
-using DigAccess.Models.MasterKey;
+using DigAccess.Models.UserAdministrator.MasterKey;
 using DigAccess.Services.Interfaces;
 using DigAccess.Web.Data;
 using Microsoft.AspNetCore.Identity;

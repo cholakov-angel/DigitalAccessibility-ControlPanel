@@ -1,6 +1,5 @@
 ﻿using DigAccess.Data.Entities;
 using DigAccess.Interfaces;
-using DigAccess.Models.License;
 using DigAccess.Web.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

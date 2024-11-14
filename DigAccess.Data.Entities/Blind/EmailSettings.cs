@@ -9,6 +9,10 @@ namespace DigAccess.Data.Entities.Blind
 {
     public class EmailSettings
     {
+        public EmailSettings()
+        {
+            this.Id = Guid.NewGuid();
+        }
         public Guid Id { get; set; }
 
         [Required]

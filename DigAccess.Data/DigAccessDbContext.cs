@@ -50,5 +50,7 @@ namespace DigAccess.Web.Data
         public virtual DbSet<Feature> Features { get; set; }
         public virtual DbSet<BlindUserFeature> BlindUsersFeatures { get; set; }
         public virtual DbSet<BlindUserLog> BlindUsersLogs { get; set; }
+        public virtual DbSet<Question> Questions { get; set; }
+
     } // DigAccessDbContext
 }

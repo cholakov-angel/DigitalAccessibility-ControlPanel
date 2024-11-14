@@ -4,7 +4,7 @@ using DigAccess.Data.Entities;
 using DigAccess.Data.Entities.Address;
 using DigAccess.Data.Entities.Blind;
 using DigAccess.Interfaces;
-using DigAccess.Models.BlindUser;
+using DigAccess.Models.UserAdministrator.BlindUser;
 using DigAccess.Services;
 using DigAccess.Web.Data;
 using Microsoft.AspNetCore.Authorization;

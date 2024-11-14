@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DigAccess.Models.BlindUser;
+using DigAccess.Models.UserAdministrator.BlindUser;
 using DigAccess.Web.Data;
 
 namespace DigAccess.Interfaces

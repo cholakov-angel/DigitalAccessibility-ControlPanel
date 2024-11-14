@@ -628,6 +628,7 @@
       },
       "DigAccess.Data.Entities/1.0.0": {
         "dependencies": {
+          "DigAccess.Common": "1.0.0",
           "Microsoft.Extensions.Identity.Stores": "8.0.8"
         },
         "runtime": {

@@ -1,0 +1,7 @@
+﻿@using DigAccess.Models.OfficeWorker
+@model UserDeleteViewModel
+
+<h1>Сигурни ли сте, че искате да изтриете потребителя?</h1>
+
+<a asp-action="ConfirmDelete" asp-route-id="@Model.Id" class="btn btn-dark"><h5>Да</h5></a>
+<a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-dark"><h5>Не</h5></a>

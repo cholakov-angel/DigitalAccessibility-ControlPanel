@@ -1,7 +1,7 @@
 ﻿using DigAccess.Common;
 using DigAccess.Data.Entities;
 using DigAccess.Data.Entities.Blind;
-using DigAccess.Models.EmailSettings;
+using DigAccess.Models.UserAdministrator.EmailSettings;
 using DigAccess.Services.Interfaces;
 using DigAccess.Web.Data;
 using Microsoft.AspNetCore.Identity;

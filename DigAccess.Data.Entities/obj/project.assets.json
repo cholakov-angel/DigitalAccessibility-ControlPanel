@@ -196,6 +196,16 @@
         "build": {
           "buildTransitive/net6.0/_._": {}
         }
+      },
+      "DigAccess.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/DigAccess.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DigAccess.Common.dll": {}
+        }
       }
     }
   },
@@ -551,10 +561,16 @@
         "microsoft.extensions.primitives.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "DigAccess.Common/1.0.0": {
+      "type": "project",
+      "path": "../DigAccess.Common/DigAccess.Common.csproj",
+      "msbuildProject": "../DigAccess.Common/DigAccess.Common.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "DigAccess.Common >= 1.0.0",
       "Microsoft.Extensions.Identity.Stores >= 8.0.8"
     ]
   },
@@ -590,7 +606,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Common\\DigAccess.Common.csproj": {
+              "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Common\\DigAccess.Common.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

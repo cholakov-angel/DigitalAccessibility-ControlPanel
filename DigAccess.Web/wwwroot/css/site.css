@@ -1,20 +1,20 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 
@@ -27,7 +27,6 @@ body {
     html, body {
         height: 100%;
         overflow-x: hidden;
-        overflow-y: hidden;
         width: 100%;
     }
 }
@@ -36,7 +35,9 @@ video {
     position: relative;
     display: block;
     width: 100%;
+    height: 75%;
 }
+
 .carousel-item {
     position: relative;
 }
@@ -53,17 +54,47 @@ video {
     z-index: 10; /* Ensure text is above the video */
 }
 
-.custom-caption h1 {
-        font-size: 2.5rem; /* Larger heading text */
-        font-weight: bold;
+.custom-caption1 {
+    position: absolute;
+    top: 0; /* Adjust as needed */
+    right: 1%; /* Adjust as needed */
+    transform: translate(-70, -70%); /* Center the text */
+    color: white;
+    text-align: right;
+    padding: 0rem;
+    border-radius: 0rem;
+    z-index: 10; /* Ensure text is above the video */
 }
 
-    .custom-caption p {
-        font-size: 2.5rem; /* Larger heading text */
-        font-weight: bold;
-    }
+.custom-caption h1 {
+    font-size: 2.5rem; /* Larger heading text */
+    font-weight: bold;
+}
+
+.custom-caption p {
+    font-size: 2.5rem; /* Larger heading text */
+    font-weight: bold;
+}
 
 /* Ensure the video is behind the text */
 .carousel-item video {
     z-index: 1;
+}
+
+.active a {
+    background-color: black !important;
+}
+
+.transparent-flex {
+    background-color: transparent; /* Ensures the flex container is transparent */
+}
+
+.transparent-flex a {
+        background-color: transparent !important; /* Ensures each link is also transparent */
+        color: white; /* Keeps the text color white */
+        border: none; /* Remove any borders if necessary */
+}
+
+a {
+    text-decoration: none;
 }

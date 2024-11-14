@@ -8,7 +8,7 @@ using DigAccess.Data.Entities;
 using DigAccess.Data.Entities.Blind;
 using DigAccess.Interfaces;
 using DigAccess.Keys;
-using DigAccess.Models.License;
+using DigAccess.Models.UserAdministrator.License;
 using DigAccess.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

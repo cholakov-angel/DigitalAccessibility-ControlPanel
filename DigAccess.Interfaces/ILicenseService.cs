@@ -1,4 +1,4 @@
-﻿using DigAccess.Models.License;
+﻿using DigAccess.Models.UserAdministrator.License;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,0 +1,23 @@
+﻿@using DigAccess.Models.UserAdministrator
+@model QuestionViewModel
+@{
+    ViewData["Title"] = "Задаване на въпрос";
+}
+
+<div class="d-flex justify-content-start p-2">
+    <h2 class="p-2">Добавяне на потребител</h2>
+</div>
+<form asp-action="Add" method="post">
+    <div>
+        <label for="Title">Заглавие</label>
+        <span asp-validation-for="@Model.Title" class="text-danger"></span>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div>
+        <label for="Description">Описание</label>
+        <span asp-validation-for="@Model.Description" class="text-danger"></span>
+        <textarea asp-for="Description" class="form-control" type="text"></textarea>
+    </div>
+    <button type="submit" class="btn btn-dark mt-2">Задаване на въпрос</button>
+</form>
+
