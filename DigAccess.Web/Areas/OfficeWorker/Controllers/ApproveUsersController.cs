@@ -28,6 +28,15 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             return View(model);
         } // Index
 
+        public async Task<IActionResult> GetUsersByName(string name)
+        {
+            string? userId = this.GetUserId();
+
+            var model = await this.service.GetWaitingUsersByName(userId, name);
+
+            return View("Index", model);
+        } // GetUsersByName
+
         public async Task<IActionResult> ApproveUser(string id)
         {
             string? userId = this.GetUserId();

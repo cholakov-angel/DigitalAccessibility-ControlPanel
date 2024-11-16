@@ -95,6 +95,35 @@ namespace DigAccess.Services
                 .ToListAsync();
         } // GetUsers
 
+        public async Task<WaitingUsersViewModel> GetWaitingUsersByName(string id, string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                return await this.GetWaitingUsers(id);
+            }
+
+            var officeWorker = await this.GetOfficeWorker(id);
+
+            var result = await userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 0
+            && (x.FirstName + " " + x.MiddleName + " " + x.LastName).ToLower().StartsWith(name.ToLower()))
+                .Select(x => new UserWaiting
+                {
+                    Id = x.Id,
+                    OfficeId = x.OfficeId.ToString(),
+                    FirstName = x.FirstName,
+                    MiddleName = x.MiddleName,
+                    LastName = x.LastName
+                }).ToListAsync();
+
+
+            WaitingUsersViewModel model = new WaitingUsersViewModel();
+            model.OfficeId = officeWorker.OfficeId.ToString();
+            model.UserId = officeWorker.Id;
+            model.UsersWaitings = result;
+
+            return model;
+        } // GetWaitingUsersByName
+
         public async Task<WaitingUsersViewModel> GetWaitingUsers(string id)
         {
             var officeWorker = await this.GetOfficeWorker(id);

@@ -54,10 +54,34 @@ video {
     z-index: 10; /* Ensure text is above the video */
 }
 
+.custom-caption3 {
+    position: absolute;
+    top: 33%; /* Adjust as needed */
+    left: 20%; /* Adjust as needed */
+    transform: translate(-70, -70%); /* Center the text */
+    color: white;
+    text-align: left;
+    padding: 0rem;
+    border-radius: 0rem;
+    z-index: 10; /* Ensure text is above the video */
+}
+
 .custom-caption1 {
     position: absolute;
-    top: 0; /* Adjust as needed */
-    right: 1%; /* Adjust as needed */
+    top: 1%; /* Adjust as needed */
+    right: 15%; /* Adjust as needed */
+    transform: translate(-70, -70%); /* Center the text */
+    color: white;
+    text-align: right;
+    padding: 0rem;
+    border-radius: 0rem;
+    z-index: 10; /* Ensure text is above the video */
+}
+
+.custom-caption2 {
+    position: absolute;
+    top: 1%; /* Adjust as needed */
+    left: 15%; /* Adjust as needed */
     transform: translate(-70, -70%); /* Center the text */
     color: white;
     text-align: right;
@@ -67,7 +91,7 @@ video {
 }
 
 .custom-caption h1 {
-    font-size: 2.5rem; /* Larger heading text */
+    font-size: 2.6rem; /* Larger heading text */
     font-weight: bold;
 }
 
@@ -75,6 +99,13 @@ video {
     font-size: 2.5rem; /* Larger heading text */
     font-weight: bold;
 }
+
+
+.custom-caption3 p {
+    font-size: 1.1rem; /* Larger heading text */
+}
+
+
 
 /* Ensure the video is behind the text */
 .carousel-item video {
@@ -97,4 +128,9 @@ video {
 
 a {
     text-decoration: none;
+}
+
+.vcenter-item {
+    display: flex;
+    align-items: center;
 }

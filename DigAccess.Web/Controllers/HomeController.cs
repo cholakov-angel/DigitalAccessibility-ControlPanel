@@ -38,6 +38,10 @@ namespace DigAccess.Web.Controllers
             {
                 return View("~/Views/Shared/Error/NotFound.cshtml");
             }
+            else if (code == 500)
+            {
+                return View("~/Views/Shared/Error/BadRequest.cshtml");
+            }
             else
             {
                 return View();

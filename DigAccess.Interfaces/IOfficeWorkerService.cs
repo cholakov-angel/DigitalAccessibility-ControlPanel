@@ -28,5 +28,7 @@ namespace DigAccess.Services.Interfaces
 
         public Task<int> CountUsers(string workerId);
 
+        public Task<WaitingUsersViewModel> GetWaitingUsersByName(string id, string name);
+
     }
 }

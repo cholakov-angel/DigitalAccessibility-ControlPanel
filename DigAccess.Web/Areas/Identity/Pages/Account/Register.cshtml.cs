@@ -79,8 +79,8 @@ namespace DigAccess.Web.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "Имейлът е задължителен!")]
+            [EmailAddress(ErrorMessage = "Въведният имейл не е във валиден формат!")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
@@ -88,8 +88,8 @@ namespace DigAccess.Web.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "Паролата е задължителна!")]
+            [StringLength(100, ErrorMessage = "Дължината на паролата трябва да е между {2} и {1} символа!", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
@@ -100,21 +100,27 @@ namespace DigAccess.Web.Areas.Identity.Pages.Account
             /// </summary>
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Compare("Password", ErrorMessage = "Паролите не съвпадат!")]
             public string ConfirmPassword { get; set; }
 
+            [Required(ErrorMessage = "Името е задължително!")]
             [Display(Name = "Име")]
             public string FirstName { get; set; }
 
+            [Required(ErrorMessage = "Бащиното име е задължително!")]
             [Display(Name = "Бащино име")]
             public string MiddleName { get; set; }
 
+            [Required(ErrorMessage = "Фамилията е задължителна!")]
             [Display(Name = "Фамилия")]
             public string LastName { get; set; }
 
+            [Required(ErrorMessage = "ЕГН е задължително!")]
             [Display(Name = "ЕГН")]
             public string PersonalID { get; set; }
 
+            [Phone(ErrorMessage = "Телефонът не е във валиден формат!")]
+            [Required(ErrorMessage = "Телефонният номер е задължителен!")]
             [DataType(DataType.PhoneNumber)]
             [Display(Name = "Телефонен номер")]
             public string PhoneNumber { get; set; }
