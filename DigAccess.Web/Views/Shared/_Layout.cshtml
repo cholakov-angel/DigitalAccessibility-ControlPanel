@@ -13,7 +13,7 @@
     <div class="row">
         @if (User.Identity.IsAuthenticated == true)
         {
-                <div class="col-sm-3 col-lg-2 border-end box-shadow" style="height: 100vh;">
+            <div class="col-sm-3 col-lg-2 border-end box-shadow" style="height: 100vh;">
                 <div class="col-12">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -45,7 +45,7 @@
                             <li class="nav-item">
                                 <div class="d-flex flex-row p-2">
                                     <img class="p-2" src="~/img/question-circle.svg" />
-                                        <a class="nav-link text-dark" asp-area="UserAdministrator" asp-controller="Question" asp-action="Add">Помощ</a>
+                                    <a class="nav-link text-dark" asp-area="UserAdministrator" asp-controller="Question" asp-action="Add">Помощ</a>
                                 </div>
                             </li>
                         }
@@ -57,12 +57,18 @@
                                     <a class="nav-link text-dark" asp-controller="ApproveUsers" asp-action="Index">Чакащи одбрение</a>
                                 </div>
                             </li>
-                                <li class="nav-item">
-                                    <div class="d-flex flex-row p-2">
-                                        <img class="p-2" src="~/img/person.svg" />
-                                        <a class="nav-link text-dark" asp-controller="Users" asp-action="Index">Потребители</a>
-                                    </div>
-                                </li>
+                            <li class="nav-item">
+                                <div class="d-flex flex-row p-2">
+                                    <img class="p-2" src="~/img/person.svg" />
+                                    <a class="nav-link text-dark" asp-controller="Users" asp-action="Index">Потребители</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="d-flex flex-row p-2">
+                                    <img class="p-2" src="~/img/question-circle.svg" />
+                                    <a class="nav-link text-dark" asp-area="OfficeWorker" asp-controller="Questions" asp-action="Index">Въпроси</a>
+                                </div>
+                            </li>
                         }
                     </ul>
                 </div>

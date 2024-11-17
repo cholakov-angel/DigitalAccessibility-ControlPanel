@@ -32,6 +32,7 @@ namespace DigAccess.Web
             builder.Services.AddScoped<IWaitingApprovalService, WaitingApprovalService>();
             builder.Services.AddScoped<IOfficeWorkerService, OfficeWorkerService>();
             builder.Services.AddScoped<IQuestionService, QuestionService>();
+            builder.Services.AddScoped<IQuestionOfficeWorkerService, QuestionOfficeWorkerService>();
 
             builder.Services.AddControllersWithViews();
 

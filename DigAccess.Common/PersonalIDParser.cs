@@ -11,9 +11,9 @@ namespace DigAccess.Common
         // Извличане на пола от ЕГН
         public static string GenderExtract(string personalID)
         {
-            int lastNumber = int.Parse(personalID[9].ToString());
+            int preLastNumber = int.Parse(personalID[8].ToString());
 
-            if (lastNumber % 2 == 0)
+            if (preLastNumber % 2 != 0)
             {
                 return "Жена";
             }

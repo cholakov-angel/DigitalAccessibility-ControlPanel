@@ -12,6 +12,7 @@ namespace DigAccess.Models.OfficeWorker
     public class UserDetailsViewModel
     {
         public string? Id { get; set; }
+
         public string? FirstName { get; set; }
 
         public string? MiddleName { get; set; }
@@ -21,5 +22,7 @@ namespace DigAccess.Models.OfficeWorker
         public string? PersonalId { get; set; }
 
         public string? Gender { get; set; }
+
+        public List<BlindUserViewModel> BlindUsers { get; set; } = new List<BlindUserViewModel>();
     }
 }

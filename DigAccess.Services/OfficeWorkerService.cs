@@ -53,7 +53,14 @@ namespace DigAccess.Services
             model.LastName = user.LastName;
             model.PersonalId = user.PersonalId;
             model.Gender = user.Gender.ToString();
-
+            model.BlindUsers = await context.BlindUsers.Where(x => x.AdministratorId == user.Id)
+                .Select(x => new BlindUserViewModel()
+                {
+                    Id = x.Id.ToString(),
+                    FirstName = x.FirstName,
+                    MiddleName = x.MiddleName,
+                    LastName = x.LastName
+                }).ToListAsync();
             return model;
         } // GetUserDetails
 
