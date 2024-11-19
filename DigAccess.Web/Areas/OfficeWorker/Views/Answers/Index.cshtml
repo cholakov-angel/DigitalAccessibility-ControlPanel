@@ -1,0 +1,35 @@
+﻿@using DigAccess.Models.OfficeWorker
+@model AnswerViewModel
+
+<div class="d-flex justify-content-start p-2">
+    <a asp-action="QuestionDetails" asp-controller="Questions" asp-route-id="@Model.QuestionId"> <button class="btn btn-dark mt-2"><h6><</h6></button></a>
+    <h2 class="p-2">Отговор на въпрос</h2>
+</div>
+<form asp-action="Answer" method="post">
+    <div>
+        <label for="Title">Заглавие</label>
+        <span asp-validation-for="@Model.Title" class="text-danger"></span>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div>
+        <label for="Description">Описание</label>
+        <span asp-validation-for="@Model.Description" class="text-danger"></span>
+        <input asp-for="Description" class="form-control" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-dark mt-2">Отговор</button>
+    <div class="d-none">
+        <div>
+            <label for="QuestionId">Потребител</label>
+            <span asp-validation-for="@Model.QuestionId" class="text-danger"></span>
+            <input asp-for="QuestionId" class="form-control" />
+        </div>
+        <div>
+            <label for="Date">Дата</label>
+            <span asp-validation-for="@Model.Date" class="text-danger"></span>
+            <input asp-for="Date" class="form-control" />
+        </div>
+    </div>
+</form>
+
+

@@ -36,5 +36,8 @@ namespace DigAccess.Data.Entities
 
         [Required]
         public DateTime Date { get; set; }
+
+        [Required]
+        public bool IsAnswered { get; set; }
     }
 }

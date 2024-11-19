@@ -1,4 +1,5 @@
-﻿using DigAccess.Data.Entities;
+﻿using DigAccess.Common;
+using DigAccess.Data.Entities;
 using DigAccess.Models.OfficeWorker;
 using DigAccess.Services.Interfaces;
 using DigAccess.Web.Data;
@@ -16,14 +17,14 @@ namespace DigAccess.Services
     {
         public QuestionOfficeWorkerService(DigAccessDbContext context, UserManager<ApplicationUser> userManager) : base(context, userManager)
         {
-        } // QuestionOfficeWorkerService
+        } // QuestionAnserOfficeWorkerService
 
         public async Task<List<QuestionViewModel>> GetQuestions(string userId)
         {
             var user = await this.GetOfficeWorker(userId);
 
             var model = await this.context.Questions.Include(x => x.User)
-                .Where(x => x.User.OfficeId == user.OfficeId)
+                .Where(x => x.User.OfficeId == user.OfficeId && x.IsAnswered == false)
                 .Select(x => new QuestionViewModel 
                 {
                     Id = x.Id.ToString(),
@@ -31,6 +32,26 @@ namespace DigAccess.Services
                     Title = x.Title,
                     UserId = x.UserId
                 }).ToListAsync();
+
+            return model;
+        } // GetQuestions
+
+        public async Task<QuestionDetailsViewModel> GetQuestion(string userId, string questionId)
+        {
+            var questionIdGuid = GuidParser.GuidParse(questionId);
+            var user = await this.GetOfficeWorker(userId);
+
+            var model = await this.context.Questions.Include(x => x.User)
+                .Where(x => x.User.OfficeId == user.OfficeId && x.Id == questionIdGuid)
+                .Select(x => new QuestionDetailsViewModel
+                {
+                    Id = x.Id.ToString(),
+                    UserName = x.User.FirstName + " " + x.User.MiddleName + " " + x.User.LastName,
+                    Title = x.Title,
+                    UserId = x.UserId,
+                    Description = x.Description,
+                    Date = x.Date.ToString(Constants.DateTimeFormat)
+                }).FirstOrDefaultAsync();
 
             return model;
         } // GetQuestions
@@ -55,5 +76,5 @@ namespace DigAccess.Services
             }
             return officeWorker;
         } // GetOfficeWorker
-    } // QuestionOfficeWorkerService
+    } // QuestionAnserOfficeWorkerService
 }

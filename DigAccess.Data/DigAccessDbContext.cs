@@ -37,6 +37,14 @@ namespace DigAccess.Web.Data
                 .Property(x => x.ApprovalStatus)
                 .HasDefaultValue(0);
             base.OnModelCreating(builder);
+
+            builder.Entity<Question>()
+                .Property(x=> x.IsAnswered)
+                .HasDefaultValue(false);
+
+            builder.Entity<Answer>()
+                .Property(x=> x.IsReviewed)
+                .HasDefaultValue(false);
         } // OnModelCreating
 
         public virtual DbSet<OrganisationCompany> Organisations { get; set; }
@@ -51,6 +59,9 @@ namespace DigAccess.Web.Data
         public virtual DbSet<BlindUserFeature> BlindUsersFeatures { get; set; }
         public virtual DbSet<BlindUserLog> BlindUsersLogs { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
+        public virtual DbSet<Answer> Answers { get; set; }
+
+
 
     } // DigAccessDbContext
 }

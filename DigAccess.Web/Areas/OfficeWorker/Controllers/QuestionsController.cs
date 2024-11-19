@@ -27,6 +27,13 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             return View(model);
         } // Index
 
+        public async Task<IActionResult> QuestionDetails(string id)
+        {
+            var userId = this.GetUserId();
+            var model = await this.service.GetQuestion(userId, id);
+
+            return View(model);
+        }
         private string? GetUserId()
         {
             string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);

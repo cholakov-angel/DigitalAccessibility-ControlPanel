@@ -38,6 +38,40 @@ namespace DigAccess.DbContext.Migrations
                     b.ToTable("Cities");
                 });
 
+            modelBuilder.Entity("DigAccess.Data.Entities.Answer", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(8000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsReviewed")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<Guid>("QuestionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuestionId");
+
+                    b.ToTable("Answers");
+                });
+
             modelBuilder.Entity("DigAccess.Data.Entities.Blind.BlindUser", b =>
                 {
                     b.Property<Guid>("Id")
@@ -332,6 +366,11 @@ namespace DigAccess.DbContext.Migrations
                         .HasMaxLength(8000)
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsAnswered")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -597,6 +636,17 @@ namespace DigAccess.DbContext.Migrations
                         .HasFilter("[PersonalId] IS NOT NULL");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
+            modelBuilder.Entity("DigAccess.Data.Entities.Answer", b =>
+                {
+                    b.HasOne("DigAccess.Data.Entities.Question", "Question")
+                        .WithMany()
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Question");
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Blind.BlindUser", b =>
