@@ -1,0 +1,17 @@
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\bin\Debug\net8.0\DigAccess.DbContext.deps.json
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\bin\Debug\net8.0\DigAccess.DbContext.dll
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\bin\Debug\net8.0\DigAccess.DbContext.pdb
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\obj\Debug\net8.0\DigAccess.DbContext.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\obj\Debug\net8.0\DigAccess.DbContext.AssemblyInfoInputs.cache
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\obj\Debug\net8.0\DigAccess.DbContext.AssemblyInfo.cs
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\obj\Debug\net8.0\DigAccess.DbContext.csproj.CoreCompileInputs.cache
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\obj\Debug\net8.0\DigAccess.DbContext.dll
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\obj\Debug\net8.0\refint\DigAccess.DbContext.dll
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\obj\Debug\net8.0\DigAccess.DbContext.pdb
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\obj\Debug\net8.0\ref\DigAccess.DbContext.dll
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\bin\Debug\net8.0\DigAccess.DbContext.runtimeconfig.json
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\bin\Debug\net8.0\DigAccess.Data.dll
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\bin\Debug\net8.0\DigAccess.Data.pdb
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\obj\Debug\net8.0\DigAccess.DbContext.csproj.AssemblyReference.cache
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\obj\Debug\net8.0\DigAccess.DbContext.csproj.CopyComplete
+C:\Users\angel\source\repos\DigAccess.Application\DigAccess.DbContext\obj\Debug\net8.0\DigAccess.DbContext.genruntimeconfig.cache

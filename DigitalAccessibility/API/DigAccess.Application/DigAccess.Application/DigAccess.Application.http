@@ -1,0 +1,6 @@
+@DigAccess.Application_HostAddress = http://localhost:5122
+
+GET {{DigAccess.Application_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
