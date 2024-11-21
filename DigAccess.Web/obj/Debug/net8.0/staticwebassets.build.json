@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4bzA/r8TXOkqy6NSsWJTcMSKsJD68mDt3RMwiuws2ec=",
+  "Hash": "2dNF1AFvduFR5cAHcal7VvKYE0JnkZ8nmXN8kDVWR/Q=",
   "Source": "DigAccess.Web",
   "BasePath": "_content/DigAccess.Web",
   "Mode": "Default",
@@ -1269,25 +1269,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
-    },
-    {
-      "Identity": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\close-up-cropped-photo-legs-senior-man-with-walking-stick-walking-down-street-city-rainy-day-people-with-disabilities-health-concepts_248459-25385.jpg",
-      "SourceId": "DigAccess.Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\",
-      "BasePath": "_content/DigAccess.Web",
-      "RelativePath": "img/close-up-cropped-photo-legs-senior-man-with-walking-stick-walking-down-street-city-rainy-day-people-with-disabilities-health-concepts_248459-25385.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\close-up-cropped-photo-legs-senior-man-with-walking-stick-walking-down-street-city-rainy-day-people-with-disabilities-health-concepts_248459-25385.jpg"
     },
     {
       "Identity": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\house-door.png",

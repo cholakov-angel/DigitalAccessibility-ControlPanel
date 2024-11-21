@@ -34,6 +34,7 @@ namespace DigAccess.Web
             builder.Services.AddScoped<IQuestionService, QuestionService>();
             builder.Services.AddScoped<IQuestionOfficeWorkerService, QuestionOfficeWorkerService>();
             builder.Services.AddScoped<IAnswerOfficeWorkerService, AnswerOfficeWorkerService>();
+            builder.Services.AddScoped<IWorkerOfficeAdminService, WorkerOfficeAdminService>();
 
             builder.Services.AddControllersWithViews();
 

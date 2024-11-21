@@ -14,13 +14,14 @@ namespace DigAccess.Services
 {
     public class OfficeWorkerService : BaseService, IOfficeWorkerService
     {
+        private const string role = "OfficeWorker";
         public OfficeWorkerService(DigAccessDbContext context, UserManager<ApplicationUser> userManager) : base(context, userManager)
         {
         } // OfficeWorkerService
 
         public async Task<bool> ApproveUser(string workerId, string userId)
         {
-            ApplicationUser? officeWorker = await this.GetOfficeWorker(workerId);
+            ApplicationUser? officeWorker = await this.GetOfficeWorker(workerId, role);
             ApplicationUser? userToBeApproved = await this.GetUser(userId);
 
             if (userToBeApproved.OfficeId != officeWorker.OfficeId)
@@ -37,7 +38,7 @@ namespace DigAccess.Services
 
         public async Task<UserDetailsViewModel> GetUserDetails(string workerId, string userId)
         {
-            var officeWorker = await this.GetOfficeWorker(workerId);
+            var officeWorker = await this.GetOfficeWorker(workerId, role);
             var user = await this.GetUser(userId);
 
 
@@ -66,7 +67,7 @@ namespace DigAccess.Services
 
         public async Task<bool> DeleteUser(string workerId, string userId)
         {
-            var officeWorker = await this.GetOfficeWorker(workerId);
+            var officeWorker = await this.GetOfficeWorker(workerId, role);
             var user = await this.GetUser(userId);
 
             if (user.OfficeId != officeWorker.OfficeId)
@@ -85,7 +86,7 @@ namespace DigAccess.Services
 
         public async Task<List<UserDetailsViewModel>> GetUsers(string userId, int page)
         {
-            var officeWorker = await this.GetOfficeWorker(userId);
+            var officeWorker = await this.GetOfficeWorker(userId, role);
 
             return await this.userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 1)
                 .Select(x => new UserDetailsViewModel
@@ -109,7 +110,7 @@ namespace DigAccess.Services
                 return await this.GetWaitingUsers(id);
             }
 
-            var officeWorker = await this.GetOfficeWorker(id);
+            var officeWorker = await this.GetOfficeWorker(id, role);
 
             var result = await userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 0
             && (x.FirstName + " " + x.MiddleName + " " + x.LastName).ToLower().StartsWith(name.ToLower()))
@@ -133,7 +134,7 @@ namespace DigAccess.Services
 
         public async Task<WaitingUsersViewModel> GetWaitingUsers(string id)
         {
-            var officeWorker = await this.GetOfficeWorker(id);
+            var officeWorker = await this.GetOfficeWorker(id, role);
 
             var result = await userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 0)
                 .Select(x => new UserWaiting
@@ -156,7 +157,7 @@ namespace DigAccess.Services
 
         public async Task<bool> RejectUser(string workerId, string userId)
         {
-            var officeWorker = await this.GetOfficeWorker(workerId);
+            var officeWorker = await this.GetOfficeWorker(workerId, role);
             var userToBeApproved = await this.GetUser(userId);
 
             if (userToBeApproved.OfficeId != officeWorker.OfficeId)
@@ -183,7 +184,7 @@ namespace DigAccess.Services
 
         public async Task<UserDeleteViewModel> ApproveUserForDelete(string workerId, string userId)
         {
-            var officeWorker = await this.GetOfficeWorker(workerId);
+            var officeWorker = await this.GetOfficeWorker(workerId, role);
             var userToBeApproved = await this.GetUser(userId);
 
             if (userToBeApproved.OfficeId != officeWorker.OfficeId)
@@ -200,7 +201,7 @@ namespace DigAccess.Services
             {
                 return await this.GetUsers(userId, 1);
             }
-            var officeWorker = await this.GetOfficeWorker(userId);
+            var officeWorker = await this.GetOfficeWorker(userId, role);
 
             return await this.userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 1
             && (x.FirstName + " " + x.MiddleName + " " + x.LastName).ToLower().StartsWith(name.ToLower()))
@@ -220,31 +221,11 @@ namespace DigAccess.Services
 
         public async Task<int> CountUsers(string workerId)
         {
-            var officeWorker = await this.GetOfficeWorker(workerId);
+            var officeWorker = await this.GetOfficeWorker(workerId, role);
 
             return await this.userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 1)
                 .CountAsync();
 
         } // CountUsers
-        private async Task<ApplicationUser?> GetOfficeWorker(string workerId)
-        {
-            if (workerId == null)
-            {
-                throw new ArgumentException("Invalid user!");
-            }
-
-            var officeWorker = await userManager.FindByIdAsync(workerId);
-
-            if (officeWorker == null)
-            {
-                throw new ArgumentException("Invalid user!");
-            }
-
-            if (await userManager.IsInRoleAsync(officeWorker, "OfficeWorker") == false)
-            {
-                throw new ArgumentException("Invalid user!");
-            }
-            return officeWorker;
-        } // GetOfficeWorker
     } // OfficeWorkerService
 }

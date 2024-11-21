@@ -20,5 +20,25 @@ namespace DigAccess.Services
             this.context = context;
             this.userManager = userManager;
         } // BaseService
+        protected async Task<ApplicationUser?> GetOfficeWorker(string workerId, string role)
+        {
+            if (workerId == null)
+            {
+                throw new ArgumentException("Invalid user!");
+            }
+
+            var officeWorker = await userManager.FindByIdAsync(workerId);
+
+            if (officeWorker == null)
+            {
+                throw new ArgumentException("Invalid user!");
+            }
+
+            if (await userManager.IsInRoleAsync(officeWorker, role) == false)
+            {
+                throw new ArgumentException("Invalid user!");
+            }
+            return officeWorker;
+        } // GetOfficeWorker
     }
 }
