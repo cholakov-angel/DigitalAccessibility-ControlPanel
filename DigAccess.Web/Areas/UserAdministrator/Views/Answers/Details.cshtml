@@ -1,0 +1,28 @@
+﻿@using DigAccess.Models.UserAdministrator
+@model AnswerDetailsViewModel
+
+<div class="d-flex justify-content-start p-2">
+    <a asp-action="Index"> <button class="btn btn-dark mt-2"><h6><</h6></button></a>
+    <h2 class="p-2">Преглед на отговор</h2>
+</div>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Отговор</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Дата на отговор: @Model.Date</h6>
+        <p class="card-text">
+            <h5>@Model.Title</h5>
+            <p>@Model.Description</p>
+        </p>
+    </div>
+</div>
+<br />
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Въпрос</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Дата на отговор: @Model.QuestionDate</h6>
+        <p class="card-text">
+            <h5>@Model.QuestionTitle</h5>
+        <p>@Model.QuestionDescription</p>
+        </p>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2dNF1AFvduFR5cAHcal7VvKYE0JnkZ8nmXN8kDVWR/Q=",
+  "Hash": "KWepnBN96lWUlt6xtxKMfDmvzt3yzrxTKOGgrQUbmkw=",
   "Source": "DigAccess.Web",
   "BasePath": "_content/DigAccess.Web",
   "Mode": "Default",
@@ -1328,6 +1328,25 @@
       "OriginalItemSpec": "wwwroot\\img\\key-fill.svg"
     },
     {
+      "Identity": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\list.svg",
+      "SourceId": "DigAccess.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\",
+      "BasePath": "_content/DigAccess.Web",
+      "RelativePath": "img/list.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\list.svg"
+    },
+    {
       "Identity": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\lock.svg",
       "SourceId": "DigAccess.Web",
       "SourceType": "Discovered",
@@ -1345,6 +1364,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\lock.svg"
+    },
+    {
+      "Identity": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\logo.png",
+      "SourceId": "DigAccess.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\",
+      "BasePath": "_content/DigAccess.Web",
+      "RelativePath": "img/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logo.png"
     },
     {
       "Identity": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\person.png",
