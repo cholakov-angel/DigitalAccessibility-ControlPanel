@@ -88,19 +88,28 @@ namespace DigAccess.Services
         {
             var officeWorker = await this.GetOfficeWorker(userId, role);
 
-            return await this.userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 1)
-                .Select(x => new UserDetailsViewModel
-                {
-                    Id = x.Id,
-                    FirstName = x.FirstName,
-                    MiddleName = x.MiddleName,
-                    LastName = x.LastName,
-                    PersonalId = x.PersonalId,
-                    Gender = x.Gender.ToString()
-                })
-                .Skip((page - 1) * 8)
-                .Take(8)
+            var users = await this.userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 1)
                 .ToListAsync();
+
+
+            List<UserDetailsViewModel> model = new List<UserDetailsViewModel>();
+            foreach (var user in users)
+            {
+                if (await userManager.IsInRoleAsync(user, "UserAdministrator"))
+                {
+                    model.Add(new UserDetailsViewModel
+                    {
+                        Id = user.Id,
+                        FirstName = user.FirstName,
+                        MiddleName = user.MiddleName,
+                        LastName = user.LastName,
+                        PersonalId = user.PersonalId,
+                        Gender = user.Gender.ToString()
+                    });
+                }
+            }
+
+            return model.Skip((page - 1) * 8).Take(8).ToList();
         } // GetUsers
 
         public async Task<WaitingUsersViewModel> GetWaitingUsersByName(string id, string name)
@@ -136,21 +145,30 @@ namespace DigAccess.Services
         {
             var officeWorker = await this.GetOfficeWorker(id, role);
 
-            var result = await userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 0)
-                .Select(x => new UserWaiting
-                {
-                    Id = x.Id,
-                    OfficeId = x.OfficeId.ToString(),
-                    FirstName = x.FirstName,
-                    MiddleName = x.MiddleName,
-                    LastName = x.LastName
-                }).ToListAsync();
+            var users = await userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 0)
+                .ToListAsync();
 
+            List<UserWaiting> waititngUsers = new List<UserWaiting>();
+            foreach (var user in users)
+            {
+                if (await userManager.IsInRoleAsync(user, "WaitingApproval"))
+                {
+                    waititngUsers.Add(new UserWaiting()
+                    {
+
+                        Id = user.Id,
+                        OfficeId = user.OfficeId.ToString(),
+                        FirstName = user.FirstName,
+                        MiddleName = user.MiddleName,
+                        LastName = user.LastName
+                    });
+                }
+            }
 
             WaitingUsersViewModel model = new WaitingUsersViewModel();
             model.OfficeId = officeWorker.OfficeId.ToString();
             model.UserId = officeWorker.Id;
-            model.UsersWaitings = result;
+            model.UsersWaitings = waititngUsers;
 
             return model;
         } // GetWaitingUsers
@@ -174,7 +192,8 @@ namespace DigAccess.Services
         {
             var userToBeApproved = await userManager.FindByIdAsync(userId);
 
-            if (userToBeApproved == null)
+            if (userToBeApproved == null || await userManager.IsInRoleAsync(userToBeApproved, "OrgAdministrator")
+                || await userManager.IsInRoleAsync(userToBeApproved, "OfficeAdministrator"))
             {
                 throw new ArgumentException("Invalid user!");
             }
@@ -203,29 +222,47 @@ namespace DigAccess.Services
             }
             var officeWorker = await this.GetOfficeWorker(userId, role);
 
-            return await this.userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 1
+            var users = await this.userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 1
             && (x.FirstName + " " + x.MiddleName + " " + x.LastName).ToLower().StartsWith(name.ToLower()))
-                .Select(x => new UserDetailsViewModel
-                {
-                    Id = x.Id,
-                    FirstName = x.FirstName,
-                    MiddleName = x.MiddleName,
-                    LastName = x.LastName,
-                    PersonalId = x.PersonalId,
-                    Gender = x.Gender.ToString()
-                })
-                .Skip((page - 1) * 8)
-                .Take(8)
                 .ToListAsync();
+
+            List<UserDetailsViewModel> model = new List<UserDetailsViewModel>();
+            foreach (var user in users)
+            {
+                if (await userManager.IsInRoleAsync(user, "UserAdministrator"))
+                {
+                    model.Add(new UserDetailsViewModel
+                    {
+                        Id = user.Id,
+                        FirstName = user.FirstName,
+                        MiddleName = user.MiddleName,
+                        LastName = user.LastName,
+                        PersonalId = user.PersonalId,
+                        Gender = user.Gender.ToString()
+                    });
+                }
+            }
+
+            return model;
         } // GetUsersByName
 
         public async Task<int> CountUsers(string workerId)
         {
             var officeWorker = await this.GetOfficeWorker(workerId, role);
 
-            return await this.userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 1)
-                .CountAsync();
+            var users = await this.userManager.Users.Where(x => x.OfficeId == officeWorker.OfficeId && x.ApprovalStatus == 1)
+                .ToListAsync();
 
+            int count = 0;
+            foreach (var user in users)
+            {
+                if (await userManager.IsInRoleAsync(user, "UserAdministrator"))
+                {
+                    count++;
+                }
+            }
+
+            return count;
         } // CountUsers
     } // OfficeWorkerService
 }

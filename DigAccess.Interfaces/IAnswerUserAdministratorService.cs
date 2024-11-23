@@ -12,6 +12,7 @@ namespace DigAccess.Services.Interfaces
     {
         public Task<List<AnswerViewModel>> GetAnswers(string userId, int page);
         public Task<AnswerDetailsViewModel> GetAnswer(string userId, string answerId);
+        public Task<bool> DeleteAnswer(string userId, string answerId);
         public Task<int> CountAnswers(string userId);
 
     } // IAnswerUserAdministratorService

@@ -43,5 +43,19 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 
             return View(model);
         } // Details
+
+        public async Task<IActionResult> Delete(string id)
+        {
+            var userId = this.GetUserId();
+
+            bool result = await this.service.DeleteAnswer(userId, id);
+
+            if (result == false)
+            {
+                throw new Exception("Error occured!");
+            }
+
+            return RedirectToAction("Index");
+        } // Delete
     } // AnswersController
 }

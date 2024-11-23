@@ -29,6 +29,22 @@ namespace DigAccess.Services
                 .ToListAsync();
         } // GetAnswers
 
+        public async Task<bool> DeleteAnswer(string userId, string answerId)
+        {
+            Guid answerIdGuid = GuidParser.GuidParse(answerId);
+
+            var answer = await this.context.Answers.Include(x => x.Question)
+                .FirstOrDefaultAsync(x => x.Question.UserId == userId && x.Id == answerIdGuid);
+
+            if (answer == null)
+            {
+                return false;
+            }
+
+            answer.IsReviewed = true;
+            await this.context.SaveChangesAsync();
+            return true;
+        }
         public async Task<AnswerDetailsViewModel> GetAnswer(string userId, string answerId)
         {
             Guid answerIdGuid = GuidParser.GuidParse(answerId);
