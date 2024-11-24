@@ -1,5 +1,4 @@
-﻿using Azure;
-using DigAccess.Common;
+﻿using DigAccess.Common;
 using DigAccess.Data.Entities;
 using DigAccess.Data.Entities.Enums;
 using DigAccess.Models.OfficeAdministrator;
@@ -7,13 +6,8 @@ using DigAccess.Services.Interfaces;
 using DigAccess.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DigAccess.Services
+namespace DigAccess.Services.OfficeAdministrator
 {
     public class WorkerOfficeAdminService : BaseService, IWorkerOfficeAdminService
     {
@@ -25,11 +19,11 @@ namespace DigAccess.Services
 
         public async Task<List<WorkerViewModel>> GetWorkers(string id, int page)
         {
-            var user = await this.GetOfficeWorker(id, role);
+            var user = await GetOfficeWorker(id, role);
 
-            var users = await this.userManager.Users.Where(x => x.OfficeId == user.OfficeId && x.Id != user.Id)
+            var users = await userManager.Users.Where(x => x.OfficeId == user.OfficeId && x.Id != user.Id)
                 .ToListAsync();
-            
+
             List<WorkerViewModel> workers = new List<WorkerViewModel>();
             foreach (var u in users)
             {
@@ -50,8 +44,8 @@ namespace DigAccess.Services
 
         public async Task<int> CountUsers(string workerId)
         {
-            var user = await this.GetOfficeWorker(workerId, role);
-            var users = await this.userManager.Users.Where(x => x.OfficeId == user.OfficeId && x.Id != user.Id).ToListAsync();
+            var user = await GetOfficeWorker(workerId, role);
+            var users = await userManager.Users.Where(x => x.OfficeId == user.OfficeId && x.Id != user.Id).ToListAsync();
 
             List<WorkerViewModel> workers = new List<WorkerViewModel>();
             foreach (var u in users)
@@ -70,9 +64,31 @@ namespace DigAccess.Services
             return workers.Count;
         } // CountUsers
 
+        public async Task<WorkerDetailsViewModel> WorkerDetails(string userId, string workerId)
+        {
+            var user = await GetOfficeWorker(userId, role);
+            var worker = await GetOfficeWorker(workerId, "OfficeWorker");
+
+            if (worker.OfficeId != user.OfficeId)
+            {
+                throw new ArgumentException("Invalid user!");
+            }
+
+            WorkerDetailsViewModel model = new WorkerDetailsViewModel();
+            model.Id = worker.Id;
+            model.FirstName = worker.FirstName;
+            model.MiddleName = worker.MiddleName;
+            model.LastName = worker.LastName;
+            model.PersonalID = worker.PersonalId;
+            model.Email = worker.Email;
+            model.Phone = worker.PhoneNumber;
+
+            return model;
+        } // WorkerDetails
+
         public async Task<bool> AddOfficeWorker(string userId, AddWorkerViewModel model)
         {
-            var user = await this.GetOfficeWorker(userId, role);
+            var user = await GetOfficeWorker(userId, role);
 
             ApplicationUser officeWorker = new ApplicationUser();
             officeWorker.UserName = model.Email;
@@ -99,6 +115,23 @@ namespace DigAccess.Services
                 return false;
             }
             return true;
-        }
+        } // AddOfficeWorker
+
+        public async Task<bool> DeleteUser(string workerId, string userId)
+        {
+            var officeWorker = await this.GetOfficeWorker(workerId, role);
+            var user = await this.GetOfficeWorker(userId, "OfficeWorker");
+
+            if (user.OfficeId != officeWorker.OfficeId)
+            {
+                return false;
+            }
+
+            await userManager.DeleteAsync(user);
+
+            await context.SaveChangesAsync();
+
+            return true;
+        } // DeleteUser
     } // WorkerOfficeAdminService
 }

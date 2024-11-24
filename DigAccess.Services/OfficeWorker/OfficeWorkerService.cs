@@ -75,10 +75,7 @@ namespace DigAccess.Services
                 return false;
             }
 
-            user.ApprovalStatus = 3;
-            await userManager.SetLockoutEnabledAsync(user, true);
-            await userManager.SetLockoutEndDateAsync(user, DateTime.Today.AddYears(100));
-
+            await this.userManager.DeleteAsync(user);
             await context.SaveChangesAsync();
 
             return true;

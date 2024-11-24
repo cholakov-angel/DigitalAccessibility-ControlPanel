@@ -1,0 +1,51 @@
+﻿@using DigAccess.Models.OfficeAdministrator
+@model OfficeViewModel
+@{
+    ViewData["Title"] = "Информация";
+}
+
+<div class="d-flex justify-content-start p-2">
+    <h2 class="p-2">Детайли</h2>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Информация</h5>
+        <p class="card-text">
+            <form asp-action="Add" method="post">
+                <div>
+                    <label for="Name">Име</label>
+                    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                    <input readonly asp-for="Name" class="form-control" />
+                </div>
+                <div>
+                    <label for="Organisation">Организация</label>
+                    <span asp-validation-for="@Model.Organisation" class="text-danger"></span>
+                    <input readonly asp-for="Organisation" class="form-control" />
+                </div>
+                <div>
+                    <label for="Phone">Телефон</label>
+                    <span asp-validation-for="@Model.Phone" class="text-danger"></span>
+                    <input readonly asp-for="Phone" class="form-control" />
+                </div>
+                <div>
+                    <label for="Street">Улица</label>
+                    <span asp-validation-for="@Model.Street" class="text-danger"></span>
+                    <input readonly asp-for="Street" class="form-control" />
+                </div>
+                <div>
+                    <label for="StreetNumber">Номер на улица</label>
+                    <span asp-validation-for="@Model.StreetNumber" class="text-danger"></span>
+                    <input readonly asp-for="StreetNumber" class="form-control" />
+                </div>
+                <div>
+                    <label for="CityName">Град</label>
+                    <span asp-validation-for="@Model.CityName" class="text-danger"></span>
+                    <input readonly asp-for="CityName" class="form-control" />
+                </div>
+            </form>
+        </p>
+    </div>
+</div>
+<br />
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-dark">Редактиране</a>

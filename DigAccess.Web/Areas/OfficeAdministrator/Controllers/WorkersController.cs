@@ -36,6 +36,29 @@ namespace DigAccess.Web.Areas.OfficeAdministrator.Controllers
             return View(model);
         } // Index
 
+        public async Task<IActionResult> Details(string id)
+        {
+            var userId = this.GetUserId();
+            
+            var model = await this.service.WorkerDetails(userId, id);
+
+            return View(model);
+        } // Details
+
+        public async Task<IActionResult> Delete(string id)
+        {
+            var userId = this.GetUserId();
+
+            bool result = await this.service.DeleteUser(userId, id);
+            
+            if (result == false)
+            {
+                throw new ArgumentException("Error occurred!");
+            }
+
+            return RedirectToAction("Index");
+        } // Delete
+
         [HttpGet]
         public async Task<IActionResult> Add()
         {

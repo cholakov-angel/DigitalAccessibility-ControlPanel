@@ -1,0 +1,52 @@
+﻿@using DigAccess.Models.OfficeAdministrator
+@model WorkerDetailsViewModel
+@{
+    ViewData["Title"] = "Информация";
+}
+
+<div class="d-flex justify-content-start p-2">
+    <a asp-action="Index"> <button class="btn btn-dark mt-2"><h6><</h6></button></a>
+    <h2 class="p-2">Детайли</h2>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Информация</h5>
+        <p class="card-text">
+            <form asp-action="Add" method="post">
+                <div>
+                    <label for="FirstName">Име</label>
+                    <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+                    <input readonly asp-for="FirstName" class="form-control" />
+                </div>
+                <div>
+                    <label for="MiddleName">Презиме</label>
+                    <span asp-validation-for="@Model.MiddleName" class="text-danger"></span>
+                    <input readonly asp-for="MiddleName" class="form-control" />
+                </div>
+                <div>
+                    <label for="LastName">Фамилия</label>
+                    <span asp-validation-for="@Model.LastName" class="text-danger"></span>
+                    <input readonly asp-for="LastName" class="form-control" />
+                </div>
+                <div>
+                    <label for="PersonalID">ЕГН</label>
+                    <span asp-validation-for="@Model.PersonalID" class="text-danger"></span>
+                    <input readonly asp-for="PersonalID" class="form-control" />
+                </div>
+                <div>
+                    <label for="Phone">Телефон</label>
+                    <span asp-validation-for="@Model.Phone" class="text-danger"></span>
+                    <input readonly asp-for="Phone" class="form-control" />
+                </div>
+                <div>
+                    <label for="Email">Имейл</label>
+                    <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                    <input readonly asp-for="Email" class="form-control" />
+                </div>
+            </form>
+        </p>
+    </div>
+</div>
+<br />
+<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-dark">Изтриване</a>

@@ -1,9 +1,4 @@
 ﻿using DigAccess.Models.OfficeAdministrator;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DigAccess.Services.Interfaces
 {
@@ -12,5 +7,7 @@ namespace DigAccess.Services.Interfaces
         public Task<List<WorkerViewModel>> GetWorkers(string id, int page);
         public Task<int> CountUsers(string workerId);
         public Task<bool> AddOfficeWorker(string userId, AddWorkerViewModel model);
+        public Task<WorkerDetailsViewModel> WorkerDetails(string userId, string workerId);
+        public Task<bool> DeleteUser(string workerId, string userId);
     } // IWorkerOfficeAdminService
 }

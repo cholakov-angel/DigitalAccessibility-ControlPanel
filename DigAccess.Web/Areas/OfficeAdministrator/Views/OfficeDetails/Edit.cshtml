@@ -1,0 +1,56 @@
+﻿@using DigAccess.Models.OfficeAdministrator
+@model OfficeViewModel
+@{
+    ViewData["Title"] = "Редакция";
+}
+
+<div class="d-flex justify-content-start p-2">
+    <a asp-action="Index"> <button class="btn btn-dark mt-2"><h6><</h6></button></a>
+    <h2 class="p-2">Редакция</h2>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Информация</h5>
+        <p class="card-text">
+            <form asp-action="Edit" method="post">
+                <div>
+                    <label for="Name">Име</label>
+                    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                    <input asp-for="Name" class="form-control" />
+                </div>
+                <div>
+                    <label for="Organisation">Организация</label>
+                    <span asp-validation-for="@Model.Organisation" class="text-danger"></span>
+                    <input asp-for="Organisation" class="form-control" />
+                </div>
+                <div>
+                    <label for="Phone">Телефон</label>
+                    <span asp-validation-for="@Model.Phone" class="text-danger"></span>
+                    <input asp-for="Phone" class="form-control" />
+                </div>
+                <div>
+                    <label for="Street">Улица</label>
+                    <span asp-validation-for="@Model.Street" class="text-danger"></span>
+                    <input asp-for="Street" class="form-control" />
+                </div>
+                <div>
+                    <label for="StreetNumber">Номер на улица</label>
+                    <span asp-validation-for="@Model.StreetNumber" class="text-danger"></span>
+                    <input asp-for="StreetNumber" class="form-control" />
+                </div>
+                <label for="CityName">Град</label>
+                <div class="input-group mb-3">
+                    <select asp-for="CityName" class="form-select" id="inputGroupSelect02">
+                        @foreach (var city in Model.Cities)
+                        {
+                            <option value=@city.Id>@city.Name</option>
+                        }
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-dark mt-2">Запазване</button>
+            </form>
+        </p>
+    </div>
+</div>
+<br />
