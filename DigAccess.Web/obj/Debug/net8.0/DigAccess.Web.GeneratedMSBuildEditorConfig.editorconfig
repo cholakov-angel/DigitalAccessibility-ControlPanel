@@ -138,6 +138,38 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT2ZmaWNlV29ya2VyXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/OrgAdministrator/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JnQWRtaW5pc3RyYXRvclxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/OrgAdministrator/Views/Office/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JnQWRtaW5pc3RyYXRvclxWaWV3c1xPZmZpY2VcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/OrgAdministrator/Views/Office/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JnQWRtaW5pc3RyYXRvclxWaWV3c1xPZmZpY2VcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/OrgAdministrator/Views/Office/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JnQWRtaW5pc3RyYXRvclxWaWV3c1xPZmZpY2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/OrgAdministrator/Views/Office/OfficeAdminAdd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JnQWRtaW5pc3RyYXRvclxWaWV3c1xPZmZpY2VcT2ZmaWNlQWRtaW5BZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/OrgAdministrator/Views/Office/OfficeAdminDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JnQWRtaW5pc3RyYXRvclxWaWV3c1xPZmZpY2VcT2ZmaWNlQWRtaW5EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/OrgAdministrator/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JnQWRtaW5pc3RyYXRvclxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/OrgAdministrator/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JnQWRtaW5pc3RyYXRvclxfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/Answers/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcQW5zd2Vyc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

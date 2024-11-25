@@ -35,7 +35,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cities");
+                    b.ToTable("Cities", (string)null);
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Answer", b =>
@@ -69,7 +69,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("Answers");
+                    b.ToTable("Answers", (string)null);
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Blind.BlindUser", b =>
@@ -131,7 +131,7 @@ namespace DigAccess.DbContext.Migrations
                         .IsUnique()
                         .HasFilter("[PersonalId] IS NOT NULL");
 
-                    b.ToTable("BlindUsers");
+                    b.ToTable("BlindUsers", (string)null);
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Blind.BlindUserEmail", b =>
@@ -160,7 +160,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasIndex("EmailSettingsId");
 
-                    b.ToTable("BlindUsersEmails");
+                    b.ToTable("BlindUsersEmails", (string)null);
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Blind.BlindUserLicence", b =>
@@ -198,7 +198,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasIndex("BlindUserId");
 
-                    b.ToTable("BlindUsersLicences");
+                    b.ToTable("BlindUsersLicences", (string)null);
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Blind.BlindUserLog", b =>
@@ -228,7 +228,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasIndex("BlindUserId");
 
-                    b.ToTable("BlindUsersLogs");
+                    b.ToTable("BlindUsersLogs", (string)null);
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Blind.EmailSettings", b =>
@@ -254,7 +254,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EmailsSettings");
+                    b.ToTable("EmailsSettings", (string)null);
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Feature.BlindUserFeature", b =>
@@ -273,7 +273,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasIndex("FeatureId");
 
-                    b.ToTable("BlindUsersFeatures");
+                    b.ToTable("BlindUsersFeatures", (string)null);
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Feature.Feature", b =>
@@ -291,7 +291,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Features");
+                    b.ToTable("Features", (string)null);
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Organisation.Organisation.Office", b =>
@@ -328,7 +328,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasIndex("OrganisationId");
 
-                    b.ToTable("Offices");
+                    b.ToTable("Offices", (string)null);
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Organisation.OrganisationCompany", b =>
@@ -349,7 +349,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Organisations");
+                    b.ToTable("Organisations", (string)null);
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Question", b =>
@@ -384,7 +384,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Questions");
+                    b.ToTable("Questions", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -625,11 +625,16 @@ namespace DigAccess.DbContext.Migrations
                     b.Property<Guid?>("OfficeId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("OrganisationId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("PersonalId")
                         .HasMaxLength(10)
                         .HasColumnType("CHAR(10)");
 
                     b.HasIndex("OfficeId");
+
+                    b.HasIndex("OrganisationId");
 
                     b.HasIndex("PersonalId")
                         .IsUnique()
@@ -815,7 +820,15 @@ namespace DigAccess.DbContext.Migrations
                         .WithMany()
                         .HasForeignKey("OfficeId");
 
+                    b.HasOne("DigAccess.Data.Entities.Organisation.OrganisationCompany", "Organisation")
+                        .WithMany()
+                        .HasForeignKey("OrganisationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Office");
+
+                    b.Navigation("Organisation");
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Address.City", b =>

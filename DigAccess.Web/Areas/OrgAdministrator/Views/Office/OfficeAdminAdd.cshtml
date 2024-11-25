@@ -1,0 +1,61 @@
+﻿@model DigAccess.Models.OrgAdministrator.AddOfficeAdminViewModel
+@{
+    ViewData["Title"] = "Добавяне на потребител";
+}
+
+<div class="d-flex justify-content-start p-2">
+    <a asp-action="Index"> <button class="btn btn-dark mt-2"><h6><</h6></button></a>
+    <h2 class="p-2">Добавяне на потребител</h2>
+</div>
+<form asp-action="Add" method="post">
+    <div>
+        <label for="FirstName">Първо име</label>
+        <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+    <div>
+        <label for="MiddleName">Бащино име</label>
+        <span asp-validation-for="@Model.MiddleName" class="text-danger"></span>
+        <input asp-for="MiddleName" class="form-control" />
+    </div>
+    <div>
+        <label for="LastName">Фамилия</label>
+        <span asp-validation-for="@Model.MiddleName" class="text-danger"></span>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+    <div>
+        <label for="PersonalID">ЕГН</label>
+        <span asp-validation-for="@Model.PersonalID" class="text-danger"></span>
+        <input asp-for="PersonalID" class="form-control" />
+    </div>
+    <div>
+        <label for="Email">Имейл</label>
+        <span asp-validation-for="@Model.Email" class="text-danger"></span>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div>
+        <label for="Email">Парола</label>
+        <span asp-validation-for="@Model.Password" class="text-danger"></span>
+        <input asp-for="Password" class="form-control" />
+    </div>
+    <div>
+        <label for="ConfirmPassword">Потвърждаване на паролата</label>
+        <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+        <input asp-for="ConfirmPassword" class="form-control" />
+    </div>
+    <div>
+        <label for="PhoneNumber">Телефон</label>
+        <span asp-validation-for="@Model.PhoneNumber" class="text-danger"></span>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+    <div class="d-none">
+        <div>
+            <label for="OfficeId">Офис</label>
+            <span asp-validation-for="@Model.OfficeId" class="text-danger"></span>
+            <input asp-for="OfficeId" class="form-control" />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-dark mt-2">Създаване</button>
+</form>
+

@@ -3,6 +3,7 @@ using DigAccess.Interfaces;
 using DigAccess.Services;
 using DigAccess.Services.Interfaces;
 using DigAccess.Services.OfficeAdministrator;
+using DigAccess.Services.OrgAdministrator;
 using DigAccess.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -38,6 +39,7 @@ namespace DigAccess.Web
             builder.Services.AddScoped<IWorkerOfficeAdminService, WorkerOfficeAdminService>();
             builder.Services.AddScoped<IAnswerUserAdministratorService, AnswerUserAdministratorService>();
             builder.Services.AddScoped<IOfficeDetailsService, OfficeDetailsService>();
+            builder.Services.AddScoped<IOfficeOrgAdminService, OfficeOrgAdminService>();
 
             builder.Services.AddControllersWithViews();
 

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DigAccess.Data.Entities.Enums;
+using DigAccess.Data.Entities.Organisation;
 using DigAccess.Data.Entities.Organisation.Organisation;
 using Microsoft.AspNetCore.Identity;
 
@@ -39,5 +40,10 @@ namespace DigAccess.Data.Entities
 
         [Required]
         public int ApprovalStatus { get; set; }
+
+        public Guid? OrganisationId { get; set; }
+
+        [ForeignKey(nameof(OrganisationId))]
+        public OrganisationCompany Organisation { get; set; }
     }
 }

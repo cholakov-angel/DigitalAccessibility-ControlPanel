@@ -100,6 +100,7 @@ namespace DigAccess.Services.OfficeAdministrator
             officeWorker.LastName = model.LastName;
 
             officeWorker.OfficeId = user.OfficeId;
+            officeWorker.OrganisationId = this.context.Offices.FirstOrDefault(x => x.Id == user.OfficeId).OrganisationId;
             officeWorker.PersonalId = model.PersonalID;
             officeWorker.Gender = Enum.Parse<Gender>(PersonalIDParser.GenderExtract(model.PersonalID));
 
