@@ -746,7 +746,6 @@ E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\obj\D
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\obj\Debug\net8.0\DigAccess.Web.AssemblyInfoInputs.cache
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\obj\Debug\net8.0\DigAccess.Web.AssemblyInfo.cs
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\obj\Debug\net8.0\DigAccess.Web.csproj.CoreCompileInputs.cache
-E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\obj\Debug\net8.0\DigAccess.Web.MvcApplicationPartsAssemblyInfo.cs
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\obj\Debug\net8.0\DigAccess.Web.MvcApplicationPartsAssemblyInfo.cache
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\obj\Debug\net8.0\DigAccess.Web.RazorAssemblyInfo.cache
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\obj\Debug\net8.0\DigAccess.Web.RazorAssemblyInfo.cs
@@ -771,3 +770,7 @@ E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\D
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Services.Interfaces.dll
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Services.Interfaces.pdb
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Keys.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Data.Seeder.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Data.Seeder.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Seeder2.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Seeder2.pdb

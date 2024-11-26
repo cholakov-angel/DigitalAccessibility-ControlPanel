@@ -14,8 +14,6 @@ namespace DigAccess.Models.OfficeAdministrator
         [Required]
         public string Organisation { get; set; } = null!;
 
-        [MinLength(10)]
-        [MaxLength(10)]
         [Required]
         public string Phone { get; set; } = null!;
 

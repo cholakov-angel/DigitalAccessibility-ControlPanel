@@ -45,3 +45,5 @@ E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Services\
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Services\bin\Debug\net8.0\DigAccess.Services.Interfaces.pdb
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Services\bin\Debug\net8.0\DigAccess.Keys.dll
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Services\bin\Debug\net8.0\DigAccess.Keys.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Services\bin\Debug\net8.0\DigAccess.Data.Seeder.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Services\bin\Debug\net8.0\DigAccess.Data.Seeder.pdb

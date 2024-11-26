@@ -35,7 +35,59 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cities", (string)null);
+                    b.ToTable("Cities");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("cc974363-80a0-47c1-8433-039d4bf99fd0"),
+                            Name = "София"
+                        },
+                        new
+                        {
+                            Id = new Guid("65561ce7-3410-4c7a-b37f-86184a174a69"),
+                            Name = "Варна"
+                        },
+                        new
+                        {
+                            Id = new Guid("eb68b7bd-6b9f-4ed4-a542-2467f885d6e7"),
+                            Name = "Враца"
+                        },
+                        new
+                        {
+                            Id = new Guid("6b827b51-65a3-4b0c-a59e-9f4d56951f82"),
+                            Name = "Монтана"
+                        },
+                        new
+                        {
+                            Id = new Guid("111ce6a2-bacc-4575-b9a4-c1b3106a86da"),
+                            Name = "Бургас"
+                        },
+                        new
+                        {
+                            Id = new Guid("7c46394f-7cea-4ecf-80c8-7f0f65fd4534"),
+                            Name = "Пловдив"
+                        },
+                        new
+                        {
+                            Id = new Guid("e68a980e-dfc3-4bbc-a439-000f02ed4331"),
+                            Name = "Благоевград"
+                        },
+                        new
+                        {
+                            Id = new Guid("9ac5590a-6946-471f-812f-503544b3fba7"),
+                            Name = "Русе"
+                        },
+                        new
+                        {
+                            Id = new Guid("bfbfa089-59d7-4704-bd00-98cd15ea56d5"),
+                            Name = "Видин"
+                        },
+                        new
+                        {
+                            Id = new Guid("d4643e31-fb2d-4d97-b2d9-5b8cdbf3a09e"),
+                            Name = "Кърджали"
+                        });
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Answer", b =>
@@ -69,7 +121,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("Answers", (string)null);
+                    b.ToTable("Answers");
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Blind.BlindUser", b =>
@@ -107,10 +159,6 @@ namespace DigAccess.DbContext.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<string>("Phone")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
                     b.Property<string>("Street")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -131,7 +179,7 @@ namespace DigAccess.DbContext.Migrations
                         .IsUnique()
                         .HasFilter("[PersonalId] IS NOT NULL");
 
-                    b.ToTable("BlindUsers", (string)null);
+                    b.ToTable("BlindUsers");
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Blind.BlindUserEmail", b =>
@@ -160,7 +208,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasIndex("EmailSettingsId");
 
-                    b.ToTable("BlindUsersEmails", (string)null);
+                    b.ToTable("BlindUsersEmails");
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Blind.BlindUserLicence", b =>
@@ -198,7 +246,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasIndex("BlindUserId");
 
-                    b.ToTable("BlindUsersLicences", (string)null);
+                    b.ToTable("BlindUsersLicences");
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Blind.BlindUserLog", b =>
@@ -228,7 +276,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasIndex("BlindUserId");
 
-                    b.ToTable("BlindUsersLogs", (string)null);
+                    b.ToTable("BlindUsersLogs");
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Blind.EmailSettings", b =>
@@ -254,7 +302,33 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EmailsSettings", (string)null);
+                    b.ToTable("EmailsSettings");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("66f45e2c-256e-4bdc-a449-347bfc97d1fa"),
+                            IncomingServer = "imap.gmail.com",
+                            Name = "Google Gmail",
+                            OutgoingServer = "smpt.gmail.com",
+                            Port = 993
+                        },
+                        new
+                        {
+                            Id = new Guid("5cd666d8-0009-46f6-84dc-00e30fc07501"),
+                            IncomingServer = "outlook.office365.com",
+                            Name = "Microsoft Outlook",
+                            OutgoingServer = "smtp-mail.outlook.com",
+                            Port = 993
+                        },
+                        new
+                        {
+                            Id = new Guid("ddbc2773-69fd-499f-95f2-87068dbe2d58"),
+                            IncomingServer = "imap.mail.yahoo.com",
+                            Name = "Yahoo Mail",
+                            OutgoingServer = "smtp.mail.yahoo.com",
+                            Port = 993
+                        });
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Feature.BlindUserFeature", b =>
@@ -273,7 +347,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasIndex("FeatureId");
 
-                    b.ToTable("BlindUsersFeatures", (string)null);
+                    b.ToTable("BlindUsersFeatures");
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Feature.Feature", b =>
@@ -291,7 +365,21 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Features", (string)null);
+                    b.ToTable("Features");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("564c9939-9c1d-44a5-bc8a-f4cb16bce86a"),
+                            IsLicenceKeyRequired = true,
+                            Name = "ChatGPT"
+                        },
+                        new
+                        {
+                            Id = new Guid("8855d892-574a-434a-b347-b88c716608b6"),
+                            IsLicenceKeyRequired = false,
+                            Name = "Wikipedia"
+                        });
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Organisation.Organisation.Office", b =>
@@ -328,7 +416,49 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasIndex("OrganisationId");
 
-                    b.ToTable("Offices", (string)null);
+                    b.ToTable("Offices");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("89729ab3-fe73-49af-9bcf-97cf00c49e2f"),
+                            CityId = new Guid("cc974363-80a0-47c1-8433-039d4bf99fd0"),
+                            LocalPhone = "0886100156",
+                            Name = "Съюз на слепите София",
+                            OrganisationId = new Guid("c5e270c8-df31-40ec-938e-d1300457f3ef"),
+                            Street = "ул. Цар Симеон",
+                            StreetNumber = 110
+                        },
+                        new
+                        {
+                            Id = new Guid("eba30287-4914-4a15-bb3c-2dd3d53c918f"),
+                            CityId = new Guid("65561ce7-3410-4c7a-b37f-86184a174a69"),
+                            LocalPhone = "052732151",
+                            Name = "Съюз на слепите - РСО Варна",
+                            OrganisationId = new Guid("c5e270c8-df31-40ec-938e-d1300457f3ef"),
+                            Street = "ул. Петко Стайнов",
+                            StreetNumber = 3
+                        },
+                        new
+                        {
+                            Id = new Guid("c8723a30-71ec-4d7d-8017-b0df2900a455"),
+                            CityId = new Guid("9ac5590a-6946-471f-812f-503544b3fba7"),
+                            LocalPhone = "082841847",
+                            Name = "Съюз на слепите - РСО Русе",
+                            OrganisationId = new Guid("c5e270c8-df31-40ec-938e-d1300457f3ef"),
+                            Street = "ж.к. Възраждане, ул. „Митрополит Григорий“",
+                            StreetNumber = 3
+                        },
+                        new
+                        {
+                            Id = new Guid("0b919734-b960-436e-85a8-0e01eceab13d"),
+                            CityId = new Guid("cc974363-80a0-47c1-8433-039d4bf99fd0"),
+                            LocalPhone = "024448858",
+                            Name = "Учебна зала - Фондация Хоризонти",
+                            OrganisationId = new Guid("db7b29f9-8974-463b-8937-a28e3dc8d90f"),
+                            Street = "бул. \"Цариградско шосе\"“",
+                            StreetNumber = 125
+                        });
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Organisation.OrganisationCompany", b =>
@@ -344,12 +474,25 @@ namespace DigAccess.DbContext.Migrations
 
                     b.Property<string>("National_Phone")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Organisations", (string)null);
+                    b.ToTable("Organisations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("c5e270c8-df31-40ec-938e-d1300457f3ef"),
+                            Name = "Съюз на слепите",
+                            National_Phone = "028127050"
+                        },
+                        new
+                        {
+                            Id = new Guid("db7b29f9-8974-463b-8937-a28e3dc8d90f"),
+                            Name = "Фондация Хоризонти",
+                            National_Phone = "24448858"
+                        });
                 });
 
             modelBuilder.Entity("DigAccess.Data.Entities.Question", b =>
@@ -384,7 +527,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Questions", (string)null);
+                    b.ToTable("Questions");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -625,7 +768,7 @@ namespace DigAccess.DbContext.Migrations
                     b.Property<Guid?>("OfficeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("OrganisationId")
+                    b.Property<Guid?>("OrganisationId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("PersonalId")
@@ -822,9 +965,7 @@ namespace DigAccess.DbContext.Migrations
 
                     b.HasOne("DigAccess.Data.Entities.Organisation.OrganisationCompany", "Organisation")
                         .WithMany()
-                        .HasForeignKey("OrganisationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrganisationId");
 
                     b.Navigation("Office");
 

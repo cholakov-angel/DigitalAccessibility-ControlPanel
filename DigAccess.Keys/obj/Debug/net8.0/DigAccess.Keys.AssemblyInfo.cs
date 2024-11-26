@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DigAccess.Keys")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+913b2d01cdf2970989d00aacad590391356a7160")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("DigAccess.Keys")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DigAccess.Keys")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

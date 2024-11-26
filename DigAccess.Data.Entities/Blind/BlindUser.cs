@@ -41,10 +41,6 @@ namespace DigAccess.Data.Entities.Blind
         public string? TELKNumber { get; set; }
 
         [PersonalData]
-        [MaxLength(10)]
-        public string? Phone { get; set; }
-
-        [PersonalData]
         public DateTime? Birthdate { get; set; }
 
         [Required]

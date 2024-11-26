@@ -4,8 +4,12 @@ using DigAccess.Data.Entities.Blind;
 using DigAccess.Data.Entities.Feature;
 using DigAccess.Data.Entities.Organisation;
 using DigAccess.Data.Entities.Organisation.Organisation;
+using DigAccess.Data.Seeder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace DigAccess.Web.Data
 {
@@ -45,6 +49,22 @@ namespace DigAccess.Web.Data
             builder.Entity<Answer>()
                 .Property(x=> x.IsReviewed)
                 .HasDefaultValue(false);
+
+            CitySeeder citySeeder = new CitySeeder();
+            citySeeder.Configure(builder.Entity<City>());
+
+            EmailSettingsSeeder emailSettingsSeeder = new EmailSettingsSeeder();
+            emailSettingsSeeder.Configure(builder.Entity<EmailSettings>());
+
+            OrganisationSeeder organisationSeeder = new OrganisationSeeder();
+            organisationSeeder.Configure(builder.Entity<OrganisationCompany>());
+
+            OfficeSeeder officeSeeder = new OfficeSeeder();
+            officeSeeder.Configure(builder.Entity<Office>());
+
+            FeatureSeeder featureSeeder = new FeatureSeeder();
+            featureSeeder.Configure(builder.Entity<Feature>());
+
         } // OnModelCreating
 
         public virtual DbSet<OrganisationCompany> Organisations { get; set; }
@@ -60,8 +80,5 @@ namespace DigAccess.Web.Data
         public virtual DbSet<BlindUserLog> BlindUsersLogs { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Answer> Answers { get; set; }
-
-
-
     } // DigAccessDbContext
 }

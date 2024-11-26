@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DigAccess.Data.Entities\DigAccess.Data.Entities.csproj" />
+    <ProjectReference Include="..\DigAccess.Data.Seeder\DigAccess.Data.Seeder.csproj" />
   </ItemGroup>
 
 </Project>

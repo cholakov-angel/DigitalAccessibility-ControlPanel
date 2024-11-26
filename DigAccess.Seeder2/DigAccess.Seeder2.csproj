@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DigAccess.Data.Entities\DigAccess.Data.Entities.csproj" />
+    <ProjectReference Include="..\DigAccess.Data\DigAccess.DbContext.csproj" />
+  </ItemGroup>
+
+</Project>

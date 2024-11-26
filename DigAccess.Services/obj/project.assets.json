@@ -1093,11 +1093,28 @@
           "bin/placeholder/DigAccess.Data.Entities.dll": {}
         }
       },
+      "DigAccess.Data.Seeder/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "DigAccess.Common": "1.0.0",
+          "DigAccess.Data.Entities": "1.0.0",
+          "DigAccess.Keys": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "8.0.8"
+        },
+        "compile": {
+          "bin/placeholder/DigAccess.Data.Seeder.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DigAccess.Data.Seeder.dll": {}
+        }
+      },
       "DigAccess.DbContext/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "DigAccess.Data.Entities": "1.0.0",
+          "DigAccess.Data.Seeder": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8"
         },
@@ -2999,6 +3016,11 @@
       "type": "project",
       "path": "../DigAccess.Data.Entities/DigAccess.Data.Entities.csproj",
       "msbuildProject": "../DigAccess.Data.Entities/DigAccess.Data.Entities.csproj"
+    },
+    "DigAccess.Data.Seeder/1.0.0": {
+      "type": "project",
+      "path": "../DigAccess.Data.Seeder/DigAccess.Data.Seeder.csproj",
+      "msbuildProject": "../DigAccess.Data.Seeder/DigAccess.Data.Seeder.csproj"
     },
     "DigAccess.DbContext/1.0.0": {
       "type": "project",

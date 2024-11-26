@@ -30,6 +30,7 @@
     <ProjectReference Include="..\DigAccess.Interfaces\DigAccess.Services.Interfaces.csproj" />
     <ProjectReference Include="..\DigAccess.Keys\DigAccess.Keys.csproj" />
     <ProjectReference Include="..\DigAccess.Models\DigAccess.Models.csproj" />
+    <ProjectReference Include="..\DigAccess.Seeder2\DigAccess.Seeder2.csproj" />
     <ProjectReference Include="..\DigAccess.Services\DigAccess.Services.csproj" />
   </ItemGroup>
 

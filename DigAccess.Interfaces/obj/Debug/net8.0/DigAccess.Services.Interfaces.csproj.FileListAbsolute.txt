@@ -20,3 +20,7 @@ E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Interface
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Interfaces\obj\Debug\net8.0\refint\DigAccess.Services.Interfaces.dll
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Interfaces\obj\Debug\net8.0\DigAccess.Services.Interfaces.pdb
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Interfaces\obj\Debug\net8.0\ref\DigAccess.Services.Interfaces.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Interfaces\bin\Debug\net8.0\DigAccess.Data.Seeder.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Interfaces\bin\Debug\net8.0\DigAccess.Keys.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Interfaces\bin\Debug\net8.0\DigAccess.Data.Seeder.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Interfaces\bin\Debug\net8.0\DigAccess.Keys.pdb

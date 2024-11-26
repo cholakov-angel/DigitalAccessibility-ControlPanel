@@ -631,14 +631,31 @@
           "DigAccess.Data.Entities.dll": {}
         }
       },
+      "DigAccess.Data.Seeder/1.0.0": {
+        "dependencies": {
+          "DigAccess.Common": "1.0.0",
+          "DigAccess.Data.Entities": "1.0.0",
+          "DigAccess.Keys": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "8.0.8"
+        },
+        "runtime": {
+          "DigAccess.Data.Seeder.dll": {}
+        }
+      },
       "DigAccess.DbContext/1.0.0": {
         "dependencies": {
           "DigAccess.Data.Entities": "1.0.0",
+          "DigAccess.Data.Seeder": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8"
         },
         "runtime": {
           "DigAccess.DbContext.dll": {}
+        }
+      },
+      "DigAccess.Keys/1.0.0": {
+        "runtime": {
+          "DigAccess.Keys.dll": {}
         }
       },
       "DigAccess.Models/1.0.0": {
@@ -1087,7 +1104,17 @@
       "serviceable": false,
       "sha512": ""
     },
+    "DigAccess.Data.Seeder/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "DigAccess.DbContext/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DigAccess.Keys/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

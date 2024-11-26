@@ -1092,6 +1092,32 @@
         "runtime": {
           "bin/placeholder/DigAccess.Data.Entities.dll": {}
         }
+      },
+      "DigAccess.Data.Seeder/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "DigAccess.Common": "1.0.0",
+          "DigAccess.Data.Entities": "1.0.0",
+          "DigAccess.Keys": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "8.0.8"
+        },
+        "compile": {
+          "bin/placeholder/DigAccess.Data.Seeder.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DigAccess.Data.Seeder.dll": {}
+        }
+      },
+      "DigAccess.Keys/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/DigAccess.Keys.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DigAccess.Keys.dll": {}
+        }
       }
     }
   },
@@ -2947,11 +2973,22 @@
       "type": "project",
       "path": "../DigAccess.Data.Entities/DigAccess.Data.Entities.csproj",
       "msbuildProject": "../DigAccess.Data.Entities/DigAccess.Data.Entities.csproj"
+    },
+    "DigAccess.Data.Seeder/1.0.0": {
+      "type": "project",
+      "path": "../DigAccess.Data.Seeder/DigAccess.Data.Seeder.csproj",
+      "msbuildProject": "../DigAccess.Data.Seeder/DigAccess.Data.Seeder.csproj"
+    },
+    "DigAccess.Keys/1.0.0": {
+      "type": "project",
+      "path": "../DigAccess.Keys/DigAccess.Keys.csproj",
+      "msbuildProject": "../DigAccess.Keys/DigAccess.Keys.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "DigAccess.Data.Entities >= 1.0.0",
+      "DigAccess.Data.Seeder >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.8"
     ]
@@ -2991,6 +3028,9 @@
           "projectReferences": {
             "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Entities\\DigAccess.Data.Entities.csproj": {
               "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Entities\\DigAccess.Data.Entities.csproj"
+            },
+            "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Seeder\\DigAccess.Data.Seeder.csproj": {
+              "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Seeder\\DigAccess.Data.Seeder.csproj"
             }
           }
         }

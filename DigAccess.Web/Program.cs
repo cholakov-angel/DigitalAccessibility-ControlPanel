@@ -1,4 +1,10 @@
-using DigAccess.Data.Entities;
+﻿using DigAccess.Data.Entities;
+using DigAccess.Data.Entities.Address;
+using DigAccess.Data.Entities.Blind;
+using DigAccess.Data.Entities.Feature;
+using DigAccess.Data.Entities.Organisation.Organisation;
+using DigAccess.Data.Entities.Organisation;
+using DigAccess.Data.Seeder;
 using DigAccess.Interfaces;
 using DigAccess.Services;
 using DigAccess.Services.Interfaces;
@@ -19,7 +25,11 @@ namespace DigAccess.Web
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<DigAccessDbContext>(options =>
-                options.UseSqlServer(connectionString));
+               {
+                   options.UseSqlServer(connectionString);
+                   // Сийдване на информацията
+               });
+
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
             builder.Services
                 .AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
@@ -66,6 +76,7 @@ namespace DigAccess.Web
             app.UseRouting();
             app.UseAuthorization();
 
+
             app.MapControllerRoute(
                 name: "areas",
                 pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
@@ -86,6 +97,29 @@ namespace DigAccess.Web
                     {
                         await roleManager.CreateAsync(new IdentityRole(role));
                     }
+                }
+            }
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var userManager = (UserManager<ApplicationUser>)scope.ServiceProvider.GetService(typeof(UserManager<ApplicationUser>));
+                var context = (DigAccessDbContext)scope.ServiceProvider.GetService(typeof(DigAccessDbContext));
+
+                if (await userManager.Users.CountAsync() == 0)
+                {
+                    await UsersSeeder.CreateUsers(userManager);
+
+                    BlindUserSeeder blindUserSeeder = new BlindUserSeeder(userManager, context);
+                    await blindUserSeeder.Configure();
+                
+                    BlindUserFeatureSeeder blindUserFeatureSeeder = new BlindUserFeatureSeeder(userManager, context);
+                    await blindUserFeatureSeeder.Configure();
+                
+                    BlindUserLicenceSeeder blindUserLicenceSeeder = new BlindUserLicenceSeeder(userManager, context);
+                    await blindUserLicenceSeeder.Configure();
+                
+                    BlindUserLogSeeder blindUserLogSeeder = new BlindUserLogSeeder(userManager, context);
+                    await blindUserLogSeeder.Configure();
                 }
             }
             app.Run();

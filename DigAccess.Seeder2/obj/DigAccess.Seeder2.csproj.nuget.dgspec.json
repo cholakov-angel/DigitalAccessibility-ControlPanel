@@ -1,0 +1,418 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Seeder2\\DigAccess.Seeder2.csproj": {}
+  },
+  "projects": {
+    "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Common\\DigAccess.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Common\\DigAccess.Common.csproj",
+        "projectName": "DigAccess.Common",
+        "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Common\\DigAccess.Common.csproj",
+        "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
+        "outputPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Entities\\DigAccess.Data.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Entities\\DigAccess.Data.Entities.csproj",
+        "projectName": "DigAccess.Data.Entities",
+        "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Entities\\DigAccess.Data.Entities.csproj",
+        "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
+        "outputPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Common\\DigAccess.Common.csproj": {
+                "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Common\\DigAccess.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Seeder\\DigAccess.Data.Seeder.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Seeder\\DigAccess.Data.Seeder.csproj",
+        "projectName": "DigAccess.Data.Seeder",
+        "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Seeder\\DigAccess.Data.Seeder.csproj",
+        "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
+        "outputPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Seeder\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Common\\DigAccess.Common.csproj": {
+                "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Common\\DigAccess.Common.csproj"
+              },
+              "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Entities\\DigAccess.Data.Entities.csproj": {
+                "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Entities\\DigAccess.Data.Entities.csproj"
+              },
+              "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Keys\\DigAccess.Keys.csproj": {
+                "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Keys\\DigAccess.Keys.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data\\DigAccess.DbContext.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data\\DigAccess.DbContext.csproj",
+        "projectName": "DigAccess.DbContext",
+        "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data\\DigAccess.DbContext.csproj",
+        "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
+        "outputPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Entities\\DigAccess.Data.Entities.csproj": {
+                "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Entities\\DigAccess.Data.Entities.csproj"
+              },
+              "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Seeder\\DigAccess.Data.Seeder.csproj": {
+                "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Seeder\\DigAccess.Data.Seeder.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Keys\\DigAccess.Keys.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Keys\\DigAccess.Keys.csproj",
+        "projectName": "DigAccess.Keys",
+        "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Keys\\DigAccess.Keys.csproj",
+        "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
+        "outputPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Keys\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Seeder2\\DigAccess.Seeder2.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Seeder2\\DigAccess.Seeder2.csproj",
+        "projectName": "DigAccess.Seeder2",
+        "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Seeder2\\DigAccess.Seeder2.csproj",
+        "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
+        "outputPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Seeder2\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Entities\\DigAccess.Data.Entities.csproj": {
+                "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data.Entities\\DigAccess.Data.Entities.csproj"
+              },
+              "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data\\DigAccess.DbContext.csproj": {
+                "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Data\\DigAccess.DbContext.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

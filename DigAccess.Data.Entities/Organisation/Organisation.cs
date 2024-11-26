@@ -24,7 +24,6 @@ namespace DigAccess.Data.Entities.Organisation
         public string Name { get; set; } = null!;
 
         [Required]
-        [MaxLength(10)]
         public string National_Phone { get; set; } = null!;
 
         public ICollection<Office> Offices { get; set; } = new List<Office>();
