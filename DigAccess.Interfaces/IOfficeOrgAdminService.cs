@@ -1,4 +1,5 @@
-﻿using DigAccess.Interfaces;
+﻿using Azure;
+using DigAccess.Interfaces;
 using DigAccess.Models.OrgAdministrator;
 
 namespace DigAccess.Services.Interfaces
@@ -8,14 +9,13 @@ namespace DigAccess.Services.Interfaces
         public Task<List<CityViewModel>> GetCities();
         public Task<bool> AddOffice(string userId, EditOfficeViewModel model);
         public Task<bool> EditOffice(string userId, EditOfficeViewModel model);
-        public Task<List<OfficeInfoViewModel>> GetOffices(string userId);
+        public Task<List<OfficeInfoViewModel>> GetOffices(string userId, int page);
         public Task<EditOfficeViewModel> GetOfficeDetails(string userId, string officeId);
-        public Task<OfficeViewModel> GetFullOfficeDetails(string userId, string officeId);
+        public Task<OfficeViewModel> GetFullOfficeDetails(string userId, string officeId, int page);
         public Task<OfficeAdminViewModel> GetOfficeAdmin(string userId, string officeAdminId);
-        public Task<AddOfficeAdminViewModel> AddOfficeAdmin(string userId, string officeId);
-        public Task<bool> AddOfficeAdmin(string userId, AddOfficeAdminViewModel model);
-        public Task<bool> AddUserAsAdmin(string userId, string officeUserId);
-        public Task<bool> RemoveUserAdmin(string userId, string officeAdminId);
+        public Task<List<OfficeInfoViewModel>> GetOfficesByName(string userId, string name);
+        public Task<int> CountOffices(string userId);
+        public Task<int> CountWorkers(string userId, string officeId);
 
     }
 }

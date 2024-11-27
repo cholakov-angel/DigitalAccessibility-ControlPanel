@@ -62,12 +62,16 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             return View(model);
         } // Delete
 
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(string id, int page = 1)
         {
             string? userId = this.GetUserId();
 
-            var model = await this.service.GetUserDetails(userId, id);
+            var model = await this.service.GetUserDetails(userId, id, page);
+            int totalItems = await this.service.CountUserBlindUsers(userId, id);
+            int totalPages = (int)Math.Ceiling(totalItems / (double)3);
 
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = totalPages;
             return View(model);
         } // Details
 

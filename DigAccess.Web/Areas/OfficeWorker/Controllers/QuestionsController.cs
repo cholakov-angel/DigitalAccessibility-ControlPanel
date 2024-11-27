@@ -19,13 +19,31 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             this.service = service;
             this.userManager = userManager;
         } // QuestionsController
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
             var userId = this.GetUserId();
-            var model = await this.service.GetQuestions(userId);
+            var model = await this.service.GetQuestions(userId, page);
 
+            int totalItems = await this.service.CountQuestions(userId);
+            int totalPages = (int)Math.Ceiling(totalItems / (double)8);
+
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = totalPages;
             return View(model);
         } // Index
+
+        public async Task<IActionResult> GetQuestionsByName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                return RedirectToAction("Index");
+            }
+
+            var userId = this.GetUserId();
+            var model = await this.service.GetQuestionsByName(userId, name);
+
+            return View("Index", model);
+        } // GetQuestionsByName
 
         public async Task<IActionResult> QuestionDetails(string id)
         {

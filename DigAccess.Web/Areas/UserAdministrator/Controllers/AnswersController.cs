@@ -20,6 +20,20 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
             this.userManager = userManager;
         } // AnswersController
 
+        public async Task<IActionResult> GetAnswersByName(string name)
+        {
+            var userId = this.GetUserId();
+
+            var model = await this.service.GetAnswersByTitle(userId, name);
+
+            if (model == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View("Index", model);
+        } // GetAnswersByName
+
         public async Task<IActionResult> Index(int page = 1)
         {
             var userId = this.GetUserId();

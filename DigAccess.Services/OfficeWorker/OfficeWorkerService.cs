@@ -36,7 +36,20 @@ namespace DigAccess.Services
             return true;
         } // ApproveUser
 
-        public async Task<UserDetailsViewModel> GetUserDetails(string workerId, string userId)
+        public async Task<int> CountUserBlindUsers(string workerId, string userId)
+        {
+            ApplicationUser? officeWorker = await this.GetOfficeWorker(workerId, role);
+            ApplicationUser? userToBeApproved = await this.GetUser(userId);
+
+            if (userToBeApproved.OfficeId != officeWorker.OfficeId)
+            {
+                throw new ArgumentException("Invalid user!");
+            }
+
+            return await this.context.BlindUsers.Where(x=> x.AdministratorId == userId).CountAsync();
+        } // CountUserBlindUsers
+
+        public async Task<UserDetailsViewModel> GetUserDetails(string workerId, string userId, int page)
         {
             var officeWorker = await this.GetOfficeWorker(workerId, role);
             var user = await this.GetUser(userId);
@@ -61,7 +74,7 @@ namespace DigAccess.Services
                     FirstName = x.FirstName,
                     MiddleName = x.MiddleName,
                     LastName = x.LastName
-                }).ToListAsync();
+                }).Skip((page - 1) * 3).Take(3).ToListAsync();
             return model;
         } // GetUserDetails
 

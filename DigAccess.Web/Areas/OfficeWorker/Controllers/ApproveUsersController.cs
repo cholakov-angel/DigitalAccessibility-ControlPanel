@@ -54,11 +54,11 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
         } // ApproveUser
 
 
-        public async Task<IActionResult> GetUserDetails(string id)
+        public async Task<IActionResult> GetUserDetails(string id, int page = 1)
         {
             string? userId = this.GetUserId();
 
-            var model = await this.service.GetUserDetails(userId, id);
+            var model = await this.service.GetUserDetails(userId, id, page);
 
             return View("Details", model);
         } // GetUserDetails

@@ -13,7 +13,7 @@
                         <h1 class="text-black">@Model.FirstName @Model.MiddleName @Model.LastName</h1>
                         <br class="z-1">
                         <br class="z-1">
-                        <h6 class="text-black">@Model.Age г., @Model.Gender, @Model.IsProfileActive</h6>
+                        <h6 class="text-black">@Model.Age г., @Model.Gender</h6>
                         <br class="z-1">
                         <br class="z-1">
                         <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-dark"><h5>Преглед на информаця</h5></a>
@@ -32,7 +32,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Лицензи</h4>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Преглед и редакция на ицензионните ключове</h6>
                 <br>
                 <div class="row">
                     <a asp-action="UserLicense" asp-controller="License" asp-route-id="@Model.Id" class="btn btn-white text-start"><b><h7>Преглед / Редакция</h7></b></a>
@@ -50,7 +50,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Услуги</h4>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Добавяне и премахване на услуги</h6>
                 <br>
                 <div class="row">
                     <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-white text-start"><b><h7>Преглед / Редакция</h7></b></a>
@@ -67,7 +67,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Комуникационни услуги</h4>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Преглед и редакция на комуникационните функции</h6>
                 <br>
                 <div class="row">
                     <a asp-action="Index" asp-controller="EmailSettings" asp-route-id="@Model.Id" class="btn btn-white text-start"><b><h7>Имейл настройки</h7></b></a>
@@ -80,12 +80,10 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Грешки</h4>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Преглед на потребителските грешки</h6>
                 <br>
                 <div class="row">
-                    <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-white text-start"><b><h7>Преглед</h7></b></a>
-                    <hr>
-                    <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-white text-start"><b><h7>Помощ</h7></b></a>
+                    <a asp-action="Index" asp-controller="Log" asp-route-id="@Model.Id" class="btn btn-white text-start"><b><h7>Преглед</h7></b></a>
                 </div>
             </div>
         </div>

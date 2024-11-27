@@ -13,5 +13,6 @@ namespace DigAccess.Services.Interfaces
         public Task<List<CityViewModel>> GetCities();
         public Task<OfficeViewModel> GetOfficeDetails(string userId);
         public Task<bool> UpdateOffice(string userId, OfficeViewModel office);
+
     } // IOfficeDetailsService
 }

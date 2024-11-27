@@ -21,6 +21,8 @@ namespace DigAccess.Models.UserAdministrator.BlindUser
 
         public string? BirthDate { get; set; }
 
+        public string Gender { get; set; }
+
         public string City { get; set; }
 
         public string Street { get; set; }

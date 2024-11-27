@@ -20,20 +20,76 @@ namespace DigAccess.Web.Areas.OrgAdministrator.Controllers
             this.userManager = userManager;
         } // OfficeController
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> SearchByName(string name)
         {
             var userId = this.GetUserId();
 
-            var model = await this.service.GetOffices(userId);
+            var model = await this.service.GetOfficesByName(userId, name);
+
+            if (model == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View("Index", model);
+        } // SearchByName
+
+        [HttpGet]
+        public async Task<IActionResult> Add()
+        {
+            EditOfficeViewModel model = new EditOfficeViewModel();
+            model.Cities = await this.service.GetCities();
+
+            return View(model);
+        } // Add
+
+        [HttpPost]
+        public async Task<IActionResult> Add(EditOfficeViewModel model)
+        {
+            if (ModelState.IsValid == false)
+            {
+                model.Cities = await this.service.GetCities();
+                return View(model);
+            }
+            var userId = this.GetUserId();
+
+            bool result = await this.service.AddOffice(userId, model);
+
+            if (result == false)
+            {
+                throw new Exception("Error occurred!");
+            }
+
+            return RedirectToAction("Index");
+        } // Add
+
+        public async Task<IActionResult> Index(int page = 1)
+        {
+            var userId = this.GetUserId();
+
+            var model = await this.service.GetOffices(userId, page);
+
+
+
+            int totalItems = await this.service.CountOffices(userId);
+            int totalPages = (int)Math.Ceiling(totalItems / (double)8);
+
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = totalPages;
             return View(model);
         } // Index
 
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(string id, int page = 1)
         {
             var userId = this.GetUserId();
 
-            var model = await this.service.GetFullOfficeDetails(userId, id);
+            var model = await this.service.GetFullOfficeDetails(userId, id, page);
 
+            int totalItems = await this.service.CountWorkers(userId, id);
+            int totalPages = (int)Math.Ceiling(totalItems / (double)3);
+
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = totalPages;
             return View(model);
         } // Details
 
@@ -45,64 +101,6 @@ namespace DigAccess.Web.Areas.OrgAdministrator.Controllers
 
             return View(model);
         } // OfficeAdminDetails
-
-        public async Task<IActionResult> RemoveUserAdmin(string id)
-        {
-            var userId = this.GetUserId();
-
-            bool result = await this.service.RemoveUserAdmin(userId, id);
-
-            if (result == false)
-            {
-                throw new Exception("Error occurred!");
-            }
-
-            return RedirectToAction("Index");
-        } // RemoveUserAdmin
-
-        public async Task<IActionResult> AddUserAsAdmin(string id)
-        {
-            var userId = this.GetUserId();
-
-            bool result = await this.service.AddUserAsAdmin(userId, id);
-
-            if (result == false)
-            {
-                throw new Exception("Error occurred!");
-            }
-
-            return RedirectToAction("Index");
-        } // AddUserAsAdmin
-
-        [HttpPost]
-        public async Task<IActionResult> Add(AddOfficeAdminViewModel model)
-        {
-            if (ModelState.IsValid == false)
-            {
-                return View("OfficeAdminAdd", model);
-            }
-
-            var userId = this.GetUserId();
-
-            bool result = await this.service.AddOfficeAdmin(userId, model);
-
-            if (result == false)
-            {
-                throw new Exception("Error occurred!");
-            }
-
-            return RedirectToAction("Index");
-        } // Add
-
-        [HttpGet]
-        public async Task<IActionResult> Add(string id)
-        {
-            var userId = this.GetUserId();
-
-            var model = await this.service.AddOfficeAdmin(userId, id);
-
-            return View("OfficeAdminAdd", model);
-        } // Add
 
         [HttpGet]
         public async Task<IActionResult> Edit(string id)

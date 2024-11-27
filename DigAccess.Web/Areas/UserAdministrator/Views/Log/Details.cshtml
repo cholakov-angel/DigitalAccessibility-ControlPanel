@@ -1,0 +1,42 @@
+﻿@using DigAccess.Models.UserAdministrator.Log
+@model LogDetailsViewModel
+@{
+    ViewData["Title"] = "Информация";
+}
+
+<div class="d-flex justify-content-start p-2">
+    <a asp-action="Index" asp-route-id="@Model.BlindUserId"> <button class="btn btn-dark mt-2"><h6><</h6></button></a>
+    <h2 class="p-2">Детайли</h2>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Информация</h5>
+        <p class="card-text">
+            <form asp-action="Add" method="post">
+                <div>
+                    <label for="LogCode">Код</label>
+                    <span asp-validation-for="@Model.LogCode" class="text-danger"></span>
+                    <input readonly asp-for="LogCode" class="form-control" />
+                </div>
+                <div>
+                    <label for="LogType">Тип</label>
+                    <span asp-validation-for="@Model.LogType" class="text-danger"></span>
+                    <input readonly asp-for="LogType" class="form-control" />
+                </div>
+                <div>
+                    <label for="LogText">Текст</label>
+                    <span asp-validation-for="@Model.LogText" class="text-danger"></span>
+                    <input readonly asp-for="LogText" class="form-control" />
+                </div>
+                <div>
+                    <label for="DateTimeOfLog">Дата</label>
+                    <span asp-validation-for="@Model.DateTimeOfLog" class="text-danger"></span>
+                    <input readonly asp-for="DateTimeOfLog" class="form-control" />
+                </div>
+            </form>
+        </p>
+    </div>
+</div>
+<br />
+<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-dark">Изтриване</a>

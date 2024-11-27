@@ -25,6 +25,7 @@ namespace DigAccess.Web.Areas.OfficeAdministrator.Controllers
             var userId = this.GetUserId();
 
             var model = await this.service.GetOfficeDetails(userId);
+
             return View(model);
         } // Index
 

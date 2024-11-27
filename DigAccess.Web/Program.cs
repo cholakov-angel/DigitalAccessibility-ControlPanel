@@ -13,6 +13,7 @@ using DigAccess.Services.OrgAdministrator;
 using DigAccess.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using DigAccess.Services.UserAdministrator;
 
 namespace DigAccess.Web
 {
@@ -50,6 +51,8 @@ namespace DigAccess.Web
             builder.Services.AddScoped<IAnswerUserAdministratorService, AnswerUserAdministratorService>();
             builder.Services.AddScoped<IOfficeDetailsService, OfficeDetailsService>();
             builder.Services.AddScoped<IOfficeOrgAdminService, OfficeOrgAdminService>();
+            builder.Services.AddScoped<IUsersOrgAdminService, UsersOrgAdminService>();
+            builder.Services.AddScoped<ILogService, LogService>();
 
             builder.Services.AddControllersWithViews();
 
@@ -105,7 +108,7 @@ namespace DigAccess.Web
                 var userManager = (UserManager<ApplicationUser>)scope.ServiceProvider.GetService(typeof(UserManager<ApplicationUser>));
                 var context = (DigAccessDbContext)scope.ServiceProvider.GetService(typeof(DigAccessDbContext));
 
-                if (await userManager.Users.CountAsync() == 0)
+                if (await userManager.Users.AnyAsync() == false)
                 {
                     await UsersSeeder.CreateUsers(userManager);
 

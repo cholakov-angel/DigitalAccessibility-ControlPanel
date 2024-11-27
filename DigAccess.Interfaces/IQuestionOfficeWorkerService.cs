@@ -10,7 +10,10 @@ namespace DigAccess.Services.Interfaces
 {
     public interface IQuestionOfficeWorkerService : IService
     {
-        public Task<List<QuestionViewModel>> GetQuestions(string userId);
+        public Task<List<QuestionViewModel>> GetQuestions(string userId, int page);
         public Task<QuestionDetailsViewModel> GetQuestion(string userId, string questionId);
+        public Task<List<QuestionViewModel>> GetQuestionsByName(string userId, string name);
+        public Task<int> CountQuestions(string userId);
+
     }
 }

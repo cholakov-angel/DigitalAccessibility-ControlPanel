@@ -4,7 +4,7 @@ namespace DigAccess.Models.OrgAdministrator
 {
     public class EditOfficeViewModel
     {
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         [MinLength(3)]
         [MaxLength(50)]

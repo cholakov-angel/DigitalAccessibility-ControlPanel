@@ -15,6 +15,23 @@ namespace DigAccess.Services
         {
         } // IAnswerUserAdministratorService
 
+        public async Task<List<AnswerViewModel>> GetAnswersByTitle(string userId, string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                return null;
+            }
+
+            return await this.context.Answers.Include(x => x.Question)
+                .Where(x => x.Question.UserId == userId && x.IsReviewed == false && x.Title.ToLower().StartsWith(name.ToLower()))
+                .Select(x => new AnswerViewModel()
+                {
+                    Id = x.Id.ToString(),
+                    DateTime = x.Date.ToString(Constants.DateTimeFormat),
+                    Title = x.Title
+                }).ToListAsync();
+        } // GetAnswersByTitle
+
         public async Task<List<AnswerViewModel>> GetAnswers(string userId, int page)
         {
             return await this.context.Answers.Include(x=> x.Question)

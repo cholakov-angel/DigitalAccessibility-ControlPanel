@@ -26,111 +26,6 @@ namespace DigAccess.Services.OrgAdministrator
             }).ToListAsync();
         } // GetCities
 
-        public async Task<bool> AddUserAsAdmin(string userId, string officeUserId)
-        {
-            var userAdmin = await this.GetOfficeWorker(userId, role);
-            var officeUser = await this.GetOfficeWorker(officeUserId, "OfficeWorker");
-
-            bool doesOfficeHasAnAdmin = await this.DoesOfficeHasAnAdmin(officeUser.OfficeId.ToString());
-
-            if (doesOfficeHasAnAdmin == true)
-            {
-                throw new Exception("Office has an aministrator!");
-            }
-
-            await this.userManager.RemoveFromRoleAsync(officeUser, "OfficeWorker");
-            await this.userManager.AddToRoleAsync(officeUser, "OfficeAdministrator");
-            await this.context.SaveChangesAsync();
-
-            return true;
-        }
-        public async Task<bool> AddOfficeAdmin(string userId, AddOfficeAdminViewModel model)
-        {
-            if (model == null)
-            {
-                throw new ArgumentException("Invalid model!");
-            }
-            var userAdmin = await this.GetOfficeWorker(userId, role);
-
-            bool doesOfficeHasAnAdmin = await this.DoesOfficeHasAnAdmin(model.OfficeId);
-
-            if (doesOfficeHasAnAdmin == true)
-            {
-                throw new Exception("Office has an aministrator!");
-            }
-
-            var user = await GetOfficeWorker(userId, role);
-
-            ApplicationUser officeWorker = new ApplicationUser();
-            officeWorker.UserName = model.Email;
-            officeWorker.Email = model.Email;
-            officeWorker.ApprovalStatus = 1;
-            officeWorker.PhoneNumber = model.PhoneNumber;
-            officeWorker.FirstName = model.FirstName;
-            officeWorker.MiddleName = model.MiddleName;
-            officeWorker.LastName = model.LastName;
-
-            officeWorker.OfficeId = GuidParser.GuidParse(model.OfficeId);
-            officeWorker.OrganisationId = this.context.Offices.FirstOrDefault(x => x.Id == GuidParser.GuidParse(model.OfficeId)).OrganisationId;
-            officeWorker.PersonalId = model.PersonalID;
-            officeWorker.Gender = Enum.Parse<Gender>(PersonalIDParser.GenderExtract(model.PersonalID));
-
-            var result = await userManager.CreateAsync(officeWorker, model.Password);
-            if (result.Succeeded == false)
-            {
-                return false;
-            }
-            IdentityResult roleresult = await userManager.AddToRoleAsync(officeWorker, "OfficeAdministrator");
-
-            if (roleresult.Succeeded == false)
-            {
-                return false;
-            }
-            return true;
-        } // AddOfficeAdmin
-
-        private async Task<bool> DoesOfficeHasAnAdmin(string officeId)
-        {
-            var allWorkers = await this.userManager.Users.Where(x => x.OfficeId == GuidParser.GuidParse(officeId)).ToListAsync();
-
-            foreach (var worker in allWorkers)
-            {
-                if (await this.userManager.IsInRoleAsync(worker, "OfficeAdministrator"))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        } // DoesOfficeHasAnAdmin
-        public async Task<AddOfficeAdminViewModel> AddOfficeAdmin(string userId, string officeId)
-        {
-            var user = await this.GetOfficeWorker(userId, role);
-
-            bool doesOfficeHasAnAdmin = await this.DoesOfficeHasAnAdmin(officeId);
-
-            if (doesOfficeHasAnAdmin == true)
-            {
-                throw new Exception("Office has an aministrator!");
-            }
-
-            AddOfficeAdminViewModel model = new AddOfficeAdminViewModel();
-            model.OfficeId = officeId;
-
-            return model;
-        } // AddOfficeAdmin
-
-        public async Task<bool> RemoveUserAdmin(string userId, string officeAdminId)
-        {
-            var user = await this.GetOfficeWorker(userId, role);
-            var officeAdmin = await this.GetOfficeWorker(officeAdminId, "OfficeAdministrator");
-
-            await this.userManager.RemoveFromRoleAsync(officeAdmin, "OfficeAdministrator");
-            await this.userManager.AddToRoleAsync(officeAdmin, "OfficeWorker");
-            await this.context.SaveChangesAsync();
-
-            return true;
-        } // RemoveUserAdmin
         public async Task<OfficeAdminViewModel> GetOfficeAdmin(string userId, string officeAdminId)
         {
             var user = await this.GetOfficeWorker(userId, role);
@@ -148,7 +43,26 @@ namespace DigAccess.Services.OrgAdministrator
             return model;
         } // GetOfficeAdmin
 
-        public async Task<List<OfficeInfoViewModel>> GetOffices(string userId)
+        public async Task<List<OfficeInfoViewModel>> GetOfficesByName(string userId, string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                return null;
+            }
+            var user = await this.GetOfficeWorker(userId, role);
+
+            return await this.context.Offices.Where(x => x.OrganisationId == user.OrganisationId && x.Name.ToLower().StartsWith(name.ToLower()))
+                                             .Include(x => x.City)
+                                             .Select(x => new OfficeInfoViewModel()
+                                             {
+                                                 Id = x.Id.ToString(),
+                                                 Name = x.Name,
+                                                 Phone = x.LocalPhone
+                                             })
+                                             .ToListAsync();
+        }
+
+        public async Task<List<OfficeInfoViewModel>> GetOffices(string userId, int page)
         {
             var user = await this.GetOfficeWorker(userId, role);
 
@@ -160,8 +74,10 @@ namespace DigAccess.Services.OrgAdministrator
                                                  Name = x.Name,
                                                  Phone = x.LocalPhone
                                              })
+                                             .Skip((page - 1) * 8).Take(8)
                                              .ToListAsync();
         } // GetOffices
+
         public async Task<bool> AddOffice(string userId, EditOfficeViewModel model)
         {
             var user = await this.GetOfficeWorker(userId, role);
@@ -214,7 +130,7 @@ namespace DigAccess.Services.OrgAdministrator
             return true;
         } // EditOffice
 
-        public async Task<OfficeViewModel> GetFullOfficeDetails(string userId, string officeId)
+        public async Task<OfficeViewModel> GetFullOfficeDetails(string userId, string officeId, int page = 1)
         {
             var user = await this.GetOfficeWorker(userId, role);
 
@@ -257,10 +173,31 @@ namespace DigAccess.Services.OrgAdministrator
                 }
             }
 
-            office.Workers = workers;
+            office.Workers = workers.Skip((page - 1) * 3).Take(3).ToList();
             return office;
         } // GetFullOfficeDetails
 
+        public async Task<int> CountWorkers(string userId, string officeId)
+        {
+            int count = 0;
+            var user = await this.GetOfficeWorker(userId, role);
+
+            var office = await this.context.Offices.Include(x => x.Organisation)
+                                .Where(x => x.Id == GuidParser.GuidParse(officeId) && user.OrganisationId == x.OrganisationId)
+                                .FirstOrDefaultAsync();
+            var allWorkers = await this.userManager.Users.Where(x => x.OfficeId == GuidParser.GuidParse(officeId)).ToListAsync();
+
+            List<WorkerViewModel> workers = new List<WorkerViewModel>();
+            foreach (var worker in allWorkers)
+            {
+                if (await this.userManager.IsInRoleAsync(worker, "OfficeWorker"))
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        } // CountWorkers
         public async Task<EditOfficeViewModel> GetOfficeDetails(string userId, string officeId)
         {
             var user = await this.GetOfficeWorker(userId, role);
@@ -281,5 +218,12 @@ namespace DigAccess.Services.OrgAdministrator
 
             return office;
         } // GetOfficeDetails
+
+        public async Task<int> CountOffices(string userId)
+        {
+            var user = await this.GetOfficeWorker(userId, role);
+
+            return await this.context.Offices.Where(x => x.OrganisationId == user.OrganisationId).CountAsync();
+        }
     } // OfficeOrgAdminService
 }

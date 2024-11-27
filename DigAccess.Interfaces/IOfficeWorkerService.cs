@@ -18,7 +18,7 @@ namespace DigAccess.Services.Interfaces
 
         public Task<UserDeleteViewModel> ApproveUserForDelete(string workerId, string userId);
 
-        public Task<UserDetailsViewModel> GetUserDetails(string workerId, string userId);
+        public Task<UserDetailsViewModel> GetUserDetails(string workerId, string userId, int page);
 
         public Task<List<UserDetailsViewModel>> GetUsers(string userId, int page);
 
@@ -27,6 +27,9 @@ namespace DigAccess.Services.Interfaces
         public Task<bool> DeleteUser(string workerId, string userId);
 
         public Task<int> CountUsers(string workerId);
+
+        public Task<int> CountUserBlindUsers(string workerId, string userId);
+
 
         public Task<WaitingUsersViewModel> GetWaitingUsersByName(string id, string name);
 

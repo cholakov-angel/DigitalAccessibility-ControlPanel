@@ -19,19 +19,36 @@ namespace DigAccess.Services
         {
         } // QuestionAnserOfficeWorkerService
 
-        public async Task<List<QuestionViewModel>> GetQuestions(string userId)
+        public async Task<List<QuestionViewModel>> GetQuestionsByName(string userId, string name)
         {
             var user = await this.GetOfficeWorker(userId);
 
             var model = await this.context.Questions.Include(x => x.User)
-                .Where(x => x.User.OfficeId == user.OfficeId && x.IsAnswered == false)
-                .Select(x => new QuestionViewModel 
+                .Where(x => x.User.OfficeId == user.OfficeId && x.IsAnswered == false && x.Title.ToLower().StartsWith(name))
+                .Select(x => new QuestionViewModel
                 {
                     Id = x.Id.ToString(),
                     UserName = x.User.FirstName + " " + x.User.MiddleName + " " + x.User.LastName,
                     Title = x.Title,
                     UserId = x.UserId
                 }).ToListAsync();
+
+            return model;
+        } // GetQuestionsByName
+
+        public async Task<List<QuestionViewModel>> GetQuestions(string userId, int page)
+        {
+            var user = await this.GetOfficeWorker(userId);
+
+            var model = await this.context.Questions.Include(x => x.User)
+                .Where(x => x.User.OfficeId == user.OfficeId && x.IsAnswered == false)
+                .Select(x => new QuestionViewModel
+                {
+                    Id = x.Id.ToString(),
+                    UserName = x.User.FirstName + " " + x.User.MiddleName + " " + x.User.LastName,
+                    Title = x.Title,
+                    UserId = x.UserId
+                }).Skip((page - 1) * 8).Take(8).ToListAsync();
 
             return model;
         } // GetQuestions
@@ -76,5 +93,13 @@ namespace DigAccess.Services
             }
             return officeWorker;
         } // GetOfficeWorker
+
+        public async Task<int> CountQuestions(string userId)
+        {
+            var user = await this.GetOfficeWorker(userId);
+
+            return await this.context.Questions.Include(x => x.User)
+                .Where(x => x.User.OfficeId == user.OfficeId && x.IsAnswered == false).CountAsync();
+        }
     } // QuestionAnserOfficeWorkerService
 }

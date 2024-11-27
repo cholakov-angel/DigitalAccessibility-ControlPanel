@@ -142,6 +142,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JnQWRtaW5pc3RyYXRvclxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/OrgAdministrator/Views/Office/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JnQWRtaW5pc3RyYXRvclxWaWV3c1xPZmZpY2VcQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/OrgAdministrator/Views/Office/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JnQWRtaW5pc3RyYXRvclxWaWV3c1xPZmZpY2VcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -154,12 +158,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JnQWRtaW5pc3RyYXRvclxWaWV3c1xPZmZpY2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/OrgAdministrator/Views/Office/OfficeAdminAdd.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JnQWRtaW5pc3RyYXRvclxWaWV3c1xPZmZpY2VcT2ZmaWNlQWRtaW5BZGQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/OrgAdministrator/Views/Office/OfficeAdminDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JnQWRtaW5pc3RyYXRvclxWaWV3c1xPZmZpY2VcT2ZmaWNlQWRtaW5EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/OrgAdministrator/Views/Workers/OfficeAdminAdd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JnQWRtaW5pc3RyYXRvclxWaWV3c1xXb3JrZXJzXE9mZmljZUFkbWluQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/OrgAdministrator/Views/_ViewImports.cshtml]
@@ -220,6 +224,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/License/UserLicense.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcTGljZW5zZVxVc2VyTGljZW5zZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/Log/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcTG9nXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/Log/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcTG9nXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/MasterKey/Index.cshtml]

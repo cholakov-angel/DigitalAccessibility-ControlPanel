@@ -55,7 +55,7 @@ namespace DigAccess.Services
             model.PersonalId = user.PersonalId;
             model.BirthDate = user.Birthdate.Value.ToString(Constants.DateTimeFormat);
             model.City = city.Name;
-
+            model.Gender = user.Gender.ToString();
             return model;
         } // GetUserDetails
 
@@ -154,7 +154,8 @@ namespace DigAccess.Services
                     MiddleName = x.MiddleName!,
                     LastName = x.LastName!,
                     LicenseNumber = x.BlindUserLicences.Where(y=> y.IsDeleted == false).Count(y=> y.BlindUserId == x.Id),
-                    Age = currentDate.Year - x.Birthdate!.Value.Year
+                    Age = currentDate.Year - x.Birthdate!.Value.Year,
+                    Gender = x.Gender.ToString()
                 })
                 .FirstOrDefaultAsync();
             

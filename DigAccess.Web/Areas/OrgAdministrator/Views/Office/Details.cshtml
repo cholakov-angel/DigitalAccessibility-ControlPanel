@@ -56,7 +56,7 @@
             @if (Model.OfficeAdministrator == null)
             {
                 <h7>Няма мениджър!</h7>
-                <a asp-action="Add" asp-route-id="@Model.Id" class="btn btn-dark"><h5>Добявяне на мениджър</h5></a>
+                <a asp-action="AddAdmin" asp-route-id="@Model.Id" asp-controller="Workers" class="btn btn-dark"><h5>Добявяне на мениджър</h5></a>
 
             }
             else
@@ -120,7 +120,7 @@
                                 <td>@user.LastName</td>
                                 @if (Model.OfficeAdministrator == null)
                                 {
-                                    <td><a asp-action="AddUserAsAdmin" asp-route-id="@user.Id" class="btn btn-dark"><h5>Задаване като мениджър</h5></a></td>
+                                    <td><a asp-action="AddUserAsAdmin" asp-controller="Workers" asp-route-id="@user.Id" class="btn btn-dark"><h5>Задаване като мениджър</h5></a></td>
                                 }
                             </tr>
                         }
@@ -134,24 +134,23 @@
                         @if (ViewBag.CurrentPage > 1)
                         {
                             <li class="page-item">
-                                <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage - 1 })">&lt</a>
+                                <a class="page-link" href="@Url.Action("Details", new { id = @Model.Id, page = ViewBag.CurrentPage - 1 })">&lt</a>
                             </li>
                         }
 
                         @for (int i = 1; i <= ViewBag.TotalPages; i++)
                         {
                             <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
-                                <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+                                <a class="page-link" href="@Url.Action("Details", new { id = @Model.Id, page = i })">@i</a>
                             </li>
                         }
 
                         @if (ViewBag.CurrentPage < ViewBag.TotalPages)
                         {
                             <li class="page-item">
-                                <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1 })">&gt</a>
+                                <a class="page-link" href="@Url.Action("Details", new {id = @Model.Id, page = ViewBag.CurrentPage + 1 })">&gt</a>
                             </li>
                         }
-
                     }
                 </ul>
             </div>
