@@ -45,6 +45,14 @@
       "PackagePath": "staticwebassets\\img\\lock.svg"
     },
     {
+      "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\logo - white.ico",
+      "PackagePath": "staticwebassets\\img\\logo - white.ico"
+    },
+    {
+      "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\logo - white.png",
+      "PackagePath": "staticwebassets\\img\\logo - white.png"
+    },
+    {
       "Id": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Web\\wwwroot\\img\\logo.png",
       "PackagePath": "staticwebassets\\img\\logo.png"
     },

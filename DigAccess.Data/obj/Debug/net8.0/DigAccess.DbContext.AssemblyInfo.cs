@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DigAccess.DbContext")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+953bd0793d5d82e3320dc3d94ca55b31102fcbc0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5c99822f4328b71be75c6075c45d00a95103620")]
 [assembly: System.Reflection.AssemblyProductAttribute("DigAccess.DbContext")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DigAccess.DbContext")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -102,29 +102,6 @@ namespace DigAccess.Web
                     }
                 }
             }
-
-            using (var scope = app.Services.CreateScope())
-            {
-                var userManager = (UserManager<ApplicationUser>)scope.ServiceProvider.GetService(typeof(UserManager<ApplicationUser>));
-                var context = (DigAccessDbContext)scope.ServiceProvider.GetService(typeof(DigAccessDbContext));
-
-                if (await userManager.Users.AnyAsync() == false)
-                {
-                    await UsersSeeder.CreateUsers(userManager);
-
-                    BlindUserSeeder blindUserSeeder = new BlindUserSeeder(userManager, context);
-                    await blindUserSeeder.Configure();
-                
-                    BlindUserFeatureSeeder blindUserFeatureSeeder = new BlindUserFeatureSeeder(userManager, context);
-                    await blindUserFeatureSeeder.Configure();
-                
-                    BlindUserLicenceSeeder blindUserLicenceSeeder = new BlindUserLicenceSeeder(userManager, context);
-                    await blindUserLicenceSeeder.Configure();
-                
-                    BlindUserLogSeeder blindUserLogSeeder = new BlindUserLogSeeder(userManager, context);
-                    await blindUserLogSeeder.Configure();
-                }
-            }
             app.Run();
         } // Main
     } // Program

@@ -3314,20 +3314,6 @@
           "bin/placeholder/DigAccess.Models.dll": {}
         }
       },
-      "DigAccess.Seeder2/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "DigAccess.Data.Entities": "1.0.0",
-          "DigAccess.DbContext": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DigAccess.Seeder2.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DigAccess.Seeder2.dll": {}
-        }
-      },
       "DigAccess.Services/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -8917,11 +8903,6 @@
       "path": "../DigAccess.Models/DigAccess.Models.csproj",
       "msbuildProject": "../DigAccess.Models/DigAccess.Models.csproj"
     },
-    "DigAccess.Seeder2/1.0.0": {
-      "type": "project",
-      "path": "../DigAccess.Seeder2/DigAccess.Seeder2.csproj",
-      "msbuildProject": "../DigAccess.Seeder2/DigAccess.Seeder2.csproj"
-    },
     "DigAccess.Services/1.0.0": {
       "type": "project",
       "path": "../DigAccess.Services/DigAccess.Services.csproj",
@@ -8938,7 +8919,6 @@
       "DigAccess.DbContext >= 1.0.0",
       "DigAccess.Keys >= 1.0.0",
       "DigAccess.Models >= 1.0.0",
-      "DigAccess.Seeder2 >= 1.0.0",
       "DigAccess.Services >= 1.0.0",
       "DigAccess.Services.Interfaces >= 1.0.0",
       "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter >= 8.0.8",
@@ -8995,9 +8975,6 @@
             },
             "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Models\\DigAccess.Models.csproj": {
               "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Models\\DigAccess.Models.csproj"
-            },
-            "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Seeder2\\DigAccess.Seeder2.csproj": {
-              "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Seeder2\\DigAccess.Seeder2.csproj"
             },
             "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Services\\DigAccess.Services.csproj": {
               "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigAccess.Services\\DigAccess.Services.csproj"

@@ -772,6 +772,4 @@ E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\D
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Keys.pdb
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Data.Seeder.dll
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Data.Seeder.pdb
-E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Seeder2.dll
-E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\bin\Debug\net8.0\DigAccess.Seeder2.pdb
 E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigAccess.Web\obj\Debug\net8.0\DigAccess.Web.MvcApplicationPartsAssemblyInfo.cs

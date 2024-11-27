@@ -11,7 +11,6 @@
           "DigAccess.DbContext": "1.0.0",
           "DigAccess.Keys": "1.0.0",
           "DigAccess.Models": "1.0.0",
-          "DigAccess.Seeder2": "1.0.0",
           "DigAccess.Services": "1.0.0",
           "DigAccess.Services.Interfaces": "1.0.0",
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": "8.0.8",
@@ -2307,15 +2306,6 @@
           "DigAccess.Models.dll": {}
         }
       },
-      "DigAccess.Seeder2/1.0.0": {
-        "dependencies": {
-          "DigAccess.Data.Entities": "1.0.0",
-          "DigAccess.DbContext": "1.0.0"
-        },
-        "runtime": {
-          "DigAccess.Seeder2.dll": {}
-        }
-      },
       "DigAccess.Services/1.0.0": {
         "dependencies": {
           "DigAccess.Common": "1.0.0",
@@ -3660,11 +3650,6 @@
       "sha512": ""
     },
     "DigAccess.Models/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "DigAccess.Seeder2/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

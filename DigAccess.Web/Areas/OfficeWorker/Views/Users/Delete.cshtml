@@ -1,6 +1,8 @@
 ﻿@using DigAccess.Models.OfficeWorker
 @model UserDeleteViewModel
-
+@{
+    ViewData["Title"] = "Изтриване на потребител";
+}
 <h1>Сигурни ли сте, че искате да изтриете потребителя?</h1>
 
 <a asp-action="ConfirmDelete" asp-route-id="@Model.Id" class="btn btn-dark"><h5>Да</h5></a>

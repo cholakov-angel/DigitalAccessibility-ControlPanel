@@ -65,6 +65,26 @@ namespace DigAccess.Web.Data
             FeatureSeeder featureSeeder = new FeatureSeeder();
             featureSeeder.Configure(builder.Entity<Feature>());
 
+            ApplicationUserSeeder applicationUserSeeder = new ApplicationUserSeeder();
+            applicationUserSeeder.Configure(builder.Entity<ApplicationUser>());
+
+            BlindUserSeeder blindUserSeeder = new BlindUserSeeder();
+            blindUserSeeder.Configure(builder.Entity<BlindUser>());
+
+            BlindUserFeatureSeeder blindUserFeatureSeeder = new BlindUserFeatureSeeder();
+            blindUserFeatureSeeder.Configure(builder.Entity<BlindUserFeature>());
+
+            BlindUserLicenceSeeder blindUserLicenceSeeder = new BlindUserLicenceSeeder();
+            blindUserLicenceSeeder.Configure(builder.Entity<BlindUserLicence>());
+
+            BlindUserLogSeeder blindUserLogSeeder = new BlindUserLogSeeder();
+            blindUserLogSeeder.Configure(builder.Entity<BlindUserLog>());
+
+            RolesSeeder rolesSeeder = new RolesSeeder();
+            rolesSeeder.Configure(builder.Entity<IdentityRole>());
+
+            ApplicationUserRoleSeeder applicationUserRoleSeeder = new ApplicationUserRoleSeeder();
+            applicationUserRoleSeeder.Configure(builder.Entity<IdentityUserRole<string>>());
         } // OnModelCreating
 
         public virtual DbSet<OrganisationCompany> Organisations { get; set; }
