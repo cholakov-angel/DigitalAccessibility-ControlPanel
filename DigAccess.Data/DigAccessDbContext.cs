@@ -50,6 +50,18 @@ namespace DigAccess.Web.Data
                 .Property(x=> x.IsReviewed)
                 .HasDefaultValue(false);
 
+            builder.Entity<BlindUser>()
+                .Property(x=> x.IsDeleted)
+                .HasDefaultValue(false);
+
+            builder.Entity<Office>()
+                .Property(x => x.IsDeleted)
+                .HasDefaultValue(false);
+
+            builder.Entity<OrganisationCompany>()
+                .Property(x => x.IsDeleted)
+                .HasDefaultValue(false);
+
             CitySeeder citySeeder = new CitySeeder();
             citySeeder.Configure(builder.Entity<City>());
 

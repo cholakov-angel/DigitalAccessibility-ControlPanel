@@ -131,5 +131,19 @@ namespace DigAccess.Web.Areas.OrgAdministrator.Controllers
 
             return RedirectToAction("Details", "Office", new { Id = model.Id });
         } // Edit
+
+        public async Task<IActionResult> Delete(string id)
+        {
+            var userId = this.GetUserId();
+            
+            bool result = await this.service.DeleteOffice(userId, id);
+
+            if (result == false)
+            {
+                throw new Exception("Error occurred!");
+            }
+
+            return RedirectToAction("Index");
+        } // Delete
     } // OfficeController
 }

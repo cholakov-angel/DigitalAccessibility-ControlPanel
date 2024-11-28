@@ -15,11 +15,6 @@ namespace DigAccess.Services
         {
         } // BlindUserService
 
-        public void SetContext(DigAccessDbContext context)
-        {
-            this.context = context;
-        } // SetContext
-
         public async Task<List<CityViewModel>> GetCities()
         {
             var cities = await context.Cities.Select(x => new CityViewModel()
@@ -34,7 +29,7 @@ namespace DigAccess.Services
         public async Task<BlindUserDetailsViewModel> GetUserDetails(string id, string userId)
         {
             var resultGuid = GuidParser.GuidParse(id);
-            var user = await context.BlindUsers.FindAsync(resultGuid);
+            var user = await context.BlindUsers.FirstOrDefaultAsync(x=> x.Id == resultGuid && x.IsDeleted == false);
 
             if (user == null)
             {
@@ -62,8 +57,8 @@ namespace DigAccess.Services
         public async Task<List<BlindUserViewModel>> GetAllModels(string userId)
         {
             return await context.BlindUsers
-                .Where(x => x.AdministratorId == userId)
-                .Select(x => new BlindUserViewModel()
+                .Where(x => x.AdministratorId == userId && x.IsDeleted == false)
+                .Select(x => new BlindUserViewModel() 
                 {
                     Id = x.Id,
                     City = x.City.Name,
@@ -86,7 +81,7 @@ namespace DigAccess.Services
             }
            
             return await context.BlindUsers
-                .Where(x => x.AdministratorId == userId && (x.FirstName + " " + x.LastName).ToLower().StartsWith(name.ToLower()))
+                .Where(x => x.AdministratorId == userId && (x.FirstName + " " + x.LastName).ToLower().StartsWith(name.ToLower()) && x.IsDeleted == false)
                 .Select(x => new BlindUserViewModel()
                 {
                     Id = x.Id,
@@ -146,7 +141,7 @@ namespace DigAccess.Services
             }
 
             var user = await context.BlindUsers
-                .Where(x => x.Id == resultId)
+                .Where(x => x.Id == resultId && x.IsDeleted == false)
                 .Select(x => new BlindUserViewPageModel()
                 {
                     Id = x.Id,

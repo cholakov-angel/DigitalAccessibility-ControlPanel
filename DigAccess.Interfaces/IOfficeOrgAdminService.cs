@@ -14,6 +14,7 @@ namespace DigAccess.Services.Interfaces
         public Task<OfficeViewModel> GetFullOfficeDetails(string userId, string officeId, int page);
         public Task<OfficeAdminViewModel> GetOfficeAdmin(string userId, string officeAdminId);
         public Task<List<OfficeInfoViewModel>> GetOfficesByName(string userId, string name);
+        public Task<bool> DeleteOffice(string userId, string officeId);
         public Task<int> CountOffices(string userId);
         public Task<int> CountWorkers(string userId, string officeId);
 

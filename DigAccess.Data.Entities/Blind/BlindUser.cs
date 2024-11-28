@@ -64,6 +64,8 @@ namespace DigAccess.Data.Entities.Blind
         [PersonalData]
         public Gender Gender { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         public ICollection<BlindUserLicence> BlindUserLicences { get; set; } = new List<BlindUserLicence>();
 
         public ICollection<BlindUserLog> BlindUserLogs { get; set; } = new List<BlindUserLog>();

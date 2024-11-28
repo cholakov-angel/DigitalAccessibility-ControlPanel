@@ -42,5 +42,7 @@ namespace DigAccess.Data.Entities.Organisation.Organisation
 
         [ForeignKey(nameof(CityId))]
         public City City { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

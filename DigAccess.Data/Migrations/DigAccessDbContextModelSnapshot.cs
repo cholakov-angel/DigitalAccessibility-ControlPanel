@@ -147,6 +147,11 @@ namespace DigAccess.DbContext.Migrations
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
                     b.Property<string>("LastName")
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
@@ -190,6 +195,7 @@ namespace DigAccess.DbContext.Migrations
                             CityId = new Guid("cc974363-80a0-47c1-8433-039d4bf99fd0"),
                             FirstName = "Ангел",
                             Gender = 0,
+                            IsDeleted = false,
                             LastName = "Петров",
                             MiddleName = "Борисов",
                             PersonalId = "0252199847",
@@ -205,6 +211,7 @@ namespace DigAccess.DbContext.Migrations
                             CityId = new Guid("6b827b51-65a3-4b0c-a59e-9f4d56951f82"),
                             FirstName = "Калин",
                             Gender = 0,
+                            IsDeleted = false,
                             LastName = "Иванов",
                             MiddleName = "Цветанов",
                             PersonalId = "9512099847",
@@ -220,6 +227,7 @@ namespace DigAccess.DbContext.Migrations
                             CityId = new Guid("9ac5590a-6946-471f-812f-503544b3fba7"),
                             FirstName = "Цветелина",
                             Gender = 1,
+                            IsDeleted = false,
                             LastName = "Петрова",
                             MiddleName = "Ангелова",
                             PersonalId = "9902199878",
@@ -304,7 +312,7 @@ namespace DigAccess.DbContext.Migrations
                             DateOfActivation = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsActivated = false,
                             IsDeleted = false,
-                            LicenceNumber = "3E33544534231453442234303"
+                            LicenceNumber = "4933423435E40513323351434"
                         },
                         new
                         {
@@ -314,7 +322,7 @@ namespace DigAccess.DbContext.Migrations
                             DateOfActivation = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsActivated = false,
                             IsDeleted = false,
-                            LicenceNumber = "E344E4313742315F334043335"
+                            LicenceNumber = "233524B435340533449383394"
                         },
                         new
                         {
@@ -324,7 +332,7 @@ namespace DigAccess.DbContext.Migrations
                             DateOfActivation = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsActivated = false,
                             IsDeleted = false,
-                            LicenceNumber = "83235043E3495304444393339"
+                            LicenceNumber = "424323012943903533D334413"
                         });
                 });
 
@@ -507,6 +515,11 @@ namespace DigAccess.DbContext.Migrations
                     b.Property<Guid>("CityId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
                     b.Property<string>("LocalPhone")
                         .IsRequired()
                         .HasMaxLength(10)
@@ -539,6 +552,7 @@ namespace DigAccess.DbContext.Migrations
                         {
                             Id = new Guid("89729ab3-fe73-49af-9bcf-97cf00c49e2f"),
                             CityId = new Guid("cc974363-80a0-47c1-8433-039d4bf99fd0"),
+                            IsDeleted = false,
                             LocalPhone = "0886100156",
                             Name = "Съюз на слепите София",
                             OrganisationId = new Guid("c5e270c8-df31-40ec-938e-d1300457f3ef"),
@@ -549,6 +563,7 @@ namespace DigAccess.DbContext.Migrations
                         {
                             Id = new Guid("eba30287-4914-4a15-bb3c-2dd3d53c918f"),
                             CityId = new Guid("65561ce7-3410-4c7a-b37f-86184a174a69"),
+                            IsDeleted = false,
                             LocalPhone = "052732151",
                             Name = "Съюз на слепите - РСО Варна",
                             OrganisationId = new Guid("c5e270c8-df31-40ec-938e-d1300457f3ef"),
@@ -559,6 +574,7 @@ namespace DigAccess.DbContext.Migrations
                         {
                             Id = new Guid("c8723a30-71ec-4d7d-8017-b0df2900a455"),
                             CityId = new Guid("9ac5590a-6946-471f-812f-503544b3fba7"),
+                            IsDeleted = false,
                             LocalPhone = "082841847",
                             Name = "Съюз на слепите - РСО Русе",
                             OrganisationId = new Guid("c5e270c8-df31-40ec-938e-d1300457f3ef"),
@@ -569,6 +585,7 @@ namespace DigAccess.DbContext.Migrations
                         {
                             Id = new Guid("0b919734-b960-436e-85a8-0e01eceab13d"),
                             CityId = new Guid("cc974363-80a0-47c1-8433-039d4bf99fd0"),
+                            IsDeleted = false,
                             LocalPhone = "024448858",
                             Name = "Учебна зала - Фондация Хоризонти",
                             OrganisationId = new Guid("db7b29f9-8974-463b-8937-a28e3dc8d90f"),
@@ -582,6 +599,11 @@ namespace DigAccess.DbContext.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -600,12 +622,14 @@ namespace DigAccess.DbContext.Migrations
                         new
                         {
                             Id = new Guid("c5e270c8-df31-40ec-938e-d1300457f3ef"),
+                            IsDeleted = false,
                             Name = "Съюз на слепите",
                             National_Phone = "028127050"
                         },
                         new
                         {
                             Id = new Guid("db7b29f9-8974-463b-8937-a28e3dc8d90f"),
+                            IsDeleted = false,
                             Name = "Фондация Хоризонти",
                             National_Phone = "24448858"
                         });

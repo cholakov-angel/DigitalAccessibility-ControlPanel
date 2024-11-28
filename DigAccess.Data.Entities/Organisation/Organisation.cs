@@ -28,5 +28,6 @@ namespace DigAccess.Data.Entities.Organisation
 
         public ICollection<Office> Offices { get; set; } = new List<Office>();
 
+        public bool IsDeleted { get; set; }
     }
 }

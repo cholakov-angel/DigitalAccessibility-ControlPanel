@@ -39,9 +39,26 @@ namespace DigAccess.Services.OrgAdministrator
             model.PersonalID = officeAdmin.PersonalId;
             model.Phone = officeAdmin.PhoneNumber;
             model.Email = officeAdmin.Email;
-
+            model.OfficeId = officeAdmin.OfficeId.ToString();
             return model;
         } // GetOfficeAdmin
+
+        public async Task<bool> DeleteOffice(string userId, string officeId)
+        {
+            var user = await this.GetOfficeWorker(userId, role);
+
+            var office = await this.context.Offices.Include(x => x.Organisation)
+                                .FirstOrDefaultAsync(x => x.Id == GuidParser.GuidParse(officeId) && user.OrganisationId == x.OrganisationId && x.IsDeleted == false);
+
+            if (office == null)
+            {
+                return false;
+            }
+
+            office.IsDeleted = true;
+            await this.context.SaveChangesAsync();
+            return true;
+        } // DeleteOffice
 
         public async Task<List<OfficeInfoViewModel>> GetOfficesByName(string userId, string name)
         {
@@ -51,7 +68,7 @@ namespace DigAccess.Services.OrgAdministrator
             }
             var user = await this.GetOfficeWorker(userId, role);
 
-            return await this.context.Offices.Where(x => x.OrganisationId == user.OrganisationId && x.Name.ToLower().StartsWith(name.ToLower()))
+            return await this.context.Offices.Where(x => x.OrganisationId == user.OrganisationId && x.Name.ToLower().StartsWith(name.ToLower()) && x.IsDeleted == false)
                                              .Include(x => x.City)
                                              .Select(x => new OfficeInfoViewModel()
                                              {
@@ -66,7 +83,7 @@ namespace DigAccess.Services.OrgAdministrator
         {
             var user = await this.GetOfficeWorker(userId, role);
 
-            return await this.context.Offices.Where(x => x.OrganisationId == user.OrganisationId)
+            return await this.context.Offices.Where(x => x.OrganisationId == user.OrganisationId && x.IsDeleted == false)
                                              .Include(x => x.City)
                                              .Select(x => new OfficeInfoViewModel()
                                              {
@@ -106,7 +123,7 @@ namespace DigAccess.Services.OrgAdministrator
         {
             var user = await this.GetOfficeWorker(userId, role);
 
-            var office = await this.context.Offices.FirstOrDefaultAsync(x => x.Id == GuidParser.GuidParse(model.Id));
+            var office = await this.context.Offices.FirstOrDefaultAsync(x => x.Id == GuidParser.GuidParse(model.Id) && x.IsDeleted == false);
             if (office == null)
             {
                 return false;
@@ -135,7 +152,7 @@ namespace DigAccess.Services.OrgAdministrator
             var user = await this.GetOfficeWorker(userId, role);
 
             var office = await this.context.Offices.Include(x => x.Organisation)
-                                .Where(x => x.Id == GuidParser.GuidParse(officeId) && user.OrganisationId == x.OrganisationId)
+                                .Where(x => x.Id == GuidParser.GuidParse(officeId) && user.OrganisationId == x.OrganisationId && x.IsDeleted == false)
                                 .Select(x => new OfficeViewModel
                                 {
                                     Id = x.Id.ToString(),
@@ -183,7 +200,7 @@ namespace DigAccess.Services.OrgAdministrator
             var user = await this.GetOfficeWorker(userId, role);
 
             var office = await this.context.Offices.Include(x => x.Organisation)
-                                .Where(x => x.Id == GuidParser.GuidParse(officeId) && user.OrganisationId == x.OrganisationId)
+                                .Where(x => x.Id == GuidParser.GuidParse(officeId) && user.OrganisationId == x.OrganisationId && x.IsDeleted == false)
                                 .FirstOrDefaultAsync();
             var allWorkers = await this.userManager.Users.Where(x => x.OfficeId == GuidParser.GuidParse(officeId)).ToListAsync();
 
@@ -203,7 +220,7 @@ namespace DigAccess.Services.OrgAdministrator
             var user = await this.GetOfficeWorker(userId, role);
 
             var office = await this.context.Offices.Include(x => x.Organisation)
-                                .Where(x => x.Id == GuidParser.GuidParse(officeId) && user.OrganisationId == x.OrganisationId)
+                                .Where(x => x.Id == GuidParser.GuidParse(officeId) && user.OrganisationId == x.OrganisationId && x.IsDeleted == false)
                                 .Select(x => new EditOfficeViewModel
                                 {
                                     Id = x.Id.ToString(),
@@ -223,7 +240,7 @@ namespace DigAccess.Services.OrgAdministrator
         {
             var user = await this.GetOfficeWorker(userId, role);
 
-            return await this.context.Offices.Where(x => x.OrganisationId == user.OrganisationId).CountAsync();
+            return await this.context.Offices.Where(x => x.OrganisationId == user.OrganisationId && x.IsDeleted == false).CountAsync();
         }
     } // OfficeOrgAdminService
 }
