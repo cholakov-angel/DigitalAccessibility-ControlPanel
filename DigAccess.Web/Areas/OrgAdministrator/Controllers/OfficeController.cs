@@ -1,6 +1,7 @@
 ﻿using DigAccess.Data.Entities;
 using DigAccess.Models.OrgAdministrator;
 using DigAccess.Services.Interfaces;
+using DigAccess.Services.OrgAdministrator;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,7 @@ namespace DigAccess.Web.Areas.OrgAdministrator.Controllers
             this.userManager = userManager;
         } // OfficeController
 
+        [HttpGet]
         public async Task<IActionResult> SearchByName(string name)
         {
             var userId = this.GetUserId();
@@ -63,13 +65,12 @@ namespace DigAccess.Web.Areas.OrgAdministrator.Controllers
             return RedirectToAction("Index");
         } // Add
 
+        [HttpGet]
         public async Task<IActionResult> Index(int page = 1)
         {
             var userId = this.GetUserId();
 
             var model = await this.service.GetOffices(userId, page);
-
-
 
             int totalItems = await this.service.CountOffices(userId);
             int totalPages = (int)Math.Ceiling(totalItems / (double)8);
@@ -79,6 +80,7 @@ namespace DigAccess.Web.Areas.OrgAdministrator.Controllers
             return View(model);
         } // Index
 
+        [HttpGet]
         public async Task<IActionResult> Details(string id, int page = 1)
         {
             var userId = this.GetUserId();
@@ -93,6 +95,7 @@ namespace DigAccess.Web.Areas.OrgAdministrator.Controllers
             return View(model);
         } // Details
 
+        [HttpGet]
         public async Task<IActionResult> OfficeAdminDetails(string id)
         {
             var userId = this.GetUserId();
@@ -132,6 +135,7 @@ namespace DigAccess.Web.Areas.OrgAdministrator.Controllers
             return RedirectToAction("Details", "Office", new { Id = model.Id });
         } // Edit
 
+        [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
             var userId = this.GetUserId();

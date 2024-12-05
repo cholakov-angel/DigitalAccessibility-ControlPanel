@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/vqniJvd8W64y8TIO8IydqgaAqggZtSzEklrtihn6xTNJXNkIRqyEi84Dpi8B3rzD/ebAgWtPM0CIKTWM/Xqcw==",
+  "dgSpecHash": "bCQDSJJrqlS4CMfnKS5GWhgZgqYQ1m7UJ/BhCqjLvDOsOfzu2wVYpyefYrDfQUIKPaggw8y38B7xxNJJfywV1A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\angel\\source\\repos\\DigAccess.Application\\DigAccess.DbContext\\DigAccess.DbContext.csproj",
+  "projectFilePath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigitalAccessibility\\API\\DigAccess.Application\\DigAccess.DbContext\\DigAccess.DbContext.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\angel\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\angel\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

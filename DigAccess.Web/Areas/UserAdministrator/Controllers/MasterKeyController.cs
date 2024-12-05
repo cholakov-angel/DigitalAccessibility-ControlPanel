@@ -10,7 +10,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 {
     [Area("UserAdministrator")]
     [Authorize(Roles = "UserAdministrator")]
-    public class MasterKeyController : Controller
+    public class MasterKeyController : BaseController
     {
         private readonly IMasterKeyService service;
         private readonly UserManager<ApplicationUser> userManager;
@@ -21,6 +21,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
             this.userManager = userManager;
         } // MasterKeyController
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             string userId = this.GetUserId();
@@ -28,16 +29,5 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
             var model = await service.GetUserMasterKey(userId);
             return View(model);
         } // Index
-
-        private string? GetUserId()
-        {
-            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
-
-            return userId;
-        } // GetUserId
     } // MasterKeyController
 }

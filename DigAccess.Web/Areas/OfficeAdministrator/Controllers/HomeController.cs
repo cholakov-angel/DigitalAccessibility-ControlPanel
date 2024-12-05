@@ -19,6 +19,7 @@ namespace DigAccess.Web.Areas.OfficeAdministrator.Controllers
             this.userManager = userManager;
         } // HomeController
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();

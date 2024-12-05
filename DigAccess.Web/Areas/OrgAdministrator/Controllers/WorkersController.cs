@@ -20,6 +20,7 @@ namespace DigAccess.Web.Areas.OrgAdministrator.Controllers
             this.userManager = userManager;
         } // WorkersController
 
+        [HttpGet]
         public async Task<IActionResult> RemoveUserAdmin(string id)
         {
             var userId = this.GetUserId();
@@ -34,6 +35,7 @@ namespace DigAccess.Web.Areas.OrgAdministrator.Controllers
             return RedirectToAction("Index", "Office");
         } // RemoveUserAdmin
 
+        [HttpGet]
         public async Task<IActionResult> AddUserAsAdmin(string id)
         {
             var userId = this.GetUserId();

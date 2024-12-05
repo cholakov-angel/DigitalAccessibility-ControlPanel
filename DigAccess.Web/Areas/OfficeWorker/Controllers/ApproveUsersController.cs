@@ -20,6 +20,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             this.userManager = userManager;
         } // ApproveUsersController
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             string? userId = this.GetUserId();
@@ -28,6 +29,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             return View(model);
         } // Index
 
+        [HttpGet]
         public async Task<IActionResult> GetUsersByName(string name)
         {
             string? userId = this.GetUserId();
@@ -37,6 +39,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             return View("Index", model);
         } // GetUsersByName
 
+        [HttpGet]
         public async Task<IActionResult> ApproveUser(string id)
         {
             string? userId = this.GetUserId();
@@ -45,6 +48,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             return RedirectToAction("Index");
         } // ApproveUser
 
+        [HttpGet]
         public async Task<IActionResult> RejectUser(string id)
         {
             string? userId = this.GetUserId();
@@ -53,7 +57,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             return RedirectToAction("Index");
         } // ApproveUser
 
-
+        [HttpGet]
         public async Task<IActionResult> GetUserDetails(string id, int page = 1)
         {
             string? userId = this.GetUserId();
@@ -63,6 +67,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             return View("Details", model);
         } // GetUserDetails
 
+        [HttpGet]
         private string? GetUserId()
         {
             string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);

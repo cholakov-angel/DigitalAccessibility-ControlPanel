@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ntIPKonu/JKnyxyBwuVlEXH2p+zbeu1chfHuvas9ajQLDrFAajiFcVVjUrmbaBeGH+6iDCtBstbZ8EVk/z2sDg==",
+  "dgSpecHash": "WlwuD/Qi4Ft73Vu0Ll5x76dceVUAiLh54ScbQ6T4lLnyz2U3a2ck13G7t0ZKK0WNk5mZGSEDcDKpdMz5X+zOMg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\angel\\source\\repos\\DigAccess.Application\\DigAccess.Data\\DigAccess.Data.csproj",
+  "projectFilePath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigitalAccessibility\\API\\DigAccess.Application\\DigAccess.Data\\DigAccess.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\angel\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\angel\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

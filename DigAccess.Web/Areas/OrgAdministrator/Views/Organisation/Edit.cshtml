@@ -1,0 +1,32 @@
+﻿@using DigAccess.Models.OrgAdministrator
+@model OrganisationViewModel
+@{
+    ViewData["Title"] = "Информация за организация";
+}
+
+<div class="d-flex justify-content-start p-2">
+    <a asp-action="Index"> <button class="btn btn-dark mt-2"><h6><</h6></button></a>
+    <h2 class="p-2">Организация</h2>
+</div>
+<form asp-action="Edit" method="post">
+    <div>
+        <label for="Name">Име</label>
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div>
+        <label for="National_Phone">Национален телефон</label>
+        <span asp-validation-for="@Model.National_Phone" class="text-danger"></span>
+        <input asp-for="National_Phone" class="form-control" />
+    </div>
+    <div class="d-none">
+        <div>
+            <label for="Id">Идентификатор</label>
+            <span asp-validation-for="@Model.Id" class="text-danger"></span>
+            <input asp-for="Id" class="form-control" />
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-dark mt-2">Запазване</button>
+</form>
+

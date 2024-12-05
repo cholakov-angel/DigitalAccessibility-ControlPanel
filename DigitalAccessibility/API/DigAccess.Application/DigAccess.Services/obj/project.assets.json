@@ -2739,11 +2739,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\angel\\source\\repos\\DigAccess.Application\\DigAccess.Services\\DigAccess.Services.csproj",
+      "projectUniqueName": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigitalAccessibility\\API\\DigAccess.Application\\DigAccess.Services\\DigAccess.Services.csproj",
       "projectName": "DigAccess.Services",
-      "projectPath": "C:\\Users\\angel\\source\\repos\\DigAccess.Application\\DigAccess.Services\\DigAccess.Services.csproj",
+      "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigitalAccessibility\\API\\DigAccess.Application\\DigAccess.Services\\DigAccess.Services.csproj",
       "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\angel\\source\\repos\\DigAccess.Application\\DigAccess.Services\\obj\\",
+      "outputPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigitalAccessibility\\API\\DigAccess.Application\\DigAccess.Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2765,14 +2765,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\angel\\source\\repos\\DigAccess.Application\\DigAccess.DbContext\\DigAccess.DbContext.csproj": {
-              "projectPath": "C:\\Users\\angel\\source\\repos\\DigAccess.Application\\DigAccess.DbContext\\DigAccess.DbContext.csproj"
+            "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigitalAccessibility\\API\\DigAccess.Application\\DigAccess.DbContext\\DigAccess.DbContext.csproj": {
+              "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigitalAccessibility\\API\\DigAccess.Application\\DigAccess.DbContext\\DigAccess.DbContext.csproj"
             },
-            "C:\\Users\\angel\\source\\repos\\DigAccess.Application\\DigAccess.Services.Interfaces\\DigAccess.Services.Interfaces.csproj": {
-              "projectPath": "C:\\Users\\angel\\source\\repos\\DigAccess.Application\\DigAccess.Services.Interfaces\\DigAccess.Services.Interfaces.csproj"
+            "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigitalAccessibility\\API\\DigAccess.Application\\DigAccess.Services.Interfaces\\DigAccess.Services.Interfaces.csproj": {
+              "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigitalAccessibility\\API\\DigAccess.Application\\DigAccess.Services.Interfaces\\DigAccess.Services.Interfaces.csproj"
             },
-            "C:\\Users\\angel\\source\\repos\\DigAccess.Application\\DigAccess.ViewModels\\DigAccess.ViewModels.csproj": {
-              "projectPath": "C:\\Users\\angel\\source\\repos\\DigAccess.Application\\DigAccess.ViewModels\\DigAccess.ViewModels.csproj"
+            "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigitalAccessibility\\API\\DigAccess.Application\\DigAccess.ViewModels\\DigAccess.ViewModels.csproj": {
+              "projectPath": "E:\\Documents\\DigAccess.Web\\DigitalAccessibility-ControlPanel\\DigitalAccessibility\\API\\DigAccess.Application\\DigAccess.ViewModels\\DigAccess.ViewModels.csproj"
             }
           }
         }

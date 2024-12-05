@@ -20,6 +20,7 @@ namespace DigAccess.Web.Areas.OfficeAdministrator.Controllers
             this.userManager = userManager;
         } // OfficeDetailsController
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var userId = this.GetUserId();

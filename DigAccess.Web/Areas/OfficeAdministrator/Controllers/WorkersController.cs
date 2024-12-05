@@ -36,6 +36,7 @@ namespace DigAccess.Web.Areas.OfficeAdministrator.Controllers
             return View(model);
         } // Index
 
+        [HttpGet]
         public async Task<IActionResult> Details(string id)
         {
             var userId = this.GetUserId();
@@ -45,6 +46,7 @@ namespace DigAccess.Web.Areas.OfficeAdministrator.Controllers
             return View(model);
         } // Details
 
+        [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
             var userId = this.GetUserId();

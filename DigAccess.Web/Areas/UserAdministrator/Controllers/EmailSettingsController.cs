@@ -12,7 +12,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 {
     [Area("UserAdministrator")]
     [Authorize(Roles = "UserAdministrator")]
-    public class EmailSettingsController : Controller
+    public class EmailSettingsController : BaseController
     {
         private readonly IEmailSettingsService service;
         private readonly UserManager<ApplicationUser> userManager;
@@ -72,16 +72,5 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
 
             return View("AddEdit", model);
         } // Edit
-
-        private string? GetUserId()
-        {
-            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
-
-            return userId;
-        } // GetUserId
     } // EmailSettingsController
 }

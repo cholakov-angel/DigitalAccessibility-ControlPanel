@@ -9,7 +9,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
 {
     [Area("OfficeWorker")]
     [Authorize(Roles = "OfficeWorker")]
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly IOfficeWorkerService service;
         private readonly UserManager<ApplicationUser> userManager;
@@ -20,20 +20,10 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             this.userManager = userManager;
         } // HomeController
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         } // Index
-
-        private string? GetUserId()
-        {
-            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
-
-            return userId;
-        } // GetUserId
     } // HomeController
 }

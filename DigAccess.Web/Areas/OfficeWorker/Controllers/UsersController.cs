@@ -3,15 +3,12 @@ using DigAccess.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Drawing.Printing;
-using System.Security.Claims;
 
 namespace DigAccess.Web.Areas.OfficeWorker.Controllers
 {
     [Area("OfficeWorker")]
     [Authorize(Roles = "OfficeWorker")]
-    public class UsersController : Controller
+    public class UsersController : BaseController
     {
         private readonly IOfficeWorkerService service;
         private readonly UserManager<ApplicationUser> userManager;
@@ -22,6 +19,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             this.userManager = userManager;
         } // UsersController
 
+        [HttpGet]
         public async Task<IActionResult> GetUsersByName(string name, int page = 1)
         {
             string? userId = this.GetUserId();
@@ -39,6 +37,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             return View("Index", model);
         } // GetUsersByName
 
+        [HttpGet]
         public async Task<IActionResult> Index(int page = 1)
         {
             string? userId = this.GetUserId();
@@ -53,6 +52,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             return View(model);
         } // Index
 
+        [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
             string? userId = this.GetUserId();
@@ -62,6 +62,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             return View(model);
         } // Delete
 
+        [HttpGet]
         public async Task<IActionResult> Details(string id, int page = 1)
         {
             string? userId = this.GetUserId();
@@ -75,6 +76,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             return View(model);
         } // Details
 
+        [HttpGet]
         public async Task<IActionResult> ConfirmDelete(string id)
         {
             string? userId = this.GetUserId();
@@ -88,16 +90,5 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
 
             return RedirectToAction("Index");
         } // ConfirmDelete
-
-        private string? GetUserId()
-        {
-            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
-
-            return userId;
-        } // GetUserId
-    }
+    } // UsersController
 }

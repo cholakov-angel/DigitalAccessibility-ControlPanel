@@ -36,6 +36,10 @@ namespace DigAccess.Web.Controllers
             {
                 return RedirectToAction("Index", "Home", new { area = "WaitingApproval" });
             }
+            else if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Index", "Home", new { area = "Admin" });
+            }
             return View();
         } // Index
 

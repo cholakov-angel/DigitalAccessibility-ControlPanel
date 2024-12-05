@@ -10,7 +10,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
 {
     [Area("OfficeWorker")]
     [Authorize(Roles = "OfficeWorker")]
-    public class AnswersController : Controller
+    public class AnswersController : BaseController
     {
         private readonly IAnswerOfficeWorkerService service;
         private readonly UserManager<ApplicationUser> userManager;
@@ -20,6 +20,8 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             this.service = service;
             this.userManager = userManager;
         } // AnswerController
+
+        [HttpGet]
         public async Task<IActionResult> Index(string id)
         {
             string? userId = this.GetUserId();
@@ -28,6 +30,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             return View(model);
         } // Index
 
+        [HttpPost]
         public async Task<IActionResult> Answer(AnswerViewModel model)
         {
             if (ModelState.IsValid == false)
@@ -44,16 +47,5 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
 
             return RedirectToAction("Index", "Questions");
         } // Answer
-
-        private string? GetUserId()
-        {
-            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
-
-            return userId;
-        } // GetUserId
     }
 }

@@ -147,6 +147,7 @@ namespace DigAccess.Services.OrgAdministrator
             return true;
         } // EditOffice
 
+
         public async Task<OfficeViewModel> GetFullOfficeDetails(string userId, string officeId, int page = 1)
         {
             var user = await this.GetOfficeWorker(userId, role);

@@ -7,6 +7,7 @@ namespace DigAccess.Web.Areas.OrgAdministrator.Controllers
     [Authorize(Roles = "OrgAdministrator")]
     public class HomeController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             return View();

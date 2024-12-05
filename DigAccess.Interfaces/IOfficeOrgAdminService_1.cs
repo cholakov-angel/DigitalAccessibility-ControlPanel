@@ -17,6 +17,5 @@ namespace DigAccess.Services.Interfaces
         public Task<bool> DeleteOffice(string userId, string officeId);
         public Task<int> CountOffices(string userId);
         public Task<int> CountWorkers(string userId, string officeId);
-
     }
 }

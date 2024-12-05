@@ -14,6 +14,7 @@ using DigAccess.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using DigAccess.Services.UserAdministrator;
+using DigAccess.Services.Admin;
 
 namespace DigAccess.Web
 {
@@ -52,6 +53,8 @@ namespace DigAccess.Web
             builder.Services.AddScoped<IOfficeDetailsService, OfficeDetailsService>();
             builder.Services.AddScoped<IOfficeOrgAdminService, OfficeOrgAdminService>();
             builder.Services.AddScoped<IUsersOrgAdminService, UsersOrgAdminService>();
+            builder.Services.AddScoped<IOrganisationOrgAdminService, OrganisationOrgAdminService>();
+            builder.Services.AddScoped<IAdminOrgService, AdminOrgService>();
             builder.Services.AddScoped<ILogService, LogService>();
 
             builder.Services.AddControllersWithViews();
@@ -92,7 +95,7 @@ namespace DigAccess.Web
             using (var scope = app.Services.CreateScope())
             {
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-                var roles = new[] { "UserAdministrator", "OfficeAdministrator", "OrgAdministrator", "OfficeWorker", "WaitingApproval" };
+                var roles = new[] { "UserAdministrator", "OfficeAdministrator", "OrgAdministrator", "OfficeWorker", "WaitingApproval", "Admin" };
 
                 foreach (var role in roles)
                 {

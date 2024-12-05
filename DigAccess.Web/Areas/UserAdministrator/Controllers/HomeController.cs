@@ -11,7 +11,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
     [Area("UserAdministrator")]
     [Authorize(Roles = "UserAdministrator")]
 
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly IUserAdministratorService service;
         private readonly UserManager<ApplicationUser> userManager;
@@ -34,16 +34,5 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
         {
             return RedirectToAction("Index", "BlindUser");
         } // ViewAllUsers
-
-        private string? GetUserId()
-        {
-            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (userId == null)
-            {
-                throw new ArgumentException("Invalid id!");
-            }
-
-            return userId;
-        } // GetUserId
     } // HomeController
 }

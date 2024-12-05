@@ -23,7 +23,7 @@ namespace DigAccess.Services
         {
             var organisationIdGuid = GuidParser.GuidParse(organisationId);
 
-            return await context.Offices.Where(x => x.OrganisationId == organisationIdGuid)
+            return await context.Offices.Where(x => x.OrganisationId == organisationIdGuid && x.IsDeleted == false)
                .Select(x => new OfficeViewModel
                {
                    Id = x.Id.ToString(),
@@ -33,7 +33,7 @@ namespace DigAccess.Services
 
         public async Task<List<OrganisationViewModel>> GetOrganisations()
         {
-            return await context.Organisations.Select(x => new OrganisationViewModel
+            return await context.Organisations.Where(x=> x.IsDeleted == false).Select(x => new OrganisationViewModel
             {
                 Id = x.Id.ToString(),
                 Name = x.Name
@@ -44,7 +44,7 @@ namespace DigAccess.Services
         {
             var organisationIdGuid = GuidParser.GuidParse(organisationId);
 
-            var organisation = await context.Organisations.FirstOrDefaultAsync(x => x.Id == organisationIdGuid);
+            var organisation = await context.Organisations.FirstOrDefaultAsync(x => x.Id == organisationIdGuid && x.IsDeleted == false);
             if (organisation == null)
             {
                 throw new ArgumentException("Invalid organisation!");
@@ -53,7 +53,7 @@ namespace DigAccess.Services
             WaitingApprovalViewModel model = new WaitingApprovalViewModel();
             model.OrganisationId = organisationId;
             model.OrganisationName = organisation.Name;
-            model.Offices = await context.Offices.Where(x => x.OrganisationId == organisationIdGuid)
+            model.Offices = await context.Offices.Where(x => x.OrganisationId == organisationIdGuid && x.IsDeleted == false)
                 .Select(x => new OfficeViewModel
                 {
                     Id = x.Id.ToString(),
@@ -87,7 +87,7 @@ namespace DigAccess.Services
                 throw new ArgumentException("Invalid id format!");
             }
 
-            if (await context.Offices.AnyAsync(x=> x.Id ==  officeIdGuid && x.OrganisationId == organisationIdGuid) == false)
+            if (await context.Offices.AnyAsync(x=> x.Id ==  officeIdGuid && x.OrganisationId == organisationIdGuid && x.IsDeleted == false) == false)
             {
                 throw new ArgumentException("Invalid model!");
             }
