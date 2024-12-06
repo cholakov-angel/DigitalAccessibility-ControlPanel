@@ -36,6 +36,20 @@ namespace DigAccess.Web.Areas.OfficeAdministrator.Controllers
             return View(model);
         } // Index
 
+        [HttpPost]
+        public async Task<IActionResult> GetWorkersByName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                return RedirectToAction("Index");
+            }
+            var userId = this.GetUserId();
+
+            var model = await this.service.GetWorkersByName(userId, name);
+
+            return View("Index", model);
+        } // GetWorkersByName
+
         [HttpGet]
         public async Task<IActionResult> Details(string id)
         {

@@ -30,6 +30,22 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/Admin/Views/Organisations/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JnYW5pc2F0aW9uc1xBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/Admin/Views/Organisations/ChangeAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JnYW5pc2F0aW9uc1xDaGFuZ2VBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/Admin/Views/Organisations/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JnYW5pc2F0aW9uc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/Admin/Views/Organisations/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JnYW5pc2F0aW9uc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/Admin/Views/Organisations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JnYW5pc2F0aW9uc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

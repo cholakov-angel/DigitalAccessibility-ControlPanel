@@ -19,7 +19,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             this.userManager = userManager;
         } // UsersController
 
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> GetUsersByName(string name, int page = 1)
         {
             string? userId = this.GetUserId();

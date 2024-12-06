@@ -29,7 +29,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             return View(model);
         } // Index
 
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> GetUsersByName(string name)
         {
             string? userId = this.GetUserId();

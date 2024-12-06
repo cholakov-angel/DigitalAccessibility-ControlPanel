@@ -20,6 +20,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
             this.userManager = userManager;
         } // AnswersController
 
+        [HttpPost]
         public async Task<IActionResult> GetAnswersByName(string name)
         {
             var userId = this.GetUserId();
@@ -34,6 +35,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
             return View("Index", model);
         } // GetAnswersByName
 
+        [HttpGet]
         public async Task<IActionResult> Index(int page = 1)
         {
             var userId = this.GetUserId();
@@ -49,6 +51,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
             return View(model);
         } // Index
 
+        [HttpGet]
         public async Task<IActionResult> Details(string id)
         {
             var userId = this.GetUserId();

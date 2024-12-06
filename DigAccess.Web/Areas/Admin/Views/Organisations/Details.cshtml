@@ -1,0 +1,73 @@
+﻿@using DigAccess.Models.Admin
+@model OrganisationViewModel
+@{
+    ViewData["Title"] = "Информация";
+}
+
+<div class="d-flex justify-content-start p-2">
+    <h2 class="p-2">Детайли</h2>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Информация</h5>
+        <p class="card-text">
+            <form>
+                <div>
+                    <label for="Name">Име</label>
+                    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                    <input readonly asp-for="Name" class="form-control" />
+                </div>
+                <div>
+                    <label for="Phone">Телефон</label>
+                    <span asp-validation-for="@Model.Phone" class="text-danger"></span>
+                    <input readonly asp-for="Phone" class="form-control" />
+                </div>
+            </form>
+        </p>
+    </div>
+</div>
+<br />
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Администратор</h5>
+        <p class="card-text">
+            <form>
+                <div>
+                    <label for="OrgAdmin.FirstName">Име</label>
+                    <span asp-validation-for="@Model.OrgAdmin.FirstName" class="text-danger"></span>
+                    <input readonly asp-for="OrgAdmin.FirstName" class="form-control" />
+                </div>
+                <div>
+                    <label for="OrgAdmin.MiddleName">Презиме</label>
+                    <span asp-validation-for="@Model.OrgAdmin.MiddleName" class="text-danger"></span>
+                    <input readonly asp-for="OrgAdmin.MiddleName" class="form-control" />
+                </div>
+                <div>
+                    <label for="OrgAdmin.LastName">Фамилия</label>
+                    <span asp-validation-for="@Model.OrgAdmin.LastName" class="text-danger"></span>
+                    <input readonly asp-for="OrgAdmin.LastName" class="form-control" />
+                </div>
+                <div>
+                    <label for="OrgAdmin.Phone">Телефон</label>
+                    <span asp-validation-for="@Model.OrgAdmin.Phone" class="text-danger"></span>
+                    <input readonly asp-for="OrgAdmin.Phone" class="form-control" />
+                </div>
+                <div>
+                    <label for="OrgAdmin.Email">Имейл</label>
+                    <span asp-validation-for="@Model.OrgAdmin.Email" class="text-danger"></span>
+                    <input readonly asp-for="OrgAdmin.Email" class="form-control" />
+                </div>
+                <div>
+                    <label for="OrgAdmin.Birthdate">Рожден ден</label>
+                    <span asp-validation-for="@Model.OrgAdmin.Birthdate" class="text-danger"></span>
+                    <input readonly asp-for="OrgAdmin.Birthdate" class="form-control" />
+                </div>
+            </form>
+        </p>
+    </div>
+</div>
+<br />
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-dark">Редактиране</a>
+<a asp-action="ChangeAdmin" asp-route-id="@Model.Id" class="btn btn-dark">Смяна на администратор</a>
+<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-dark">Изтриване</a>

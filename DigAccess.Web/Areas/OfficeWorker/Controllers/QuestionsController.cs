@@ -34,7 +34,7 @@ namespace DigAccess.Web.Areas.OfficeWorker.Controllers
             return View(model);
         } // Index
 
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> GetQuestionsByName(string name)
         {
             if (string.IsNullOrWhiteSpace(name))

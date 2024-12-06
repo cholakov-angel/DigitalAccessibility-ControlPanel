@@ -1,0 +1,70 @@
+﻿@using DigAccess.Models.Admin
+@model AddOrgViewModel
+@{
+    ViewData["Title"] = "Добавяне на организация";
+}
+
+<div class="d-flex justify-content-start p-2">
+    <h2 class="p-2">Добавяне на организация</h2>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Информация</h5>
+        <p class="card-text">
+            <form asp-action="Add" method="post">
+                <div>
+                    <label for="Name">Име</label>
+                    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                    <input asp-for="Name" class="form-control" />
+                </div>
+                <div>
+                    <label for="Phone">Телефон</label>
+                    <span asp-validation-for="@Model.Phone" class="text-danger"></span>
+                    <input asp-for="Phone" class="form-control" />
+                </div>
+                <div>
+                    <label for="OrgAdministrator.FirstName">Първо име</label>
+                    <span asp-validation-for="@Model.OrgAdministrator.FirstName" class="text-danger"></span>
+                    <input asp-for="OrgAdministrator.FirstName" class="form-control" />
+                </div>
+                <div>
+                    <label for="OrgAdministrator.MiddleName">Бащино име</label>
+                    <span asp-validation-for="@Model.OrgAdministrator.MiddleName" class="text-danger"></span>
+                    <input asp-for="OrgAdministrator.MiddleName" class="form-control" />
+                </div>
+                <div>
+                    <label for="OrgAdministrator.LastName">Фамилия</label>
+                    <span asp-validation-for="@Model.OrgAdministrator.MiddleName" class="text-danger"></span>
+                    <input asp-for="OrgAdministrator.LastName" class="form-control" />
+                </div>
+                <div>
+                    <label for="OrgAdministrator.PersonalID">ЕГН</label>
+                    <span asp-validation-for="@Model.OrgAdministrator.PersonalID" class="text-danger"></span>
+                    <input asp-for="OrgAdministrator.PersonalID" class="form-control" />
+                </div>
+                <div>
+                    <label for="OrgAdministrator.Email">Имейл</label>
+                    <span asp-validation-for="@Model.OrgAdministrator.Email" class="text-danger"></span>
+                    <input asp-for="OrgAdministrator.Email" class="form-control" />
+                </div>
+                <div>
+                    <label for="OrgAdministrator.Email">Парола</label>
+                    <span asp-validation-for="@Model.OrgAdministrator.Password" class="text-danger"></span>
+                    <input asp-for="OrgAdministrator.Password" class="form-control" />
+                </div>
+                <div>
+                    <label for="OrgAdministrator.ConfirmPassword">Потвърждаване на паролата</label>
+                    <span asp-validation-for="@Model.OrgAdministrator.ConfirmPassword" class="text-danger"></span>
+                    <input asp-for="OrgAdministrator.ConfirmPassword" class="form-control" />
+                </div>
+                <div>
+                    <label for="OrgAdministrator.PhoneNumber">Телефон</label>
+                    <span asp-validation-for="@Model.OrgAdministrator.PhoneNumber" class="text-danger"></span>
+                    <input asp-for="OrgAdministrator.PhoneNumber" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-dark mt-2">Запазване</button>
+            </form>
+        </p>
+    </div>
+</div>

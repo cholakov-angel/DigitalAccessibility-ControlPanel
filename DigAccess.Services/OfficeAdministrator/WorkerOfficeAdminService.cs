@@ -19,7 +19,7 @@ namespace DigAccess.Services.OfficeAdministrator
 
         public async Task<List<WorkerViewModel>> GetWorkers(string id, int page)
         {
-            var user = await GetOfficeWorker(id, role);
+            var user = await this.GetOfficeWorker(id, role);
 
             var users = await userManager.Users.Where(x => x.OfficeId == user.OfficeId && x.Id != user.Id)
                 .ToListAsync();
@@ -134,5 +134,30 @@ namespace DigAccess.Services.OfficeAdministrator
 
             return true;
         } // DeleteUser
+
+        public async Task<List<WorkerViewModel>> GetWorkersByName(string id, string name)
+        {
+            var user = await this.GetOfficeWorker(id, role);
+
+            var users = await userManager.Users.Where(x => x.OfficeId == user.OfficeId && x.Id != user.Id &&
+                            (x.FirstName + " " + x.MiddleName + " " + x.LastName).ToLower().StartsWith(name.ToLower()))
+                            .ToListAsync();
+
+            List<WorkerViewModel> workers = new List<WorkerViewModel>();
+            foreach (var u in users)
+            {
+                if (await userManager.IsInRoleAsync(u, "OfficeWorker") == true)
+                {
+                    workers.Add(new WorkerViewModel
+                    {
+                        Id = u.Id,
+                        FirstName = u.FirstName,
+                        MiddleName = u.MiddleName,
+                        LastName = u.LastName
+                    });
+                }
+            }
+            return workers;
+        } // GetWorkersByName
     } // WorkerOfficeAdminService
 }

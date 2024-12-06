@@ -21,7 +21,7 @@ namespace DigAccess.Web.Areas.OrgAdministrator.Controllers
             this.userManager = userManager;
         } // OfficeController
 
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> SearchByName(string name)
         {
             var userId = this.GetUserId();

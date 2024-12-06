@@ -36,6 +36,7 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
             return View(list);
         } // Index
 
+        [HttpPost]
         public async Task<IActionResult> GetUser(string name)
         {
             string? userId = this.GetUserId();
@@ -43,7 +44,8 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
             var list = await service.GetModel(userId, name);
 
             return View("Index", list);
-        }
+        } // GetUser
+
         [HttpGet]
         public async Task<IActionResult> Add()
         {

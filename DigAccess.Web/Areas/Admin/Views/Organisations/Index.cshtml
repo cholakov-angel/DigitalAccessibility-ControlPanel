@@ -8,7 +8,7 @@
     <div class="p-2 w-100">
         <h2>Организации</h2>
     </div>
-    <form id="searchForm" asp-controller="Users" asp-action="GetUsersByName">
+    <form id="searchForm" asp-controller="Organisations" asp-action="GetOrganisationsByName">
         <p>
             <div class="input-group">
                 <input id="txtInput" type="text" name="name" class="p-2 form-control" placeholder="Търсене" aria-label="Търсене" aria-describedby="basic-addon1">
@@ -21,7 +21,7 @@
 @{
     if (Model.Count == 0)
     {
-        <h4>Няма потребители.</h4>
+        <h4>Няма организации.</h4>
     }
     else
     {
