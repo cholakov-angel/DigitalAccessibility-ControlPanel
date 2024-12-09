@@ -31,6 +31,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keys", "Keys", "{14523992-8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigAccess.Data.Seeder", "DigAccess.Data.Seeder\DigAccess.Data.Seeder.csproj", "{4A762AFC-C64E-415E-9A22-8B8D64E925DD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AB761140-A16F-4BAB-8EF8-939FBF239BDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigAccess.Services.Tests", "DigAccess.Services.Tests\DigAccess.Services.Tests.csproj", "{92E423A6-1073-408B-A48F-F5F0D883D780}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +77,10 @@ Global
 		{4A762AFC-C64E-415E-9A22-8B8D64E925DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A762AFC-C64E-415E-9A22-8B8D64E925DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A762AFC-C64E-415E-9A22-8B8D64E925DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92E423A6-1073-408B-A48F-F5F0D883D780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92E423A6-1073-408B-A48F-F5F0D883D780}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92E423A6-1073-408B-A48F-F5F0D883D780}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92E423A6-1073-408B-A48F-F5F0D883D780}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +94,7 @@ Global
 		{1B669459-2C6F-4878-838F-A4BDCC2D43EA} = {91339D01-57FE-48A9-8C5B-9F9DDC32FAC4}
 		{0D920057-79E9-4FF8-ADF8-806AB0483E7D} = {14523992-8BEE-4722-AEAE-DA768962FF49}
 		{4A762AFC-C64E-415E-9A22-8B8D64E925DD} = {39C3E4AC-98F9-4899-9165-6E5027ACAAD0}
+		{92E423A6-1073-408B-A48F-F5F0D883D780} = {AB761140-A16F-4BAB-8EF8-939FBF239BDD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5EC1CD63-2246-4B5A-AE76-8B2CB790C8D6}
