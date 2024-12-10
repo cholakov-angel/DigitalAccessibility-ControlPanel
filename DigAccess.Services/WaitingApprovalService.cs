@@ -80,12 +80,7 @@ namespace DigAccess.Services
             var organisationIdGuid = GuidParser.GuidParse(model.OrganisationId);
 
             // Проверка дали идентификатора е във валиден формат
-            bool isOfficeValid = Guid.TryParse(model.OfficeId, out Guid officeIdGuid);
-
-            if (!isOfficeValid)
-            {
-                throw new ArgumentException("Invalid id format!");
-            }
+            Guid officeIdGuid = GuidParser.GuidParse(model.OfficeId);
 
             if (await context.Offices.AnyAsync(x=> x.Id ==  officeIdGuid && x.OrganisationId == organisationIdGuid && x.IsDeleted == false) == false)
             {

@@ -10,7 +10,10 @@ using DigAccess.Data.Entities.Blind;
 using DigAccess.Data.Entities.Enums;
 using DigAccess.Data.Entities.Organisation;
 using DigAccess.Data.Entities.Organisation.Organisation;
+using DigAccess.Models.UserAdministrator;
+using DigAccess.Models.WaitingApproval;
 using DigAccess.Services.Interfaces;
+using DigAccess.Services.UserAdministrator;
 using DigAccess.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +29,7 @@ namespace DigAccess.Services.Tests
         private List<City> cities;
         private List<OrganisationCompany> organisations;
         private List<Office> offices;
+        private List<BlindUserLog> logs;
         private List<ApplicationUser> users;
         private List<BlindUser> blindUsers;
         private List<BlindUserLicence> blindLicences;
@@ -50,6 +54,8 @@ namespace DigAccess.Services.Tests
                     National_Phone = "24448858"
                 }
             };
+            
+
             cities = new List<City>()
             {
                 new City() { Id = Guid.Parse("cc974363-80a0-47c1-8433-039d4bf99fd0"), Name = "София" },
@@ -451,7 +457,7 @@ namespace DigAccess.Services.Tests
         {
             WaitingApprovalService waitingApprovalService = new WaitingApprovalService(context, userManager);
 
-            Assert.ThrowsAsync<ArgumentException>(async()=> await waitingApprovalService.OfficeSelect("c5e270c8-df31-40ec-938e-d1300457f1ef"));
+            Assert.ThrowsAsync<ArgumentException>(async () => await waitingApprovalService.OfficeSelect("c5e270c8-df31-40ec-938e-d1300457f1ef"));
         }
 
         [Test]
@@ -459,7 +465,77 @@ namespace DigAccess.Services.Tests
         {
             WaitingApprovalService waitingApprovalService = new WaitingApprovalService(context, userManager);
 
-           Assert.ThrowsAsync<ArgumentException>(async() => await waitingApprovalService.SetOrganisationForUser(null, null));
+            Assert.ThrowsAsync<ArgumentException>(async () => await waitingApprovalService.SetOrganisationForUser(null, null));
+        }
+
+        [Test]
+        public async Task SetOrganisationForUserInvalidUser()
+        {
+            WaitingApprovalService waitingApprovalService = new WaitingApprovalService(context, userManager);
+
+            Assert.ThrowsAsync<ArgumentException>(async () => await waitingApprovalService.SetOrganisationForUser("1111111111", new WaitingApprovalViewModel()));
+        }
+
+        [Test]
+        public async Task SetOrganisationForUserInvalidOffice()
+        {
+            WaitingApprovalService waitingApprovalService = new WaitingApprovalService(context, userManager);
+
+            Assert.ThrowsAsync<ArgumentException>(async () => await waitingApprovalService.SetOrganisationForUser("10e455ec-e314-4bad-8228-040bf2c9f43f", new WaitingApprovalViewModel()
+            {
+                OfficeId = "10e455ec-e314-4bad-8228-040bf2c9f43f"
+            }));
+        }
+
+        [Test]
+        public async Task SetOrganisationForUser()
+        {
+            WaitingApprovalService waitingApprovalService = new WaitingApprovalService(context, userManager);
+            var result = await waitingApprovalService.SetOrganisationForUser("89f5afab-4dba-48e5-9375-94c8543bfc48",
+                new WaitingApprovalViewModel()
+                {
+                    OfficeId = "0b919734-b960-436e-85a8-0e01eceab13d",
+                    OrganisationId = "db7b29f9-8974-463b-8937-a28e3dc8d90f"
+                });
+
+            Assert.That(result, Is.Not.Null);
+        }
+
+        [Test]
+        public async Task SetOrganisationForUserInvalidOfficeId()
+        {
+            WaitingApprovalService waitingApprovalService = new WaitingApprovalService(context, userManager);
+            Assert.ThrowsAsync<ArgumentException>(async() => await waitingApprovalService.SetOrganisationForUser("89f5afab-4dba-48e5-9375-94c8543bfc48",
+                new WaitingApprovalViewModel()
+                {
+                    OfficeId = "0b919734-b960-416e-85a8-0e01eceab13d",
+                    OrganisationId = "db7b29f9-8974-463b-8937-a28e3dc8d90f"
+                }));
+        }
+
+        [Test]
+        public async Task AskQuesionInvalidUser()
+        {
+            QuestionService questionService = new QuestionService(context, userManager);
+
+            bool result = await questionService.AskQuestion(null, null, default);
+
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public async Task AskQuestion()
+        {
+            QuestionService questionService = new QuestionService(context, userManager);
+            bool result = await questionService.AskQuestion(new QuestionViewModel()
+            {
+                Description = "Test",
+                Title = "Test"
+            }, "89f5afab-4dba-48e5-9375-94c8543bfc48", new DateTime(2022, 1, 10));
+
+            Assert.That(result, Is.True);
+            Assert.That(context.Questions.Count(), Is.EqualTo(1));
         }
     }
 }
+

@@ -18,6 +18,7 @@ using Microsoft.EntityFrameworkCore;
 using DigAccess.Data.Entities.Enums;
 using DigAccess.Keys;
 using DigAccess.Models.UserAdministrator.BlindUser;
+using DigAccess.Services.UserAdministrator;
 
 namespace DigAccess.Services.Tests
 {
@@ -32,6 +33,7 @@ namespace DigAccess.Services.Tests
         private List<BlindUser> blindUsers;
         private List<BlindUserLicence> blindLicences;
         private List<IdentityRole> roles;
+        private List<BlindUserLog> logs;
         private List<IdentityUserRole<string>> userRoles;
         private IOfficeDetailsService service;
         private UserManager<ApplicationUser> userManager;
@@ -108,7 +110,8 @@ namespace DigAccess.Services.Tests
                     CityId = Guid.Parse("cc974363-80a0-47c1-8433-039d4bf99fd0")
                 }
             };
-            blindLicences = new List<BlindUserLicence>(); users = new List<ApplicationUser>()
+            blindLicences = new List<BlindUserLicence>();
+            users = new List<ApplicationUser>()
 
             {
                 new ApplicationUser()
@@ -141,7 +144,7 @@ namespace DigAccess.Services.Tests
                 },
                 new ApplicationUser()
                 {
-                    Id = "36f7ec79-9a12-4317-97ae-74b3476126d8",
+                    Id = "afcc821c-70c5-448a-a938-4f320fec7689",
                     UserName = "petar.petrov1@gmail.com",
                     NormalizedUserName = "PETAR.PETROV1@GMAIL.COM",
                     Email = "petar.petrov1@gmail.com",
@@ -394,7 +397,18 @@ namespace DigAccess.Services.Tests
                     Gender = Enum.Parse<Gender>(PersonalIDParser.GenderExtract("9902199878"))
                 }
             };
-
+            logs = new List<BlindUserLog>()
+            {
+                new BlindUserLog()
+                {
+                    Id = Guid.Parse("1703FE60-0336-4B18-911D-AB0730F59F52"),
+                    BlindUserId = Guid.Parse("b22c5d21-5aa2-4a91-ae20-c43f16e7b6da"),
+                    LogCode = 100,
+                    LogText = "Error",
+                    LogType = "Error",
+                    DateTimeOfLog = new DateTime(2022, 1, 10)
+                }
+            };
             var services = new ServiceCollection();
 
             services.AddDbContext<DigAccessDbContext>(options =>
@@ -415,6 +429,7 @@ namespace DigAccess.Services.Tests
             this.context.AddRange(roles);
             this.context.AddRange(userRoles);
             this.context.AddRange(blindUsers);
+            this.context.AddRange(logs);
             this.context.SaveChanges();
             userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
         } // SetUp
@@ -1026,6 +1041,52 @@ namespace DigAccess.Services.Tests
 
             Assert.ThrowsAsync<ArgumentException>(async() => await licenceService.DeleteLicense(
                 "afcc821c-70c5-448a-a938-4f320fec7689", "3b3ed71b-7b8a-4faf-9cc1-1b6705c03c1f"));
+        }
+
+        [Test]
+        public async Task GetLogsInvalidUser()
+        {
+            LogService logService = new LogService(context, userManager);
+            Assert.ThrowsAsync<Exception>(async () => await logService.GetLogs("50fe5fd4-d950-4c24-aeb6-f03ffe011876", "50fe5fd4-d950-4c24-aeb6-f03ffe011876"));
+        }
+
+        [Test]
+        public async Task GetLogs()
+        {
+            LogService logService = new LogService(context, userManager);
+            var result = await logService.GetLogs("afcc821c-70c5-448a-a938-4f320fec7689",
+                "b22c5d21-5aa2-4a91-ae20-c43f16e7b6da");
+
+            Assert.That(result.Count, Is.EqualTo(1));
+        }
+
+        [Test]
+        public async Task CountLogs()
+        {
+            LogService logService = new LogService(context, userManager);
+            var result = await logService.CountUsers("afcc821c-70c5-448a-a938-4f320fec7689",
+                "b22c5d21-5aa2-4a91-ae20-c43f16e7b6da");
+
+            Assert.That(result, Is.EqualTo(1));
+        }
+
+        [Test]
+        public async Task CountLogsInvalidUser()
+        {
+            LogService logService = new LogService(context, userManager);
+            Assert.ThrowsAsync<Exception>(async() => await logService.CountUsers("afcc821c-70c5-448a-a938-4f320fec7689",
+                "b22c5d21-5aa1-4a91-ae20-c43f16e7b6da"));
+        }
+
+        [Test]
+        public async Task GetLog()
+        {
+            LogService logService = new LogService(context, userManager);
+            var result = await logService.GetLog("afcc821c-70c5-448a-a938-4f320fec7689",
+                "1703FE60-0336-4B18-911D-AB0730F59F52");
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.LogText, Is.EqualTo("Error"));
         }
     }
 }
