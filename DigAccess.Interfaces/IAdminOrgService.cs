@@ -13,7 +13,7 @@ namespace DigAccess.Services.Interfaces
         public Task<OrganisationViewModel> GetOrganisation(string userId, string orgId);
         public Task<List<OrganisationListViewModel>> GetOrganisations(string userId, int page);
         public Task<List<OrganisationListViewModel>> GetOrganisationsByName(string userId, string name);
-
+        public Task<bool> DeleteOrganisation(string userId, string orgId);
         public Task<int> CountOrganisations(string userId);
         public Task<OrganisationEditViewModel> EditOrganisation(string userId, string orgId);
         public Task<bool> EditOrganisation(string userId, OrganisationEditViewModel org);

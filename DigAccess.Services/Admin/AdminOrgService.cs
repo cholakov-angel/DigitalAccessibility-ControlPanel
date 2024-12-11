@@ -55,6 +55,18 @@ namespace DigAccess.Services.Admin
                 }).FirstOrDefaultAsync();
         } // GetOrganisation
 
+        public async Task<bool> DeleteOrganisation(string userId, string orgId)
+        {
+            var user = await this.GetOfficeWorker(userId, role);
+
+            var organisation = await this.context.Organisations.FirstOrDefaultAsync(x => x.Id == GuidParser.GuidParse(orgId));
+
+            organisation.IsDeleted = true;
+            await this.context.SaveChangesAsync();
+
+            return true;
+        } // DeleteOrganisation
+
         public async Task<int> CountOrganisations(string userId)
         {
             var user = await this.GetOfficeWorker(userId, role);

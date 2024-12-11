@@ -10,7 +10,7 @@ namespace DigAccess.Models.UserAdministrator.BlindUser
 {
     public class BlindUserViewModel
     {
-        public Guid Id { get; set; }
+        public string? Id { get; set; }
 
         [Required(ErrorMessage = BlindUserConstants.RequiredNameError)]
         [MinLength(BlindUserConstants.MinNameLength, ErrorMessage = BlindUserConstants.MinNameLengthError)]

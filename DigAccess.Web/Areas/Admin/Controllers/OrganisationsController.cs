@@ -138,5 +138,20 @@ namespace DigAccess.Web.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         } // Add
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var userId = this.GetUserId();
+
+            bool result = await this.service.DeleteOrganisation(userId, id);
+
+            if (result == false)
+            {
+                throw new Exception("Error occurred!");
+            }
+
+            return RedirectToAction("Index");
+        } // Delete
     } // OrganisationsController
 }

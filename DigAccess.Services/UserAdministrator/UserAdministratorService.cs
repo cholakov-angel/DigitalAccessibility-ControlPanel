@@ -1,5 +1,4 @@
 ﻿using DigAccess.Data.Entities;
-using DigAccess.Interfaces;
 using DigAccess.Models.UserAdministrator;
 using DigAccess.Services.Interfaces;
 using DigAccess.Web.Data;

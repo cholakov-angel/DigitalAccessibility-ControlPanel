@@ -16,6 +16,6 @@ namespace DigAccess.Models.UserAdministrator.License
 
         public string DateTo { get; set; }
 
-        public bool IsActivated { get; set; }
+        public string IsActivated { get; set; }
     }
 }

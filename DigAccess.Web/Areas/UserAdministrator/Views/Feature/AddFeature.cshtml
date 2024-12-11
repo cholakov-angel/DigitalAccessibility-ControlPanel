@@ -1,0 +1,35 @@
+﻿@using DigAccess.Models.UserAdministrator.BlindUser
+@model ICollection<FeatureViewModel>
+@{
+    ViewData["Title"] = "Налични услуги";
+}
+
+<div class="d-flex d-flex align-items-center">
+    <div class="p-2 w-100">
+        <h2>Налични услуги</h2>
+    </div>
+
+</div>
+@{
+    if (Model.Count == 0)
+    {
+        <h4>Няма налични услуги.</h4>
+    }
+    else
+    {
+        <div class="d-flex p-2 gap-3 align-content-start flex-wrap">
+            @foreach (var m in Model)
+            {
+                <div class="card p-2 mb-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">@(m.FeatureName)</h5>
+                        <br />
+                        <br />
+                        <br />
+                        <a href="@Url.Action("Add", new { id = @m.FeatureId, blindUserId = @ViewData["BlindUserId"]})" class="btn btn-dark"><h10>Добавяне</h10></a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}

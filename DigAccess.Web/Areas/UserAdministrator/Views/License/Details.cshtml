@@ -1,14 +1,33 @@
-﻿@using DigAccess.Models.UserAdministrator.License
-@model LicenseDetailsViewModel
+﻿@using DigAccess.Data.Entities.Blind
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model DigAccess.Models.UserAdministrator.License.LicenseDetailsViewModel
+@{
+    ViewData["Title"] = "Преглед на лиценз";
+}
 
-<h1>@Model.BlindUser.FirstName @Model.BlindUser.MiddleName @Model.BlindUser.LastName</h1>
+<div class="d-flex justify-content-start p-2">
+    <h2 class="p-2">Преглед на лиценз</h2>
+</div>
+<form>
+    <div>
+        <label for="LastName">Дата на създаване</label>
+        <span asp-validation-for="@Model.DateFrom" class="text-danger"></span>
+        <input readonly asp-for="DateFrom" class="form-control" />
+    </div>
+    <div>
+        <label for="PersonalId">Статут</label>
+        <span asp-validation-for="@Model.IsActive" class="text-danger"></span>
+        <input readonly asp-for="IsActive" class="form-control" />
+    </div>
+    <div>
+        <label for="TELKID">Дата на активация</label>
+        <input readonly asp-for="DateOfActivation" class="form-control" />
+    </div>
+    <div>
+        <label for="BirthDate">MAC адрес</label>
+        <textarea readonly asp-for="MACAddress" class="form-control"></textarea>
+    </div>
+    <br/>
+    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-dark"><h5>Изтриване</h5></a>
 
-<h3>@Model.DateFrom</h3>
-
-<h3>@Model.MACAddress</h3>
-
-<h3>@Model.IsActive</h3>
-
-<h3>@Model.DateOfActivation</h3>
-
-<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-dark"><h5>Изтриване</h5></a>
+</form>

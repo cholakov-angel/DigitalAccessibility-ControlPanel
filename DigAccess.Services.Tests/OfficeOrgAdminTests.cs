@@ -718,6 +718,47 @@ namespace DigAccess.Services.Tests
 
             Assert.That(result, Is.True);
         }
+
+        [Test]
+        public async Task AddUserAsAdminThatHasAnAdmin()
+        {
+            UsersOrgAdminService usersOrgAdminService = new UsersOrgAdminService(context, userManager);
+            Assert.ThrowsAsync<Exception>(async() => await usersOrgAdminService.AddUserAsAdmin("14423824-2618-46fb-b9fb-38666f84d6e9",
+                "4bae9afb-921c-4732-87be-ab5eb984e4ca"));
+        }
+
+        [Test]
+        public async Task RemoveOfficeAdmin()
+        {
+            UsersOrgAdminService usersOrgAdminService = new UsersOrgAdminService(context, userManager);
+            var result = await usersOrgAdminService.RemoveOfficeAdmin("14423824-2618-46fb-b9fb-38666f84d6e9",
+                "36f7ec79-9a12-4317-97ae-74b3476126d8");
+
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public async Task AddOfficeAdminError()
+        {
+            UsersOrgAdminService usersOrgAdminService = new UsersOrgAdminService(context, userManager);
+            var model = new AddOfficeAdminViewModel()
+            {
+                ConfirmPassword = "Stefan.Stefanov1",
+                Email = "stefan.sfsdfsdf@gmail.com",
+                FirstName = "fsdfsd",
+                LastName = "sdfsdf",
+                MiddleName = "fsdfsdf",
+                OfficeId = "eba30287-4914-4a15-bb3c-2dd3d53c918f",
+                Password = "sdfsdfsdf",
+                PersonalID = "7512169845",
+                PhoneNumber = "0890216477"
+            };
+            var result =
+                await usersOrgAdminService.AddOfficeAdmin("14423824-2618-46fb-b9fb-38666f84d6e9", model);
+
+            Assert.That(result, Is.False);
+            ;
+        }
     }
 }
 

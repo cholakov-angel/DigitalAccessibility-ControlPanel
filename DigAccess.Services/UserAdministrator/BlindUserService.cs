@@ -15,6 +15,79 @@ namespace DigAccess.Services
         {
         } // BlindUserService
 
+        public async Task<BlindUserViewModel> EditUserGet(string id, string userId)
+        {
+            var resultGuid = GuidParser.GuidParse(id);
+            var user = await context.BlindUsers.FirstOrDefaultAsync(x => x.Id == resultGuid && x.IsDeleted == false);
+
+            if (user == null)
+            {
+                throw new Exception("Invalid id!");
+            }
+
+            if (user.AdministratorId != userId)
+            {
+                throw new Exception("Invalid administator!");
+            }
+
+            var city = await context.Cities.FindAsync(user.CityId);
+
+            BlindUserViewModel model = new BlindUserViewModel();
+            model.Id = user.Id.ToString();
+            model.FirstName = user.FirstName;
+            model.MiddleName = user.MiddleName;
+            model.LastName = user.LastName;
+            model.PersonalId = user.PersonalId;
+            model.BirthDate = user.Birthdate.Value.ToString(Constants.DateTimeFormat);
+            model.City = city.Name;
+            model.TELKID = user.TELKNumber;
+            model.CityNames = await this.GetCities();
+            model.StreetNumber = user.StreetNumber;
+            model.Street = user.Street;
+            return model;
+        } // EditUserGet
+
+        public async Task<bool> EditBlindUser(string userId, BlindUserViewModel model)
+        {
+            BlindUser user =
+                await this.context.BlindUsers.FirstOrDefaultAsync(x => x.Id == GuidParser.GuidParse(model.Id) && x.AdministratorId == userId);
+
+            if (user == null)
+            {
+                return false;
+            }
+
+            user.FirstName = model.FirstName;
+            user.MiddleName = model.MiddleName;
+            user.LastName = model.LastName;
+            user.AdministratorId = userId;
+
+            var cityId = GuidParser.GuidParse(model.City);
+
+            if (context.Cities.Any(x => x.Id == cityId) == false)
+            {
+                throw new Exception("Invalid city id!");
+            }
+
+            DateTime date = PersonalIDParser.BirthdateExtract(model.PersonalId);
+
+            if (date == default)
+            {
+                return false!;
+            }
+
+            user.Birthdate = date;
+            user.CityId = cityId;
+            user.Street = model.Street;
+            user.StreetNumber = model.StreetNumber;
+            user.PersonalId = model.PersonalId;
+            user.TELKNumber = model.TELKID;
+
+            await context.SaveChangesAsync();
+
+            return true;
+        } // EditBlindUser
+
         public async Task<List<CityViewModel>> GetCities()
         {
             var cities = await context.Cities.Select(x => new CityViewModel()
@@ -48,6 +121,9 @@ namespace DigAccess.Services
             model.MiddleName = user.MiddleName;
             model.LastName = user.LastName;
             model.PersonalId = user.PersonalId;
+            model.TELKID = user.TELKNumber;
+            model.StreetNumber = user.StreetNumber;
+            model.Street = user.Street;
             model.BirthDate = user.Birthdate.Value.ToString(Constants.DateTimeFormat);
             model.City = city.Name;
             model.Gender = user.Gender.ToString();
@@ -60,7 +136,7 @@ namespace DigAccess.Services
                 .Where(x => x.AdministratorId == userId && x.IsDeleted == false)
                 .Select(x => new BlindUserViewModel() 
                 {
-                    Id = x.Id,
+                    Id = x.Id.ToString(),
                     City = x.City.Name,
                     FirstName = x.FirstName,
                     MiddleName = x.MiddleName,
@@ -84,7 +160,7 @@ namespace DigAccess.Services
                 .Where(x => x.AdministratorId == userId && (x.FirstName + " " + x.LastName).ToLower().StartsWith(name.ToLower()) && x.IsDeleted == false)
                 .Select(x => new BlindUserViewModel()
                 {
-                    Id = x.Id,
+                    Id = x.Id.ToString(),
                     City = x.City.Name,
                     FirstName = x.FirstName,
                     MiddleName = x.MiddleName,

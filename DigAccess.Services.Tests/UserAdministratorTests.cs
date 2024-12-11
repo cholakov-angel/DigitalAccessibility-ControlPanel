@@ -16,9 +16,11 @@ using System.Threading.Tasks;
 using DigAccess.Data.Entities.Blind;
 using Microsoft.EntityFrameworkCore;
 using DigAccess.Data.Entities.Enums;
+using DigAccess.Data.Entities.Feature;
 using DigAccess.Keys;
 using DigAccess.Models.UserAdministrator.BlindUser;
 using DigAccess.Services.UserAdministrator;
+using Microsoft.Identity.Client;
 
 namespace DigAccess.Services.Tests
 {
@@ -31,9 +33,11 @@ namespace DigAccess.Services.Tests
         private List<Office> offices;
         private List<ApplicationUser> users;
         private List<BlindUser> blindUsers;
+        private List<Feature> features;
         private List<BlindUserLicence> blindLicences;
         private List<IdentityRole> roles;
         private List<BlindUserLog> logs;
+        private List<BlindUserFeature> blindUserFeatures;
         private List<IdentityUserRole<string>> userRoles;
         private IOfficeDetailsService service;
         private UserManager<ApplicationUser> userManager;
@@ -397,6 +401,21 @@ namespace DigAccess.Services.Tests
                     Gender = Enum.Parse<Gender>(PersonalIDParser.GenderExtract("9902199878"))
                 }
             };
+            features = new List<Feature>()
+            {
+                new Feature()
+                {
+                    Id = Guid.Parse("564c9939-9c1d-44a5-bc8a-f4cb16bce86a"),
+                    Name = "ChatGPT",
+                    IsLicenceKeyRequired = true
+                },
+                new Feature()
+                {
+                    Id = Guid.Parse("8855d892-574a-434a-b347-b88c716608b6"),
+                    Name = "Wikipedia",
+                    IsLicenceKeyRequired = false
+                }
+            };
             logs = new List<BlindUserLog>()
             {
                 new BlindUserLog()
@@ -407,6 +426,15 @@ namespace DigAccess.Services.Tests
                     LogText = "Error",
                     LogType = "Error",
                     DateTimeOfLog = new DateTime(2022, 1, 10)
+                }
+            };
+            blindUserFeatures = new List<BlindUserFeature>()
+            {
+                new BlindUserFeature()
+                {
+                    BlindUserId = Guid.Parse("2b143304-b5f0-4029-ba97-449f09e66649"),
+                    FeatureId = Guid.Parse("8855d892-574a-434a-b347-b88c716608b6"),
+                    LicenceKey = ""
                 }
             };
             var services = new ServiceCollection();
@@ -430,6 +458,8 @@ namespace DigAccess.Services.Tests
             this.context.AddRange(userRoles);
             this.context.AddRange(blindUsers);
             this.context.AddRange(logs);
+            this.context.AddRange(features);
+            this.context.AddRange(blindUserFeatures);
             this.context.SaveChanges();
             userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
         } // SetUp
@@ -1039,7 +1069,7 @@ namespace DigAccess.Services.Tests
         {
             LicenceService licenceService = new LicenceService(context, userManager);
 
-            Assert.ThrowsAsync<ArgumentException>(async() => await licenceService.DeleteLicense(
+            Assert.ThrowsAsync<ArgumentException>(async () => await licenceService.DeleteLicense(
                 "afcc821c-70c5-448a-a938-4f320fec7689", "3b3ed71b-7b8a-4faf-9cc1-1b6705c03c1f"));
         }
 
@@ -1074,7 +1104,7 @@ namespace DigAccess.Services.Tests
         public async Task CountLogsInvalidUser()
         {
             LogService logService = new LogService(context, userManager);
-            Assert.ThrowsAsync<Exception>(async() => await logService.CountUsers("afcc821c-70c5-448a-a938-4f320fec7689",
+            Assert.ThrowsAsync<Exception>(async () => await logService.CountUsers("afcc821c-70c5-448a-a938-4f320fec7689",
                 "b22c5d21-5aa1-4a91-ae20-c43f16e7b6da"));
         }
 
@@ -1087,6 +1117,145 @@ namespace DigAccess.Services.Tests
 
             Assert.That(result, Is.Not.Null);
             Assert.That(result.LogText, Is.EqualTo("Error"));
+        }
+
+        [Test]
+        public async Task GetFeatures()
+        {
+            BlindUserFeatureService blindUserFeatureService = new BlindUserFeatureService(context, userManager);
+
+            var result = await blindUserFeatureService.GetFeatures("afcc821c-70c5-448a-a938-4f320fec7689",
+                "b22c5d21-5aa2-4a91-ae20-c43f16e7b6da");
+
+            Assert.That(result.Count, Is.EqualTo(0));
+        }
+
+        [Test]
+        public async Task GetFeaturesInvalidUser()
+        {
+            BlindUserFeatureService blindUserFeatureService = new BlindUserFeatureService(context, userManager);
+
+            Assert.ThrowsAsync<Exception>(async() => await blindUserFeatureService.GetFeatures("afcc821c-70c5-448a-a938-4f320fec7689",
+                "b12c5d21-5aa2-4a91-ae20-c43f16e7b6da"));
+        }
+
+        [Test]
+        public async Task DeleteFeatureInvalid()
+        {
+            BlindUserFeatureService blindUserFeatureService = new BlindUserFeatureService(context, userManager);
+
+            bool result = await blindUserFeatureService.Delete("afcc821c-70c5-448a-a938-4f320fec7689",
+                "b22c5d21-5aa2-4a91-ae10-c43f16e7b6da");
+
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public async Task DeleteFeature()
+        {
+            BlindUserFeatureService blindUserFeatureService = new BlindUserFeatureService(context, userManager);
+
+            bool result = await blindUserFeatureService.Delete("afcc821c-70c5-448a-a938-4f320fec7689",
+                "8855d892-574a-434a-b347-b88c716608b6");
+
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public async Task GetAvailableFeatures()
+        {
+            BlindUserFeatureService blindUserFeatureService = new BlindUserFeatureService(context, userManager);
+
+            var result = await blindUserFeatureService.GetAvailableFeatures("afcc821c-70c5-448a-a938-4f320fec7689",
+                "2b143304-b5f0-4029-ba97-449f09e66649");
+
+            Assert.That(result.Count, Is.EqualTo(1));
+        }
+
+        [Test]
+        public async Task GetAvailableFeaturesInvalid()
+        {
+            BlindUserFeatureService blindUserFeatureService = new BlindUserFeatureService(context, userManager);
+
+            Assert.ThrowsAsync<Exception>(async() => await blindUserFeatureService.GetAvailableFeatures("afcc821c-70c5-348a-a938-4f320fec7689",
+                "2b143304-b5f0-4029-ba97-449f09e66649"));
+        }
+
+        [Test]
+        public async Task AddFeature()
+        {
+            BlindUserFeatureService blindUserFeatureService = new BlindUserFeatureService(context, userManager);
+
+            var result = await blindUserFeatureService.AddFeature("2b143304-b5f0-4029-ba97-449f09e66649", "afcc821c-70c5-448a-a938-4f320fec7689",
+                "564c9939-9c1d-44a5-bc8a-f4cb16bce86a");
+
+            Assert.That(result, Is.Not.Null);
+        }
+
+        [Test]
+        public async Task AddFeatureInvalidUser()
+        {
+            BlindUserFeatureService blindUserFeatureService = new BlindUserFeatureService(context, userManager);
+
+            Assert.ThrowsAsync<Exception>(async () => await blindUserFeatureService.AddFeature("1b143304-b5f0-4029-ba97-449f09e66649", "afcc821c-70c5-448a-a938-4f320fec7689",
+                "564c9939-9c1d-44a5-bc8a-f4cb16bce86a"));
+        }
+
+        [Test]
+        public async Task AddFeatureInvalidFeature()
+        {
+            BlindUserFeatureService blindUserFeatureService = new BlindUserFeatureService(context, userManager);
+
+            Assert.ThrowsAsync<Exception>(async () => await blindUserFeatureService.AddFeature("2b143304-b5f0-4029-ba97-449f09e66649", "afcc821c-70c5-448a-a938-4f320fec7689",
+                "564c9939-9c1d-43a5-bc8a-f4cb16bce86a"));
+        }
+
+        [Test]
+        public async Task AddFeatureInvalidAlreadyAdded()
+        {
+            BlindUserFeatureService blindUserFeatureService = new BlindUserFeatureService(context, userManager);
+
+            Assert.ThrowsAsync<Exception>(async () => await blindUserFeatureService.AddFeature("2b143304-b5f0-4029-ba97-449f09e66649", "afcc821c-70c5-448a-a938-4f320fec7689",
+                "8855d892-574a-434a-b347-b88c716608b6"));
+        }
+
+        [Test]
+        public async Task AddFeatureConfirm()
+        {
+            BlindUserFeatureService blindUserFeatureService = new BlindUserFeatureService(context, userManager);
+
+            BlindUserFeaturesViewModel model = new BlindUserFeaturesViewModel();
+            model.BlindUserId = "2b143304-b5f0-4029-ba97-449f09e66649";
+            model.FeatureId = "564c9939-9c1d-43a5-bc8a-f4cb16bce86a";
+            model.LicenceKey = "ksdfsdfs";
+
+            bool result = await blindUserFeatureService.AddFeatureConfirm(model, "afcc821c-70c5-448a-a938-4f320fec7689");
+            Assert.That(result, Is.True);
+        }
+        [Test]
+        public async Task AddFeatureConfirmAlreadyAdded()
+        {
+            BlindUserFeatureService blindUserFeatureService = new BlindUserFeatureService(context, userManager);
+
+            BlindUserFeaturesViewModel model = new BlindUserFeaturesViewModel();
+            model.BlindUserId = "2b143304-b5f0-4029-ba97-449f09e66649";
+            model.FeatureId = "8855d892-574a-434a-b347-b88c716608b6";
+            model.LicenceKey = "ksdfsdfs";
+
+            bool result = await blindUserFeatureService.AddFeatureConfirm(model, "afcc821c-70c5-448a-a938-4f320fec7689");
+            Assert.That(result, Is.False);
+        }
+        [Test]
+        public async Task AddFeatureConfirmInvalid()
+        {
+            BlindUserFeatureService blindUserFeatureService = new BlindUserFeatureService(context, userManager);
+
+            BlindUserFeaturesViewModel model = new BlindUserFeaturesViewModel();
+            model.BlindUserId = "564c9939-9c1d-43a5-bc8a-f4cb16bce86a";
+            model.FeatureId = "564c9939-9c1d-43a5-bc8a-f4cb16bce86a";
+            model.LicenceKey = "ksdfsdfs";
+
+            Assert.ThrowsAsync<Exception>(async() => await blindUserFeatureService.AddFeatureConfirm(model, "afcc821c-70c5-448a-a938-4f320fec7689"));
         }
     }
 }

@@ -20,7 +20,12 @@ namespace DigAccess.Data.Seeder
                 Id = "10e455ec-e314-4bad-8228-040bf2c9f43f",
                 Name = "WaitingApproval",
                 NormalizedName = "WAITINGAPPROVAL"
-            }, 
+            }, new IdentityRole()
+            {
+                Id = "8643044C-60A0-42EA-AEDC-F34420A362A7",
+                Name = "Admin",
+                NormalizedName = "ADMIN"
+            },
             new IdentityRole()
             {
                 Id = "369ea3ff-9318-4336-b3f9-83436e7ecc8e",

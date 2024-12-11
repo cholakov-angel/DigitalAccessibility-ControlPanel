@@ -30,6 +30,7 @@ namespace DigAccess.Services.Tests
         private List<BlindUser> blindUsers;
         private List<BlindUserLicence> blindLicences;
         private List<IdentityRole> roles;
+        private List<Question> questions;
         private List<BlindUserLog> logs;
         private List<IdentityUserRole<string>> userRoles;
         private IOfficeDetailsService service;
@@ -377,6 +378,11 @@ namespace DigAccess.Services.Tests
                 {
                     RoleId = "10e455ec-e314-4bad-8228-040bf2c9f43f",
                     UserId = "89f5afab-4dba-48e5-9375-94c8543bfc48"
+                },
+                new IdentityUserRole<string>()
+                {
+                    RoleId = "369ea3ff-9318-4336-b3f9-83436e7ecc8e",
+                    UserId = "49952198-64dd-4b77-8c46-2e709c663737"
                 }
             };
             blindUsers = new List<BlindUser>()
@@ -439,6 +445,18 @@ namespace DigAccess.Services.Tests
                     DateTimeOfLog = new DateTime(2022, 1, 10)
                 }
             };
+            questions = new List<Question>()
+            {
+                new Question()
+                {
+                    Id = Guid.Parse("18845C59-E749-40F9-86C5-0B0D9D460E0D"),
+                    Date = new DateTime(2022, 1, 1),
+                    Description = "Test",
+                    IsAnswered = false,
+                    Title = "Example",
+                    UserId = "afcc821c-70c5-448a-a938-4f320fec7689"
+                }
+            };
             var services = new ServiceCollection();
 
             services.AddDbContext<DigAccessDbContext>(options =>
@@ -460,6 +478,7 @@ namespace DigAccess.Services.Tests
             this.context.AddRange(userRoles);
             this.context.AddRange(blindUsers);
             this.context.AddRange(logs);
+            this.context.AddRange(questions);
             this.context.SaveChanges();
             userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
         } // SetUp
@@ -585,6 +604,53 @@ namespace DigAccess.Services.Tests
             var user = await officeWorkerService.CountUsers("53c4614c-f814-407f-b798-858a9e20f1d4");
 
             Assert.That(user, Is.EqualTo(1));
+        }
+
+        [Test]
+        public async Task GetQuestionsByName()
+        {
+            QuestionOfficeWorkerService questionOfficeWorkerService =
+                new QuestionOfficeWorkerService(context, userManager);
+
+            var result =
+                await questionOfficeWorkerService.GetQuestionsByName("53c4614c-f814-407f-b798-858a9e20f1d4", "e");
+
+            Assert.That(result.Count, Is.EqualTo(1));
+        }
+
+        [Test]
+        public async Task GetQuestionsInvalidUser()
+        {
+            QuestionOfficeWorkerService questionOfficeWorkerService =
+                new QuestionOfficeWorkerService(context, userManager);
+
+            var result = await questionOfficeWorkerService.GetQuestions("49952198-64dd-4b77-8c46-2e709c663737", 1);
+
+            Assert.That(result.Count, Is.EqualTo(0));
+        }
+
+        [Test]
+        public async Task GetQuestion()
+        {
+
+            QuestionOfficeWorkerService questionOfficeWorkerService =
+                new QuestionOfficeWorkerService(context, userManager);
+
+            var result = await questionOfficeWorkerService.GetQuestion("53c4614c-f814-407f-b798-858a9e20f1d4",
+                "18845C59-E749-40F9-86C5-0B0D9D460E0D");
+
+            Assert.That(result,Is.Not.Null);
+        }
+
+        [Test]
+        public async Task CountQuestions()
+        {
+            QuestionOfficeWorkerService questionOfficeWorkerService =
+                new QuestionOfficeWorkerService(context, userManager);
+
+            int result = await questionOfficeWorkerService.CountQuestions("53c4614c-f814-407f-b798-858a9e20f1d4");
+
+            Assert.That(result, Is.EqualTo(1));
         }
     } // OfficeWorkerTests
 }

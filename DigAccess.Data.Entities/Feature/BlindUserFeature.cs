@@ -21,7 +21,6 @@ namespace DigAccess.Data.Entities.Feature
         [ForeignKey(nameof(FeatureId))]
         public Feature Feature { get; set; }
 
-        [Required]
-        public string LicenceKey { get; set; } = null!;
+        public string? LicenceKey { get; set; }
     }
 }

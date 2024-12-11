@@ -13,9 +13,9 @@ namespace DigAccess.Application.Controllers
         } // BlindUserController
 
         [HttpPost]
-        public async Task<IActionResult> GetEmail([FromQuery] string blindUserId, string administratorId)
+        public async Task<IActionResult> GetEmail([FromBody] BlindUserViewModel model)
         {
-            var email = this.service.GetEmail(blindUserId, administratorId);
+            var email = await this.service.GetEmail(model);
 
             if (email == null)
             {

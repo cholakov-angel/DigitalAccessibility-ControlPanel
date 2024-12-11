@@ -41,14 +41,14 @@ namespace DigAccess.Services
             return true;
         } // AddLog
 
-        public async Task<EmailViewModel> GetEmail(string blindUserId, string adminId)
+        public async Task<EmailViewModel> GetEmail(BlindUserViewModel parameterModel)
         {
-            bool result = Guid.TryParse(blindUserId, out Guid blindUserIdGuid);
+            bool result = Guid.TryParse(parameterModel.Id, out Guid blindUserIdGuid);
             if (result == false)
             {
                 throw new ArgumentException("Invalid user id format!");
             }
-            var user = this.context.BlindUsers.FirstOrDefault(x => x.Id == blindUserIdGuid && x.AdministratorId == adminId);
+            var user = this.context.BlindUsers.FirstOrDefault(x => x.Id == blindUserIdGuid && x.AdministratorId == parameterModel.AdministratorId);
             if (user == null)
             {
                 return null;

@@ -17,6 +17,33 @@ namespace DigAccess.Data.Seeder
             builder.HasData(
                 new ApplicationUser()
                 {
+                    Id = "38a0776f-2e21-4df8-b0c5-024ed161de97",
+                    UserName = "admin@admin.com",
+                    NormalizedUserName = "ADMIN@ADMIN.COM",
+                    Email = "admin@admin.com",
+                    NormalizedEmail = "ADMIN@ADMIN.COM",
+                    EmailConfirmed = false,
+                    PasswordHash = "AQAAAAIAAYagAAAAELiPbYWjLWygobjq6+PrDpye2n6rHkaW+BuX8v7k1PbDNMISIwqW1BhDNIefyUu2JQ==",
+                    SecurityStamp = "RTP3FUJC3MXXTYKKEJBD7YTGOTX4XKNQ",
+                    ConcurrencyStamp = "8c2b4b54-89ab-42dc-8a5f-fd029b2f9c3d",
+                    PhoneNumber = "0890216475",
+                    PhoneNumberConfirmed = false,
+                    TwoFactorEnabled = false,
+                    LockoutEnd = null,
+                    FirstName = "Ангел",
+                    MiddleName = "Лъчезаров",
+                    LastName = "Чолаков",
+                    OfficeId = null,
+                    PersonalId = "7512189541",
+                    MasterKey = "13102334E0473431441342733",
+                    LockoutEnabled = true,
+                    AccessFailedCount = 0,
+                    ApprovalStatus = 1,
+                    Gender = Entities.Enums.Gender.Мъж,
+                    OrganisationId = null
+                },
+                new ApplicationUser()
+                {
                     Id = "14423824-2618-46fb-b9fb-38666f84d6e9",
                     UserName = "horizonti@org.com",
                     NormalizedUserName = "HORIZONTI@ORG.COM",
@@ -143,7 +170,7 @@ namespace DigAccess.Data.Seeder
                      LastName = "Николова",
                      OfficeId = Guid.Parse("89729AB3-FE73-49AF-9BCF-97CF00C49E2F"),
                      PersonalId = "9704059669",
-                     MasterKey = null,
+                     MasterKey = "833F1343F4523219514F35441",
                      LockoutEnabled = true,
                      AccessFailedCount = 0,
                      ApprovalStatus = 1,

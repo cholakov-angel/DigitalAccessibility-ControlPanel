@@ -17,8 +17,6 @@ public partial class BlindUser
 
     public string? Telknumber { get; set; }
 
-    public string? Phone { get; set; }
-
     public DateTime? Birthdate { get; set; }
 
     public string AdministratorId { get; set; } = null!;

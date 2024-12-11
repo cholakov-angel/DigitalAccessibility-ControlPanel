@@ -1,6 +1,8 @@
 ﻿using DigAccess.Services;
 using DigAccess.Services.Interfaces;
+using DigAccess.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel;
 
 namespace DigAccess.Application.Controllers
 {
@@ -25,16 +27,15 @@ namespace DigAccess.Application.Controllers
         } // GetLicense
 
         [HttpPost]
-        public async Task<IActionResult> GetUserFromLicense([FromQuery] string license, string masterKey)
+        public async Task<IActionResult> ActivateLicense([FromBody] LicenseActivateViewModel model)
         {
-            var user = await this.service.GetUserFromLincense(license, masterKey);
+            var result = await this.service.ActivateLicense(model);
 
-            if (user == null)
+            if (result != null)
             {
-                return NotFound();
+                return Ok(result);
             }
-
-            return Ok(user);
-        }  // GetUserFromLicense
+            return NotFound();
+        } // ActivateLicense
     } // LicenceController
 }

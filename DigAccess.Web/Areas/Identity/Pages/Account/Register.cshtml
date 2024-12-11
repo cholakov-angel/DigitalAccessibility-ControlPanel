@@ -7,52 +7,53 @@
     <br />
 
     <div class="row">
+        <div class="col-md-2"></div>
         <div class="col-md-6 p-2">
             <h1 class="text-center">@ViewData["Title"]</h1>
-            <br />
+            <br/>
             <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                 <div>
                     <label class="form-label">Име</label>
-                    <input asp-for="Input.FirstName" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Име" />
+                    <input asp-for="Input.FirstName" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Име"/>
                     <span asp-validation-for="Input.FirstName" class="text-danger"></span>
                 </div>
                 <div>
                     <label class="form-label">Бащино име</label>
-                    <input asp-for="Input.MiddleName" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Бащино име" />
+                    <input asp-for="Input.MiddleName" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Бащино име"/>
                     <span asp-validation-for="Input.MiddleName" class="text-danger"></span>
                 </div>
                 <div>
                     <label class="form-label">Фамилия</label>
-                    <input asp-for="Input.LastName" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Фамилия" />
+                    <input asp-for="Input.LastName" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Фамилия"/>
                     <span asp-validation-for="Input.LastName" class="text-danger"></span>
                 </div>
                 <div>
                     <label class="form-label">ЕГН</label>
-                    <input asp-for="Input.PersonalID" class="form-control" autocomplete="new-password" aria-required="true" placeholder="ЕГН" />
+                    <input asp-for="Input.PersonalID" class="form-control" autocomplete="new-password" aria-required="true" placeholder="ЕГН"/>
                     <span asp-validation-for="Input.PersonalID" class="text-danger"></span>
                 </div>
                 <div>
                     <label class="form-label">Телефон</label>
-                    <input asp-for="Input.PhoneNumber" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Телефон" />
+                    <input asp-for="Input.PhoneNumber" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Телефон"/>
                     <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
                 </div>
                 <div>
                     <label class="form-label">Имейл</label>
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com"/>
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div>
                     <label class="form-label">Парола</label>
-                    <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Парола" />
+                    <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Парола"/>
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div>
                     <label class="form-label">Потвърждение на парола</label>
-                    <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Парола" />
+                    <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Парола"/>
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                 </div>
-                <br />
+                <br/>
                 <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-dark">Регистриране</button>
             </form>
         </div>

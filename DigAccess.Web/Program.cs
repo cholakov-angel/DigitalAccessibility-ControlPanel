@@ -56,6 +56,7 @@ namespace DigAccess.Web
             builder.Services.AddScoped<IOrganisationOrgAdminService, OrganisationOrgAdminService>();
             builder.Services.AddScoped<IAdminOrgService, AdminOrgService>();
             builder.Services.AddScoped<ILogService, LogService>();
+            builder.Services.AddScoped<IBlindUserFeatureService, BlindUserFeatureService>();
 
             builder.Services.AddControllersWithViews();
 

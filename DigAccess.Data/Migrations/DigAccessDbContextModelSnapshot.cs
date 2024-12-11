@@ -312,7 +312,7 @@ namespace DigAccess.DbContext.Migrations
                             DateOfActivation = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsActivated = false,
                             IsDeleted = false,
-                            LicenceNumber = "4933423435E40513323351434"
+                            LicenceNumber = "379040451E594443343433433"
                         },
                         new
                         {
@@ -322,7 +322,7 @@ namespace DigAccess.DbContext.Migrations
                             DateOfActivation = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsActivated = false,
                             IsDeleted = false,
-                            LicenceNumber = "233524B435340533449383394"
+                            LicenceNumber = "39348040330924943B3423334"
                         },
                         new
                         {
@@ -332,7 +332,7 @@ namespace DigAccess.DbContext.Migrations
                             DateOfActivation = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsActivated = false,
                             IsDeleted = false,
-                            LicenceNumber = "424323012943903533D334413"
+                            LicenceNumber = "8344133E20440443231843933"
                         });
                 });
 
@@ -456,7 +456,6 @@ namespace DigAccess.DbContext.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LicenceKey")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BlindUserId", "FeatureId");
@@ -705,6 +704,12 @@ namespace DigAccess.DbContext.Migrations
                         },
                         new
                         {
+                            Id = "8643044C-60A0-42EA-AEDC-F34420A362A7",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
                             Id = "369ea3ff-9318-4336-b3f9-83436e7ecc8e",
                             Name = "OfficeWorker",
                             NormalizedName = "OFFICEWORKER"
@@ -894,17 +899,22 @@ namespace DigAccess.DbContext.Migrations
                     b.HasData(
                         new
                         {
+                            UserId = "38a0776f-2e21-4df8-b0c5-024ed161de97",
+                            RoleId = "8643044C-60A0-42EA-AEDC-F34420A362A7"
+                        },
+                        new
+                        {
                             UserId = "14423824-2618-46fb-b9fb-38666f84d6e9",
                             RoleId = "6f78d6a0-481a-4343-859f-f3eaa5d873df"
                         },
                         new
                         {
-                            UserId = "36f7ec79-9a12-4317-97ae-74b3476126d8",
+                            UserId = "49952198-64dd-4b77-8c46-2e709c663737",
                             RoleId = "afcc821c-70c5-448a-a938-4f320fec7689"
                         },
                         new
                         {
-                            UserId = "49952198-64dd-4b77-8c46-2e709c663737",
+                            UserId = "36f7ec79-9a12-4317-97ae-74b3476126d8",
                             RoleId = "e556c4eb-7791-4dd2-a69a-c40bd94d002e"
                         },
                         new
@@ -915,7 +925,7 @@ namespace DigAccess.DbContext.Migrations
                         new
                         {
                             UserId = "53c4614c-f814-407f-b798-858a9e20f1d4",
-                            RoleId = "369ea3ff-9318-4336-b3f9-83436e7ecc8e"
+                            RoleId = "afcc821c-70c5-448a-a938-4f320fec7689"
                         },
                         new
                         {
@@ -990,6 +1000,30 @@ namespace DigAccess.DbContext.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
 
                     b.HasData(
+                        new
+                        {
+                            Id = "38a0776f-2e21-4df8-b0c5-024ed161de97",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "8c2b4b54-89ab-42dc-8a5f-fd029b2f9c3d",
+                            Email = "admin@admin.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "ADMIN@ADMIN.COM",
+                            NormalizedUserName = "ADMIN@ADMIN.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAELiPbYWjLWygobjq6+PrDpye2n6rHkaW+BuX8v7k1PbDNMISIwqW1BhDNIefyUu2JQ==",
+                            PhoneNumber = "0890216475",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "RTP3FUJC3MXXTYKKEJBD7YTGOTX4XKNQ",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@admin.com",
+                            ApprovalStatus = 1,
+                            FirstName = "Ангел",
+                            Gender = 0,
+                            LastName = "Чолаков",
+                            MasterKey = "13102334E0473431441342733",
+                            MiddleName = "Лъчезаров",
+                            PersonalId = "7512189541"
+                        },
                         new
                         {
                             Id = "14423824-2618-46fb-b9fb-38666f84d6e9",
@@ -1111,6 +1145,7 @@ namespace DigAccess.DbContext.Migrations
                             FirstName = "Николай",
                             Gender = 0,
                             LastName = "Николова",
+                            MasterKey = "833F1343F4523219514F35441",
                             MiddleName = "Карашимов",
                             OfficeId = new Guid("89729ab3-fe73-49af-9bcf-97cf00c49e2f"),
                             OrganisationId = new Guid("c5e270c8-df31-40ec-938e-d1300457f3ef"),

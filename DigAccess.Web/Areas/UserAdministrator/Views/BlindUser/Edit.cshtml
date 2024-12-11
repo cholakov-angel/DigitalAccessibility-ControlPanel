@@ -1,0 +1,55 @@
+﻿@using DigAccess.Models.UserAdministrator.BlindUser
+@model BlindUserViewModel
+@{
+    ViewData["Title"] = "Редактиране на потребител";
+}
+
+<div class="d-flex justify-content-start p-2">
+    <h2 class="p-2">Редактиране на потребител</h2>
+</div>
+<form asp-action="Edit" method="post">
+    <div>
+        <label for="FirstName">Първо име</label>
+        <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+    <div>
+        <label for="MiddleName">Бащино име</label>
+        <span asp-validation-for="@Model.MiddleName" class="text-danger"></span>
+        <input asp-for="MiddleName" class="form-control" />
+    </div>
+    <div>
+        <label for="LastName">Фамилия</label>
+        <span asp-validation-for="@Model.MiddleName" class="text-danger"></span>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+    <div>
+        <label for="PersonalId">ЕГН</label>
+        <span asp-validation-for="@Model.PersonalId" class="text-danger"></span>
+        <input asp-for="PersonalId" class="form-control" />
+    </div>
+    <div>
+        <label for="TELKID">Номер на ТЕЛК</label>
+        <input asp-for="TELKID" class="form-control" />
+    </div>
+    <label for="City">Местоживеене</label>
+    <div class="input-group mb-3">
+        <select asp-for="City" class="form-select" id="inputGroupSelect02">
+            @foreach (var city in Model.CityNames)
+            {
+                <option value=@city.Id>@city.Name</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label for="BirthDate">Улица</label>
+        <textarea asp-for="Street" class="form-control"></textarea>
+    </div>
+    <div>
+        <label for="BirthDate">Номер на улица</label>
+        <textarea asp-for="StreetNumber" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-dark mt-2">Редактиране</button>
+</form>
+

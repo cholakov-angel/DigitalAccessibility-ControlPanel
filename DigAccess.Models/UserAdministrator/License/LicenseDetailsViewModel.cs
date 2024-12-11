@@ -16,7 +16,7 @@ namespace DigAccess.Models.UserAdministrator.License
 
         public string MACAddress { get; set; }
 
-        public bool IsActive { get; set; }
+        public string IsActive { get; set; }
 
         public string DateOfActivation { get; set; }
 

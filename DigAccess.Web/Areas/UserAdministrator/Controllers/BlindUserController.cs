@@ -47,6 +47,31 @@ namespace DigAccess.Web.Areas.UserAdministrator.Controllers
         } // GetUser
 
         [HttpGet]
+        public async Task<IActionResult> Edit(string id)
+        {
+            string? userId = this.GetUserId();
+
+            var model = await service.EditUserGet(id, userId);
+
+            return View(model);
+        } // Edit
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(BlindUserViewModel model)
+        {
+            string? userId = this.GetUserId();
+
+            bool result = await service.EditBlindUser(userId, model);
+
+            if (result == false)
+            {
+                throw new Exception("Error occurred!");
+            }
+
+            return RedirectToAction("UserPage", new { id = model.Id });
+        } // Edit
+
+        [HttpGet]
         public async Task<IActionResult> Add()
         {
             BlindUserViewModel model = new BlindUserViewModel();

@@ -16,5 +16,7 @@ namespace DigAccess.Interfaces
         public Task<BlindUserDetailsViewModel> GetUserDetails(string id, string userId);
         public Task<List<BlindUserViewModel>> GetModel(string userId, string name);
         public Task<BlindUserViewPageModel> GetUserInformation(DateTime currentDate, string id, string userId);
+        public Task<BlindUserViewModel> EditUserGet(string id, string userId);
+        public Task<bool> EditBlindUser(string userId, BlindUserViewModel model);
     } // IBlindUserService
 }

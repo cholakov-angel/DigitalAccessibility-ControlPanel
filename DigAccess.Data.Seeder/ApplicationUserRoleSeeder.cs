@@ -17,18 +17,23 @@ namespace DigAccess.Data.Seeder
             builder.HasData(
                 new IdentityUserRole<string>()
                 {
+                    RoleId = "8643044C-60A0-42EA-AEDC-F34420A362A7",
+                    UserId = "38a0776f-2e21-4df8-b0c5-024ed161de97"
+                },
+                new IdentityUserRole<string>()
+                {
                     RoleId = "6f78d6a0-481a-4343-859f-f3eaa5d873df",
                     UserId = "14423824-2618-46fb-b9fb-38666f84d6e9"
                 },
                 new IdentityUserRole<string>()
                 {
                     RoleId = "afcc821c-70c5-448a-a938-4f320fec7689",
-                    UserId = "36f7ec79-9a12-4317-97ae-74b3476126d8"
+                    UserId = "49952198-64dd-4b77-8c46-2e709c663737"
                 },
                 new IdentityUserRole<string>()
                 {
                     RoleId = "e556c4eb-7791-4dd2-a69a-c40bd94d002e",
-                    UserId = "49952198-64dd-4b77-8c46-2e709c663737"
+                    UserId = "36f7ec79-9a12-4317-97ae-74b3476126d8"
                 },
                 new IdentityUserRole<string>()
                 {
@@ -37,7 +42,7 @@ namespace DigAccess.Data.Seeder
                 },
                 new IdentityUserRole<string>()
                 {
-                    RoleId = "369ea3ff-9318-4336-b3f9-83436e7ecc8e",
+                    RoleId = "afcc821c-70c5-448a-a938-4f320fec7689",
                     UserId = "53c4614c-f814-407f-b798-858a9e20f1d4"
                 },
                 new IdentityUserRole<string>()

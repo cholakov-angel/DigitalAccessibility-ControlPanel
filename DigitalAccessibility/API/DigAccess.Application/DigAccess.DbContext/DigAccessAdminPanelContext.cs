@@ -166,7 +166,6 @@ public partial class DigAccessAdminPanelContext : DbContext
             entity.Property(e => e.LastName).HasMaxLength(60);
             entity.Property(e => e.MiddleName).HasMaxLength(60);
             entity.Property(e => e.PersonalId).HasMaxLength(10);
-            entity.Property(e => e.Phone).HasMaxLength(10);
             entity.Property(e => e.Street).HasDefaultValue("");
             entity.Property(e => e.Telknumber).HasColumnName("TELKNumber");
 

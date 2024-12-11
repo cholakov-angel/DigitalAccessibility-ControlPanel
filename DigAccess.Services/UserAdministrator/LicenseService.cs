@@ -49,7 +49,15 @@ namespace DigAccess.Services
             licenceModel.Id = licenceId;
             licenceModel.DateFrom = licence.DateFrom.ToString(Constants.DateTimeFormat);
             licenceModel.MACAddress = licence.MacAddress;
-            licenceModel.IsActive = licence.IsActivated;
+            if (licence.IsActivated)
+            {
+                licenceModel.IsActive = "Активиран";
+            }
+            else
+            {
+                licenceModel.IsActive = "Неактивиран";
+
+            }
             licenceModel.DateOfActivation = licence.DateOfActivation.ToString(Constants.DateTimeFormat);
             licenceModel.BlindUser = new LicenseDetailsBlindUserViewModel()
             {
@@ -89,7 +97,7 @@ namespace DigAccess.Services
                         {
                             DateFrom = y.DateFrom.ToString(Constants.DateTimeFormat),
                             Id = y.Id.ToString(),
-                            IsActivated = y.IsActivated,
+                            IsActivated = y.IsActivated == true ? "Активиран" : "Неактивиран",
                         }).ToList()
                 }).FirstOrDefault();
 
@@ -121,7 +129,7 @@ namespace DigAccess.Services
             blindUserLicence.LicenceNumber = licence;
             blindUserLicence.BlindUserId = id;
             blindUserLicence.DateFrom = dateFrom;
-            blindUserLicence.IsActivated = true;
+            blindUserLicence.IsActivated = false;
 
             await context.BlindUsersLicences.AddAsync(blindUserLicence);
             await context.SaveChangesAsync();

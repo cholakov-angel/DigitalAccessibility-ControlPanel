@@ -230,6 +230,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcQmxpbmRVc2VyXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/BlindUser/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcQmxpbmRVc2VyXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/BlindUser/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcQmxpbmRVc2VyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -244,6 +248,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/EmailSettings/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcRW1haWxTZXR0aW5nc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/Feature/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcRmVhdHVyZVxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/Feature/AddFeature.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcRmVhdHVyZVxBZGRGZWF0dXJlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/Feature/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFkbWluaXN0cmF0b3JcVmlld3NcRmVhdHVyZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Documents/DigAccess.Web/DigitalAccessibility-ControlPanel/DigAccess.Web/Areas/UserAdministrator/Views/Home/Index.cshtml]

@@ -9,3 +9,15 @@ C:\Users\angel\source\repos\DigAccess.Application\DigAccess.ViewModels\obj\Debug
 C:\Users\angel\source\repos\DigAccess.Application\DigAccess.ViewModels\obj\Debug\net8.0\refint\DigAccess.ViewModels.dll
 C:\Users\angel\source\repos\DigAccess.Application\DigAccess.ViewModels\obj\Debug\net8.0\DigAccess.ViewModels.pdb
 C:\Users\angel\source\repos\DigAccess.Application\DigAccess.ViewModels\obj\Debug\net8.0\ref\DigAccess.ViewModels.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigitalAccessibility\API\DigAccess.Application\DigAccess.ViewModels\bin\Debug\net8.0\DigAccess.ViewModels.deps.json
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigitalAccessibility\API\DigAccess.Application\DigAccess.ViewModels\bin\Debug\net8.0\DigAccess.ViewModels.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigitalAccessibility\API\DigAccess.Application\DigAccess.ViewModels\bin\Debug\net8.0\DigAccess.ViewModels.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigitalAccessibility\API\DigAccess.Application\DigAccess.ViewModels\obj\Debug\net8.0\DigAccess.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigitalAccessibility\API\DigAccess.Application\DigAccess.ViewModels\obj\Debug\net8.0\DigAccess.ViewModels.AssemblyInfoInputs.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigitalAccessibility\API\DigAccess.Application\DigAccess.ViewModels\obj\Debug\net8.0\DigAccess.ViewModels.AssemblyInfo.cs
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigitalAccessibility\API\DigAccess.Application\DigAccess.ViewModels\obj\Debug\net8.0\DigAccess.ViewModels.csproj.CoreCompileInputs.cache
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigitalAccessibility\API\DigAccess.Application\DigAccess.ViewModels\obj\Debug\net8.0\DigAccess.ViewModels.sourcelink.json
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigitalAccessibility\API\DigAccess.Application\DigAccess.ViewModels\obj\Debug\net8.0\DigAccess.ViewModels.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigitalAccessibility\API\DigAccess.Application\DigAccess.ViewModels\obj\Debug\net8.0\refint\DigAccess.ViewModels.dll
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigitalAccessibility\API\DigAccess.Application\DigAccess.ViewModels\obj\Debug\net8.0\DigAccess.ViewModels.pdb
+E:\Documents\DigAccess.Web\DigitalAccessibility-ControlPanel\DigitalAccessibility\API\DigAccess.Application\DigAccess.ViewModels\obj\Debug\net8.0\ref\DigAccess.ViewModels.dll

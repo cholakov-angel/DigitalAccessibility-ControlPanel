@@ -1,0 +1,35 @@
+﻿@using DigAccess.Models.UserAdministrator.BlindUser
+@model BlindUserFeaturesViewModel
+@{
+    ViewData["Title"] = "Добавяне на услуга";
+}
+
+<div class="d-flex justify-content-start p-2">
+    <h2 class="p-2">Добавяне на услуга</h2>
+</div>
+<form asp-action="Add" method="post">
+    <div>
+        <label for="FirstName">Име</label>
+        <span asp-validation-for="@Model.FeatureName" class="text-danger"></span>
+        <input asp-for="FeatureName" readonly class="form-control" />
+    </div>
+    <div>
+        <label for="MiddleName">Лицензионен ключ</label>
+        <span asp-validation-for="@Model.LicenceKey" class="text-danger"></span>
+        <input asp-for="LicenceKey" class="form-control" />
+    </div>
+    <div class="d-none">
+        <div>
+            <label for="Id">Офис</label>
+            <span asp-validation-for="@Model.BlindUserId" class="text-danger"></span>
+            <input asp-for="BlindUserId" class="form-control" />
+        </div>
+        <div>
+            <label for="Id">Офис</label>
+            <span asp-validation-for="@Model.FeatureId" class="text-danger"></span>
+            <input asp-for="FeatureId" class="form-control" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-dark mt-2">Добавяне</button>
+</form>
+
